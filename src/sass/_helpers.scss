@@ -1,0 +1,35 @@
+// Container
+.container {
+  padding: 0 32px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $mobile) {
+    width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+// Reset
+.btn-reset {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.list-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link-reset {
+  color: inherit;
+  text-decoration: none;
+}
