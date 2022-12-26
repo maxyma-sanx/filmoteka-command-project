@@ -1,6 +1,6 @@
 @import './common';
-@import './vars';
-@import './helpers';
-@import './header';
-@import './main';
-@import './footer';
+@import './utils/vars';
+@import './utils/helpers';
+@import './components/header';
+@import './components/main';
+@import './components/footer';
