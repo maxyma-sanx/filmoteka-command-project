@@ -1,0 +1,28 @@
+.footer {
+  background-color: $color-grey;
+}
+
+.footer__info {
+  text-align: center;
+  color: $color-text-secondary;
+
+  @media screen and (max-width: $mobile-max) {
+    padding: 29px 0 30px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 30px 0 30px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 30px 0 28px;
+  }
+}
+
+.footer__link {
+  text-decoration: underline;
+}
