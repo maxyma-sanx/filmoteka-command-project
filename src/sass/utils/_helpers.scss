@@ -2,16 +2,16 @@
   padding: 0 20px;
   margin: 0 auto;
 
-  @media screen and (min-width: $mobile) {
+  @include mobile {
     width: $mobile;
   }
 
-  @media screen and (min-width: $tablet) {
+  @include tablet {
     padding: 0 30px;
     width: $tablet;
   }
 
-  @media screen and (min-width: $desktop) {
+  @include desktop {
     width: $desktop;
   }
 }
