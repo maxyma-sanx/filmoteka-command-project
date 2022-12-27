@@ -1,5 +1,5 @@
 .container {
-  padding: 0 32px;
+  padding: 0 20px;
   margin: 0 auto;
 
   @media screen and (min-width: $mobile) {
@@ -7,10 +7,22 @@
   }
 
   @media screen and (min-width: $tablet) {
+    padding: 0 30px;
     width: $tablet;
   }
 
   @media screen and (min-width: $desktop) {
     width: $desktop;
   }
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }
