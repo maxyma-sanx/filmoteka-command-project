@@ -1,19 +1,63 @@
-header {
-    height: 216px;
-    background-color: black;
+.header {
+    @include mobile {
+        min-height: 230px;
+        padding-bottom: 80px;
+        background-color: black;
+        background-image: url(/src/images/header-background-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    };
+
+    @include tablet {
+        min-height: 216px;
+        background-image: url(/src/images/header-background-tablet.png);
+        // background-size: 768px
+    };
+    
+    @include desktop {
+        min-width: 1280px;
+        background-image: url(/src/images/header-background-desktop.png);
+    }
 }
+
+
 
 // .background {
 //     background-image: ;
 // }
 
 
-.header-list {
-    display: flex;
-    justify-content: space-between;
+.header_list {
+    @include mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    
 }
 
-.header-item {
+.header__logo {
+    margin-right: 12px;
+}
+.header_nav {
+
+    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-left: 0;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: $color-white;
+}
+
+.header_item {
     padding-top: 40px;
     padding-left: 34px;
 
@@ -29,12 +73,16 @@ header {
 
 }
 
-.header-links {
-    display: flex;
-    gap: 40px;
+.header_links {
+    @include mobile {
+        display: flex;
+        gap: 40px;
+    }
+    
+
 }
 
-.header-link-item {
+.header_link_item {
     padding-top: 50px;
     font-family: 'Roboto';
     font-style: normal;
@@ -47,29 +95,133 @@ header {
     text-align: center;
     text-transform: uppercase;
 
-    color: #FFFFFF;
+    color: $color-white;
+    
 
 }
 
+.header_link_filmoteka {
+    @include mobile {
+        display: none;
+    }
+    @include tablet {
+        display: block;
+    }
+    
+}
 
-.header-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+
+.header_form {
+    @include mobile {
+        width: 280px;
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+    }
+    @include tablet {
+        width: 336px;
+    }
+    @include desktop {
+        
     width: 394px;
-    border: 0;
-    border-bottom: 0.5px solid #FFFFFF;
-    outline: none;
-
-    background-color: black;
-    color: rgb(80, 25, 180);
+    
+    }
+    
 }
 
-.header-input::placeholder {
-    color: rgb(187, 12, 12);
+.header_input {
+    @include mobile {
+        width: 280px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 auto;
+
+        border: 0;
+        border-bottom: 0.5px solid #FFFFFF;
+        outline: none;
+
+        background: transparent;
+        color: rgb(80, 25, 180);
+    }
+    @include tablet {
+        width: 336px;
+    }
+    @include desktop {
+        width: 394px;
+       
+    
+        
+    }
+   
 }
 
-.header-btn {
-    display: none;
+.header_input::placeholder {
+    color: $color-white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.header_btn {
+    position: absolute;
+    right: -7px;
+    top: 0;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+// .header_btn:hover {
+//     color: rgb(228, 11, 11);
+// }
+
+
+
+.search__logo { 
+    
+
+
+    .header_btn:hover &,
+    .header_btn:focus & {
+        fill: tomato;
+    }
+}
+
+.warning_search {
+    @include mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        width: 280px;
+    
+        margin: 0 auto;
+        margin-top: 20px;
+    
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FF001B;
+    }
+
+    @include tablet {
+        width: 394px;
+        text-align: center;
+    }
+
+    @include desktop {
+    }
+
+
+   
+
+    
+    
+    
 }
