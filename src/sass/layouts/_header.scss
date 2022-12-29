@@ -1,7 +1,7 @@
 .header {
     @include mobile {
         min-height: 230px;
-        padding-bottom: 80px;
+        padding-bottom: 44px;
         background: rgba(0, 0, 0, 0.56);
         background-image: url(/src/images/header-background-mobile.png);
         background-repeat: no-repeat;
@@ -82,10 +82,7 @@
 
 }
 
-.header_link_item {
-    padding-top: 50px;
-    font-family: 'Roboto';
-    font-style: normal;
+.header__link-item {
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -106,12 +103,15 @@
     }
     @include tablet {
         display: block;
+        font-size: 30px;
+        line-height: 35px;
+        color: $color-white;
     }
     
 }
 
 
-.header_form {
+.header__form {
     @include mobile {
         width: 280px;
         position: relative;
@@ -129,7 +129,7 @@
     
 }
 
-.header_input {
+.header__input {
     @include mobile {
         width: 280px;
         position: relative;
@@ -157,13 +157,13 @@
     
 }
 
-.header_input::placeholder {
+.header__input::placeholder {
     color: $color-white;
     font-size: 14px;
     line-height: 16px;
 }
 
-.header_btn {
+.header__btn {
     position: absolute;
     right: -7px;
     top: 0;
@@ -175,7 +175,7 @@
 
 
 
-.warning_search {
+.warning__search {
         display: flex;
         justify-content: center;
         align-items: center;
