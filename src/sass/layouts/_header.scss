@@ -1,162 +1,150 @@
 .header {
-    padding-bottom: 44px;
-    background: rgba(0, 0, 0, 0.56);
-    background-image: url(/src/images/header-background-mobile.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    @include mobile {
-        min-height: 230px;
-    };
+  padding-bottom: 44px;
+  background: rgba(0, 0, 0, 0.56);
+  background-image: url(/src/images/header-background-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mobile {
+    min-height: 230px;
+  }
 
-    @include tablet {
-        min-height: 216px;
-        background-image: url(/src/images/header-background-tablet.png);
-    };
-    
-    @include desktop {
-        min-width: 1280px;
-        background-image: url(/src/images/header-background-desktop.png);
-    }
+  @include tablet {
+    min-height: 216px;
+    background-image: url(/src/images/header-background-tablet.png);
+  }
+
+  @include desktop {
+    min-width: 1280px;
+    background-image: url(/src/images/header-background-desktop.png);
+  }
 }
 
-
-
-
-.header__list {      
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
+.header__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .header__logo {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 .header__nav {
+  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 0;
 
-    margin-bottom: 40px;
-    padding-top: 40px;
-    padding-left: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: $color-white;
+  color: $color-white;
 }
 
-
 .header__links-container {
-        display: flex;
-        gap: 40px;
+  display: flex;
+  gap: 40px;
 }
 
 .header__link-item {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
 
-    display: flex;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
 
-    color: $color-white;
-    
-
+  color: $color-white;
 }
 
 .header__link-filmoteka {
-    @include mobile {
-        display: none;
-    }
-    @include tablet {
-        display: block;
-        font-size: 30px;
-        line-height: 35px;
-        color: $color-white;
-    }
-    
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: block;
+    font-size: 30px;
+    line-height: 35px;
+    color: $color-white;
+  }
 }
 
-
 .header__form {
-        position: relative;
-        display: flex;
-        margin: 0 auto;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
 
-    @include mobile {
-        width: 280px;
-    }
-    @include tablet {
-        width: 336px;
-    }
-    @include desktop {
-        width: 394px;
-    }
-    
+  @include mobile {
+    width: 280px;
+  }
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 394px;
+  }
 }
 
 .header__input {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    border: 0;
-    border-bottom: 0.5px solid $color-white;
-    outline: none;
+  border: 0;
+  border-bottom: 0.5px solid $color-white;
+  outline: none;
 
-    background: transparent;
-    color: $color-white;
-    font-size: 14px;
-    line-height: 16px;
-    @include mobile {
-        width: 280px;
-    }
-    @include tablet {
-        width: 336px;
-    }
-    @include desktop {
-        width: 394px;
-    }
+  background: transparent;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 16px;
+  @include mobile {
+    width: 280px;
+  }
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 394px;
+  }
 }
 
 .header__input::placeholder {
-    color: $color-white;
-    font-size: 14px;
-    line-height: 16px;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .header__btn {
-    position: absolute;
-    right: -7px;
-    top: 0;
-    display: block;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  right: -7px;
+  top: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-
-
 .header__warning-search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        margin-top: 20px;
-        font-size: 14px;
-        line-height: 16px;
-        color: $color-text-warning;
-        width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-text-warning;
+  width: 280px;
 
-    @include tablet {
-        width: 394px;
-        text-align: center;
-    }
+  @include tablet {
+    width: 394px;
+    text-align: center;
+  }
 }
