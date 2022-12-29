@@ -1,0 +1,37 @@
+.popular-films {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
+  @include desktop {
+    gap: 16px;
+  }
+}
+.popular-films__list {
+  margin-top: 20px;
+}
+
+.popular-films__item {
+  margin-top: 10px;
+}
+
+.popular-films__title {
+  @include fonts(500, 12px, 1.16, null);
+  text-transform: uppercase;
+  color: $color-black;
+
+  @include desktop {
+    @include fonts(500, 20px, 1.2, null);
+    text-transform: uppercase;
+  }
+}
+.popular-films__text {
+  @include fonts(500, 12px, 1.33, null);
+  color: $color-accent-primary;
+
+  @include desktop {
+    @include fonts(500, 20px, 1.2, null);
+  }
+}
