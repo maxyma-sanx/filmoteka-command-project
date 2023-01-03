@@ -33,7 +33,6 @@
 .header__nav {
   margin-bottom: 40px;
   padding-top: 40px;
-  padding-left: 0;
 
   font-weight: 500;
   display: flex;
@@ -48,11 +47,24 @@
   gap: 40px;
 }
 
-.header__link-item {
+.header__links-container .current {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: $color-text-warning;
+    position: absolute;
+    bottom: -3px;
+  }
+}
+
+.header__link {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-
   display: flex;
   align-items: center;
   text-align: center;
