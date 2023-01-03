@@ -1,28 +1,32 @@
 <header class="header__library">
   <div class="container">
-    <ul class="header__list">
-      <li class="header__nav">
+    <nav class="header__list">
+      <div class="header__nav">
         <svg class="header__logo" width="24" height="24">
           <use href="./images/icons/icon.svg#icon-logo"></use></svg
-        ><a class="header__link-filmoteka" href="index.html">Filmoteka </a>
-      </li>
-      <div class="header__links-container">
-        <li class="header__link-item">
-          <a class="header__link" href="index.html">HOME</a>
-        </li>
-        <li class="header__link-item">
-          <a class="header__link current" href="library.html">MY LIBRARY</a>
-        </li>
+        ><a class="header__link-filmoteka" href="index.html">Filmoteka</a>
       </div>
-    </ul>
+      <div class="header__links-container">
+        <a class="header__link" href="index.html">home</a>
+        <a class="header__link current" href="library.html">my library</a>
+      </div>
+    </nav>
     <ul class="header__library-list">
       <li class="header__library-item">
-        <button type="button" class="header__library-btn—watched">
+        <button
+          type="button"
+          class="header__library-btn header__library-btn--watched"
+        >
           watched
         </button>
       </li>
       <li class="header__library-item">
-        <button type="button" class="header__library-btn—queue">queue</button>
+        <button
+          type="button"
+          class="header__library-btn header__library-btn--queue"
+        >
+          queue
+        </button>
       </li>
     </ul>
   </div>

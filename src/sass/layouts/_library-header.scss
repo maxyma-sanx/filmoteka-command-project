@@ -36,24 +36,29 @@
     margin: 0 0 60px;
   }
 }
-.header__library-btn—watched {
-  height: 44px;
-  padding: 14px 36px 12px;
+
+.header__library-btn {
   @include fonts(500, 12px, 1.33, null);
   text-transform: uppercase;
-  color: #ffffff;
+  color: $color-white;
   background-color: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid $color-white;
   border-radius: 5px;
   cursor: pointer;
   &:focus {
-    background-color: #ff6b01;
+    background-color: $color-accent-secondary;
     border: none;
   }
   &:hover {
-    background-color: #ff6b01;
+    background-color: $color-accent-secondary;
     border: none;
   }
+}
+
+.header__library-btn--watched {
+  height: 44px;
+  padding: 14px 36px 12px;
+
   @include tablet {
     width: 152px;
   }
@@ -63,24 +68,10 @@
   }
 }
 
-.header__library-btn—queue {
+.header__library-btn--queue {
   height: 44px;
   padding: 14px 45px 12px;
-  @include fonts(500, 12px, 1.33, null);
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-  cursor: pointer;
-  &:focus {
-    background-color: #ff6b01;
-    border: none;
-  }
-  &:hover {
-    background-color: #ff6b01;
-    border: none;
-  }
+
   @include tablet {
     width: 152px;
   }
