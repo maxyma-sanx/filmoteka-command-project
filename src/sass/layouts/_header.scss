@@ -28,6 +28,8 @@
 
 .header__logo {
   margin-right: 12px;
+  fill: transparent;
+  stroke: $color-white;
 }
 
 .header__nav {
@@ -142,6 +144,11 @@
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.header__search-logo {
+  fill: transparent;
+  stroke: $color-white;
 }
 
 .header__warning-search {
