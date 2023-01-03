@@ -73,9 +73,15 @@
 
   padding: 0;
   cursor: pointer;
+}
+
+.modal__icon--close {
+  stroke: $color-black;
+
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    fill: $color-accent-primary;
+    stroke: $color-accent-primary;
   }
 }
