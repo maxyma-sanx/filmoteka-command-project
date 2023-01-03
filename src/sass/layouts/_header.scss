@@ -76,9 +76,8 @@
 }
 
 .header__link-filmoteka {
-  @include mobile {
-    display: none;
-  }
+  display: none;
+
   @include tablet {
     display: block;
     font-size: 30px;
@@ -165,5 +164,97 @@
   @include tablet {
     width: 394px;
     text-align: center;
+  }
+}
+
+.library__header {
+  background: rgba(0, 0, 0, 0.56);
+  background-image: url(/src/images/watched-header-background-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mobile {
+    min-height: 230px;
+  }
+
+  @include tablet {
+    min-height: 216px;
+    background-image: url(/src/images/watched-header-background-tablet.png);
+  }
+
+  @include desktop {
+    min-width: 1280px;
+    background-image: url(/src/images/watched-header-background-desktop.png);
+  }
+}
+.library__header-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @include tablet {
+    gap: 32px;
+  }
+  @include desktop {
+    gap: 16px;
+  }
+}
+
+.library__header-item {
+  margin: 22px 0 62px;
+  @include tablet {
+    margin: 0 0 60px;
+  }
+}
+.library__header-btn-watched {
+  height: 44px;
+  padding: 14px 36px 12px;
+  @include fonts(500, 12px, 1.33, null);
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  &:focus {
+    background-color: #ff6b01;
+    border: none;
+  }
+  &:hover {
+    background-color: #ff6b01;
+    border: none;
+  }
+  @include tablet {
+    width: 152px;
+  }
+  @include desktop {
+    width: 147px;
+    height: 42px;
+  }
+}
+
+.library__header-btn-queue {
+  height: 44px;
+  padding: 14px 45px 12px;
+  @include fonts(500, 12px, 1.33, null);
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  &:focus {
+    background-color: #ff6b01;
+    border: none;
+  }
+  &:hover {
+    background-color: #ff6b01;
+    border: none;
+  }
+  @include tablet {
+    width: 152px;
+  }
+  @include desktop {
+    width: 147px;
+    height: 42px;
   }
 }
