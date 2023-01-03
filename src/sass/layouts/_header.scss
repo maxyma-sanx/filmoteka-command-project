@@ -76,9 +76,8 @@
 }
 
 .header__link-filmoteka {
-  @include mobile {
-    display: none;
-  }
+  display: none;
+
   @include tablet {
     display: block;
     font-size: 30px;

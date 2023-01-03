@@ -1,0 +1,82 @@
+.header__library {
+  background: rgba(0, 0, 0, 0.56);
+  background-image: url(/src/images/watched-header-background-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mobile {
+    min-height: 230px;
+  }
+
+  @include tablet {
+    min-height: 216px;
+    background-image: url(/src/images/watched-header-background-tablet.png);
+  }
+
+  @include desktop {
+    min-width: 1280px;
+    background-image: url(/src/images/watched-header-background-desktop.png);
+  }
+}
+.header__library-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @include tablet {
+    gap: 32px;
+  }
+  @include desktop {
+    gap: 16px;
+  }
+}
+
+.header__library-item {
+  margin: 22px 0 62px;
+  @include tablet {
+    margin: 0 0 60px;
+  }
+}
+
+.header__library-btn {
+  @include fonts(500, 12px, 1.33, null);
+  text-transform: uppercase;
+  color: $color-white;
+  background-color: transparent;
+  border: 1px solid $color-white;
+  border-radius: 5px;
+  cursor: pointer;
+  &:focus {
+    background-color: $color-accent-secondary;
+    border: none;
+  }
+  &:hover {
+    background-color: $color-accent-secondary;
+    border: none;
+  }
+}
+
+.header__library-btn--watched {
+  height: 44px;
+  padding: 14px 36px 12px;
+
+  @include tablet {
+    width: 152px;
+  }
+  @include desktop {
+    width: 147px;
+    height: 42px;
+  }
+}
+
+.header__library-btn--queue {
+  height: 44px;
+  padding: 14px 45px 12px;
+
+  @include tablet {
+    width: 152px;
+  }
+  @include desktop {
+    width: 147px;
+    height: 42px;
+  }
+}
