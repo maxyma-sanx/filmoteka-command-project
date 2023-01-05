@@ -34,15 +34,18 @@
   max-width: 280px;
   width: 100%;
   height: 609px;
+  padding: 48px 20px 40px;
 
   @include tablet {
     max-width: 704px;
-    height: 940px;
+    height: 552px;
+    padding: 40px 36px 40px;
   }
 
   @include desktop {
     max-width: 806px;
     height: 558px;
+    padding: 40px 12px;
   }
 
   background: $color-white;
@@ -83,5 +86,166 @@
   &:hover,
   &:focus {
     stroke: $color-accent-primary;
+  }
+}
+
+.modal__card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 68px;
+  }
+
+  @include desktop {
+    gap: 16px;
+  }
+}
+
+.modal__image {
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+
+  @include tablet {
+    width: 264px;
+    height: 374px;
+  }
+
+  @include desktop {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.modal__wrapper {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal__title {
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.15;
+
+  @include desktop {
+    font-size: 30px;
+    line-height: 1.16;
+  }
+}
+
+.modal__list {
+  margin-bottom: 20px;
+}
+
+.modal__item {
+  margin-bottom: 8px;
+  display: flex;
+  gap: 40px;
+}
+
+.modal__vote-container {
+  display: flex;
+}
+
+.modal__text {
+  width: 72px;
+  color: $color-text-tetriary;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.modal__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  border-radius: 5px;
+  
+}
+
+.modal__info--accent {
+  padding: 1px 10px;
+  background-color: $color-accent-secondary;
+  color: $color-white;
+  margin-right: 2px;
+}
+
+.modal__info--noaccent {
+  padding: 1px 10px;
+  background-color: $color-grey;
+  color: $color-black;
+  // margin-left: 2px;
+}
+
+.modal__desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__desc-title {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-bottom: 8px;
+}
+
+.modal__desc-text {
+  width: 240px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+  @include tablet {
+    width: 264px;
+  }
+
+  @include desktop {
+    width: 391px;
+  }
+}
+
+.modal__buttons-container {
+  gap: 15px;
+  display: flex;
+}
+
+.modal__btn {
+  width: 110px;
+  height: 44px;
+  border: 1px solid $color-black;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $color-white;
+  color: $color-black;
+
+  @include tablet {
+    width: 125px;
+  }
+
+  @include desktop {
+    width: 136px;
+  }
+
+  &:hover,
+  &:focus {
+    background: $color-accent-secondary;
+    color: $color-white;
   }
 }
