@@ -3,10 +3,10 @@ import MovieDB from './fetchMovieAPI';
 
 const movieDB = new MovieDB();
 
-async function findGenres(genres_ids) {
+async function findGenres(genresID) {
   const genres = await movieDB.fetchMoviesGenres();
 
-  return genres_ids.map(id => {
+  return genresID.map(id => {
     for (let i = 0; i < genres.length; i += 1) {
       if (id === genres[i].id) {
         return genres[i].name;
@@ -19,10 +19,12 @@ export default async function renderMovies(data) {
   const films = await Promise.all(
     data.map(
       async ({ poster_path, release_date, original_title, genre_ids }) => {
-        const data = await findGenres(genre_ids);
+        const genresList = await findGenres(genre_ids);
 
         const genres =
-          data.length < 3 ? data.join(', ') : `${data[0]}, ${data[1]}, Other`;
+          genresList.length < 3
+            ? genresList.join(', ')
+            : `${genresList[0]}, ${genresList[1]}, Other`;
 
         return `<li class="movies__item">
         <a href="">
