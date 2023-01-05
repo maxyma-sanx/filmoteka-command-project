@@ -1,52 +1,50 @@
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal modal-film">
+<div class="backdrop" data-modal>
+  <div class="modal">
     <button type="button" class="modal__button--close cursor" data-modal-close>
       <svg class="modal__icon--close" width="18" height="18">
         <use href="#"></use>
       </svg>
     </button>
 
-    <div class="modal-card">
+    <div class="modal__card">
       <img
-        class="modal-card__image"
+        class="modal__image"
         src="#"
         alt="Film Image"
         onerror="loadNoPoster"
       />
 
-      <div class="modal-card__wrapper">
-        <h2 class="modal-card__title">A FISTFUL OF LEAD</h2>
-        <ul class="modal-card__list">
-          <li class="modal-card__item">
-            <p class="modal-card__text">Vote / Votes</p>
-            <div class="modal-card-vote">
-              <span class="modal-card__span modal-card__span--accent">7.3</span>
+      <div class="modal__wrapper">
+        <h2 class="modal__title">A FISTFUL OF LEAD</h2>
+        <ul class="modal__list">
+          <li class="modal__item">
+            <p class="modal__text">Vote / Votes</p>
+            <div class="modal__vote-container">
+              <span class="modal__info modal__info--accent">7.3</span>
               <span>/</span>
-              <span class="modal-card__span modal-card__span--noaccent"
-                >1260</span
-              >
+              <span class="modal__info modal__info--noaccent">1260</span>
             </div>
           </li>
 
-          <li class="modal-card__item">
-            <p class="modal-card__text lang-popularity">Popularity</p>
-            <span class="modal-card__span">100.2</span>
+          <li class="modal__item">
+            <p class="modal__text">Popularity</p>
+            <span class="modal__info">100.2</span>
           </li>
 
-          <li class="modal-card__item">
-            <p class="modal-card__text lang-original">Original Title</p>
-            <span class="modal-card__span">A FISTFUL OF LEAD</span>
+          <li class="modal__item">
+            <p class="modal__text">Original Title</p>
+            <span class="modal__info">A FISTFUL OF LEAD</span>
           </li>
 
-          <li class="modal-card__item">
-            <p class="modal-card__text lang-genre">Genre</p>
-            <span class="modal-card__span">Western</span>
+          <li class="modal__item">
+            <p class="modal__text">Genre</p>
+            <span class="modal__info">Western</span>
           </li>
         </ul>
 
-        <div class="modal-card-desc">
-          <p class="modal-card-desc__title">About</p>
-          <p class="modal-card-desc__text">
+        <div class="modal__desc">
+          <p class="modal__desc-title">About</p>
+          <p class="modal__desc-text">
             Four of the West’s most infamous outlaws assemble to steal a huge
             stash of gold from the most corrupt settlement of the gold rush
             towns. But not all goes to plan one is killed and the other three
@@ -57,11 +55,9 @@
             lead... they’ve been double crossed – but by who and how?
           </p>
 
-          <div class="modal-film__buttons">
-            <button type="button" class="modal-film__btn">
-              add to Watched
-            </button>
-            <button type="button" class="modal-film__btn">add to queue</button>
+          <div class="modal__buttons-container">
+            <button type="button" class="modal__btn">add to Watched</button>
+            <button type="button" class="modal__btn">add to queue</button>
           </div>
         </div>
       </div>
