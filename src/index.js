@@ -1,15 +1,4 @@
-import refs from './js/refs';
+import './js/API/notiflixAPI';
 
-import MovieDB from './js/fetchMovieAPI';
-
-import renderMovies from './js/renderMovies';
-import renderTargetMovie from './js/renderTargetMovie';
-
-const movieDB = new MovieDB();
-
-async function renderPopularMovies() {
-  const { results } = await movieDB.fetchPopularMovie();
-  renderMovies(results);
-}
-
-renderPopularMovies();
+import onSeachFormSubmit from './js/events/form';
+import renderPopularMovies from './js/render/renderPopularMovies';

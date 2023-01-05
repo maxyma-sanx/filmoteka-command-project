@@ -7,4 +7,5 @@ export default {
   searchForm: document.querySelector('.header__form'),
   watchedBtn: document.querySelector('.header__library-btn--watched'),
   queueBtn: document.querySelector('.header__library-btn--queue'),
+  warningText: document.querySelector('.header__warning-search'),
 };

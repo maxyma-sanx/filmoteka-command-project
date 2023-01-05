@@ -1,52 +1,45 @@
 import axios from 'axios';
 
+const API_KEY = 'b5dbc40d665affe8ed0bac71106b3fa8';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 export default class MovieDB {
   #searchQuery = '';
   #page = 1;
 
-  #popularMoviesParams = {
+  #moviesParams = {
     params: {
-      api_key: 'b5dbc40d665affe8ed0bac71106b3fa8',
+      api_key: API_KEY,
       page: this.#page,
     },
   };
 
-  #searchMoviesParams = {
+  #genresParams = {
     params: {
-      api_key: 'b5dbc40d665affe8ed0bac71106b3fa8',
-      page: this.#page,
-      query: this.#searchQuery,
-    },
-  };
-
-  #genresMoviesParams = {
-    params: {
-      api_key: 'b5dbc40d665affe8ed0bac71106b3fa8',
+      api_key: API_KEY,
     },
   };
 
   async fetchPopularMovie() {
-    const { data } = await axios.get(
-      `trending/movie/day?`,
-      this.#popularMoviesParams
-    );
+    const url = `trending/movie/day?`;
+
+    const { data } = await axios.get(url, this.#moviesParams);
+
     return data;
   }
 
   async fetchSearchMovie() {
-    const { data } = await axios.get(
-      `search/movie/?`,
-      this.#searchMoviesParams
-    );
+    const url = `search/movie/?query=${this.#searchQuery}`;
+
+    const { data } = await axios.get(url, this.#moviesParams);
+
     return data;
   }
 
   async fetchMoviesGenres() {
     const {
       data: { genres },
-    } = await axios.get(`genre/movie/list?`, this.#genresMoviesParams);
+    } = await axios.get(`genre/movie/list?`, this.#genresParams);
 
     return genres;
   }
