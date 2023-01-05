@@ -8,4 +8,6 @@ export default {
   watchedBtn: document.querySelector('.header__library-btn--watched'),
   queueBtn: document.querySelector('.header__library-btn--queue'),
   warningText: document.querySelector('.header__warning-search'),
+  backdrop: document.querySelector('.backdrop'),
+  modalClose: document.querySelector('.modal__button--close'),
 };
