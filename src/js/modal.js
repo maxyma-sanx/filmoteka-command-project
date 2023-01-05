@@ -26,7 +26,9 @@ function onCloseModalEsc(evt) {
   evt.preventDefault();
 
   console.log(evt.key);
-  if (evt.key === 'Escape') {
+  if (evt.key !== 'Escape') {
+    return;
+  } else {
     hide.classList.add('is-hidden');
   }
 
