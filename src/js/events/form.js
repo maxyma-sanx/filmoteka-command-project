@@ -5,6 +5,7 @@ import { Notify } from 'notiflix';
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import tuiPaginationAPI from '../API/tuiPaginationAPI';
 
 import renderMovies from '../render/renderSearchMovies';
 import { clearContent, clearHTML } from '../utils/clear';
@@ -39,14 +40,10 @@ export default async function onSeachFormSubmit(e) {
 
     renderMovies(results);
 
-    const options = {
-      totalItems: total_results,
-      itemsPerPage: 20,
-      visiblePages: 5,
-      usageStatistics: false,
-    };
-
-    const pagination = new Pagination(refs.pagination, options);
+    const pagination = new Pagination(
+      refs.pagination,
+      tuiPaginationAPI(total_results)
+    );
 
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
