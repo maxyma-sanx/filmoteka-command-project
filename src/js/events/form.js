@@ -3,6 +3,9 @@ import refs from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
 import { Notify } from 'notiflix';
 
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 import renderMovies from '../render/renderSearchMovies';
 import { clearContent, clearHTML } from '../utils/clear';
 
@@ -24,8 +27,7 @@ export default async function onSeachFormSubmit(e) {
       return;
     }
 
-    const { results, total_pages, total_results } =
-      await movieDB.fetchSearchMovie();
+    const { results, total_results } = await movieDB.fetchSearchMovie();
 
     if (results.length === 0) {
       refs.warningText.textContent = WARNING_TEXT;
@@ -36,6 +38,22 @@ export default async function onSeachFormSubmit(e) {
     clearContent(refs.warningText);
 
     renderMovies(results);
+
+    const options = {
+      totalItems: total_results,
+      itemsPerPage: 20,
+      visiblePages: 5,
+      usageStatistics: false,
+    };
+
+    const pagination = new Pagination(refs.pagination, options);
+
+    pagination.on('afterMove', async event => {
+      movieDB.page = event.page;
+      const { results } = await movieDB.fetchSearchMovie();
+      clearHTML(refs.movies);
+      renderMovies(results);
+    });
 
     e.target.reset();
   } catch (error) {
