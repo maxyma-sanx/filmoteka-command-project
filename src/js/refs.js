@@ -1,7 +1,7 @@
 export default {
   movies: document.querySelector('.movies__list'),
   targetMovie: document.querySelector('.movies__item'),
-  //! modalMovie: document.querySelector('.modal'),
+  modalMovie: document.querySelector('.modal'),
   paginationLeft: document.querySelector("[data-action='left']"),
   paginationRight: document.querySelector("[data-action='right']"),
   searchForm: document.querySelector('.header__form'),
