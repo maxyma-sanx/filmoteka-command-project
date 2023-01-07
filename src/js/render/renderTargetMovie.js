@@ -1,28 +1,35 @@
-import { refs } from '../refs';
+import refs from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
 
-// refs.movies.addEventListener('click', onMovieClick);
-
-async function onMovieClick(e) {
-  e.preventDefault();
-  if (e.target === e.currentTarget) return;
-
-  const film = await movieDB.getMovie(e.target.parentNode.dataset.id);
-
-  const modalMarkUp = await renderTargetMovie(film);
-}
+refs.movies.addEventListener('click', onMovieClick);
 
 const movieDB = new MovieDB();
 
-async function getMovie() {
+async function onMovieClick(e) {
   try {
-    const movie = await movieDB.fetchMovieDetails(id);
+    e.preventDefault();
+
+    refs.backdrop.classList.remove('is-hidden');
+
+    if (e.target === e.currentTarget) return;
+
+    let filmID = e.target.closest('.movies__item').dataset.id;
+
+    const movie = await movieDB.fetchMovieDetails(filmID);
+
+    console.log(movie);
+
+    renderTargetMovie(movie);
+
+    // const film = await movieDB.getMovie(e.target.parentNode.dataset.id);
+
+    // const modalMarkUp = await renderTargetMovie(film);
   } catch (error) {
     console.log(error);
   }
 }
 
-export default async function renderTargetMovie({
+export default function renderTargetMovie({
   poster_path,
   original_title,
   title,
@@ -37,7 +44,7 @@ export default async function renderTargetMovie({
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
 
-  const markUpModal = `<div class="modal__card">
+  const markUpModal = `
         <img class="modal__image" src=https://image.tmdb.org/t/p/w500/${poster_path} alt="Film Image" />
 
         <div class="modal__wrapper">
@@ -79,7 +86,6 @@ export default async function renderTargetMovie({
                 <button type="button" class="modal__btn">add to queue</button>
             </div>
             </div>
-        </div>
         </div>`;
   refs.modalMovie.innerHTML = markUpModal;
 }
