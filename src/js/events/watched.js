@@ -1,7 +1,7 @@
 import refs from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
 
-refs.addToWatchedBtn.addEventListener('click', setStorage);
+// refs.addToWatchedBtn.addEventListener('click', setStorage);
 
 const movieDB = new MovieDB();
 

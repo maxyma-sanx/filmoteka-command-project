@@ -1,7 +1,7 @@
 import { refs } from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
 
-refs.movies.addEventListener('click', onMovieClick);
+// refs.movies.addEventListener('click', onMovieClick);
 
 async function onMovieClick(e) {
   e.preventDefault();
