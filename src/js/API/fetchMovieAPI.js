@@ -10,7 +10,6 @@ export default class MovieDB {
   #moviesParams = {
     params: {
       api_key: API_KEY,
-      page: this.#page,
     },
   };
 
@@ -21,7 +20,7 @@ export default class MovieDB {
   };
 
   async fetchPopularMovie() {
-    const url = `trending/movie/day?`;
+    const url = `trending/movie/day?page=${this.#page}`;
 
     const { data } = await axios.get(url, this.#moviesParams);
 
@@ -29,7 +28,7 @@ export default class MovieDB {
   }
 
   async fetchSearchMovie() {
-    const url = `search/movie/?query=${this.#searchQuery}`;
+    const url = `search/movie/?query=${this.#searchQuery}&page=${this.#page}`;
 
     const { data } = await axios.get(url, this.#moviesParams);
 
@@ -59,6 +58,14 @@ export default class MovieDB {
     this.#searchQuery = newQuery;
   }
 
+  get page() {
+    return this.#page;
+  }
+
+  set page(newPage) {
+    this.#page = newPage;
+  }
+
   incrementPage() {
     this.#page += 1;
   }
@@ -69,9 +76,5 @@ export default class MovieDB {
 
   resetPage() {
     this.#page = 1;
-  }
-
-  setPage(page) {
-    this.#page = page;
   }
 }
