@@ -7,5 +7,4 @@ import {
   onCloseModalBackdrop,
   onCloseModalEsc,
 } from './js/events/modal';
-
 import getMovieId from './js/events/watched';

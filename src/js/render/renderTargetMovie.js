@@ -4,43 +4,40 @@ import MovieDB from '../API/fetchMovieAPI';
 refs.movies.addEventListener('click', onMovieClick);
 
 async function onMovieClick(e) {
-    e.preventDefault();
-    if (e.target === e.currentTarget) return;
-    
-    const film = await movieDB.getMovie(
-        e.target.parentNode.dataset.id
-    );
+  e.preventDefault();
+  if (e.target === e.currentTarget) return;
 
-    const modalMarkUp = await renderTargetMovie(film);
+  const film = await movieDB.getMovie(e.target.parentNode.dataset.id);
+
+  const modalMarkUp = await renderTargetMovie(film);
 }
 
 const movieDB = new MovieDB();
 
 async function getMovie() {
-    try {
-        const movie = await movieDB.fetchMovieDetails(id);
-        
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const movie = await movieDB.fetchMovieDetails(id);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export default async function renderTargetMovie({
-            poster_path,
-            original_title,
-            title,
-            name,
-            vote_average,
-            vote_count,
-            popularity,
-            genres,
-            overview,
-        })  {
-            const vote = vote_average.toFixed(1);
-            const populary = popularity.toFixed(1); 
-            const genre = genres.map(obj => obj.name).join(', ');
+  poster_path,
+  original_title,
+  title,
+  name,
+  vote_average,
+  vote_count,
+  popularity,
+  genres,
+  overview,
+}) {
+  const vote = vote_average.toFixed(1);
+  const populary = popularity.toFixed(1);
+  const genre = genres.map(obj => obj.name).join(', ');
 
-            const markUpModal = `<div class="modal__card">
+  const markUpModal = `<div class="modal__card">
         <img class="modal__image" src=https://image.tmdb.org/t/p/w500/${poster_path} alt="Film Image" />
 
         <div class="modal__wrapper">
@@ -62,7 +59,9 @@ export default async function renderTargetMovie({
 
             <li class="modal__item">
                 <p class="modal__text">Original Title</p>
-                <span class="modal__info">${title || original_title || name}</span>
+                <span class="modal__info">${
+                  title || original_title || name
+                }</span>
             </li>
 
             <li class="modal__item">
@@ -82,6 +81,5 @@ export default async function renderTargetMovie({
             </div>
         </div>
         </div>`;
-    refs.modalMovie.innerHTML = markUpModal;
+  refs.modalMovie.innerHTML = markUpModal;
 }
-  

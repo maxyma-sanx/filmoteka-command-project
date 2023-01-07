@@ -6,7 +6,7 @@ refs.addToWatchedBtn.addEventListener('click', setStorage);
 const movieDB = new MovieDB();
 
 async function getMovieId() {
-  const data = await movieDB.fetchMovieByID(300);
+  const data = await movieDB.fetchMovieDetails(300);
   console.log(data);
   const { id } = await data;
   console.log(id);

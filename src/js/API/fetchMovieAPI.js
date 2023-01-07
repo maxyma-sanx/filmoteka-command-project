@@ -39,14 +39,15 @@ export default class MovieDB {
     const {
       data: { genres },
     } = await axios.get(`genre/movie/list?`, this.#genresParams);
-    
+
     return genres;
   }
 
   async fetchMovieDetails(id) {
     const url = `movie/${id}?`;
+
     const { data } = await axios.get(url, this.#moviesParams);
-    
+
     return data;
   }
 

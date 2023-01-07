@@ -1,6 +1,5 @@
 import refs from '../refs';
 import getMovie from '../render/renderTargetMovie';
-  
 
 refs.modalClose.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onCloseModalBackdrop);
