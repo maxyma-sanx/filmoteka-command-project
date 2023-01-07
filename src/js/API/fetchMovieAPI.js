@@ -26,6 +26,13 @@ export default class MovieDB {
 
     return data;
   }
+  async fetchMovieByID(movie_id) {
+    const url = `movie/${movie_id}`;
+
+    const { data } = await axios.get(url, this.#moviesParams);
+
+    return data;
+  }
 
   async fetchSearchMovie() {
     const url = `search/movie/?query=${this.#searchQuery}&page=${this.#page}`;
