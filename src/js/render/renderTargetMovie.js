@@ -8,7 +8,7 @@ const movieDB = new MovieDB();
 const watched = [];
 const queue = [];
 
-async function onMovieClick(e) {
+export default async function onMovieClick(e) {
   try {
     e.preventDefault();
 
@@ -25,15 +25,15 @@ async function onMovieClick(e) {
     const watchedBtn = document.getElementById('addToWatchedBtn');
 
     watchedBtn.addEventListener('click', () => {
-      arr.push(filmID);
-      localStorage.setItem('asd', JSON.stringify(arr));
+      watched.push(filmID);
+      localStorage.setItem('watched', JSON.stringify(watched));
     });
   } catch (error) {
     console.log(error);
   }
 }
 
-export default function renderTargetMovie({
+function renderTargetMovie({
   poster_path,
   original_title,
   title,
