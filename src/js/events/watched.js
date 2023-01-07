@@ -5,24 +5,26 @@ import MovieDB from '../API/fetchMovieAPI';
 
 const movieDB = new MovieDB();
 
-async function getMovieId() {
-  const data = await movieDB.fetchMovieDetails(300);
-  console.log(data);
-  const { id } = await data;
-  console.log(id);
-  return id;
-}
+// async function getMovieId() {
+//   const data = await movieDB.fetchMovieDetails(300);
+//   console.log(data);
+//   const { id } = await data;
+//   console.log(id);
+//   return id;
+// }
 
-getMovieId();
+// getMovieId();
 
-let filmID = '';
+// let filmID = '';
 
-// console.log(filmID);
-// //в DATA надо положить ID фильма
+// // console.log(filmID);
+// // //в DATA надо положить ID фильма
 
-export function setStorage(key, filmID) {
-  filmID = getMovieId();
+export function setStorage() {
+  // filmID = getMovieId();
 
-  const dataJson = JSON.stringify(filmID);
-  localStorage.setItem('added-watched', dataJson);
+  // const dataJson = JSON.stringify(filmID);
+  // localStorage.setItem('added-watched', dataJson);
+
+  console.log(123);
 }

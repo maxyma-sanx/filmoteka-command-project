@@ -5,6 +5,9 @@ refs.movies.addEventListener('click', onMovieClick);
 
 const movieDB = new MovieDB();
 
+const watched = [];
+const queue = [];
+
 async function onMovieClick(e) {
   try {
     e.preventDefault();
@@ -17,13 +20,14 @@ async function onMovieClick(e) {
 
     const movie = await movieDB.fetchMovieDetails(filmID);
 
-    console.log(movie);
-
     renderTargetMovie(movie);
 
-    // const film = await movieDB.getMovie(e.target.parentNode.dataset.id);
+    const watchedBtn = document.getElementById('addToWatchedBtn');
 
-    // const modalMarkUp = await renderTargetMovie(film);
+    watchedBtn.addEventListener('click', () => {
+      arr.push(filmID);
+      localStorage.setItem('asd', JSON.stringify(arr));
+    });
   } catch (error) {
     console.log(error);
   }
@@ -39,6 +43,7 @@ export default function renderTargetMovie({
   popularity,
   genres,
   overview,
+  id,
 }) {
   const vote = vote_average.toFixed(1);
   const populary = popularity.toFixed(1);
@@ -80,10 +85,13 @@ export default function renderTargetMovie({
             <div class="modal__desc">
             <p class="modal__desc-title">About</p>
             <p class="modal__desc-text">${overview}</p>
+            <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
-                <button type="button" class="modal__btn">add to Watched</button>
-                <button type="button" class="modal__btn">add to queue</button>
+            <button type="button" class="modal__btn" id="addToWatchedBtn">
+            add to Watched
+            </button>
+          <button type="button" class="modal__btn">add to queue</button>
             </div>
             </div>
         </div>`;
