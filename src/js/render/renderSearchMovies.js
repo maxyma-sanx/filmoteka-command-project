@@ -18,7 +18,7 @@ async function findGenres(genresID) {
 
 export default async function renderMovies(data) {
   const films = await Promise.all(
-    data.map(async ({ poster_path, release_date, genre_ids, title }) => {
+    data.map(async ({ poster_path, release_date, genre_ids, title, id }) => {
       const genresList = await findGenres(genre_ids);
 
       const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
@@ -29,7 +29,7 @@ export default async function renderMovies(data) {
           ? genresList.join(', ')
           : `${genresList[0]}, ${genresList[1]}, Other`;
 
-      return `<li class="movies__item">
+      return `<li class="movies__item" id="${id}">
         <a href="">
           <img src="${
             poster_path ? poster : posterPlaceholder

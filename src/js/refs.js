@@ -9,4 +9,5 @@ export default {
   backdrop: document.querySelector('.backdrop'),
   modalClose: document.querySelector('.modal__button--close'),
   pagination: document.querySelector('.tui-pagination'),
+  addToWatchedBtn: document.getElementById('addToWatchedBtn'),
 };
