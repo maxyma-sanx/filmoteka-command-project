@@ -13,20 +13,22 @@ export default async function onMovieClick(e) {
     e.preventDefault();
 
     refs.backdrop.classList.remove('is-hidden');
-
     if (e.target === e.currentTarget) return;
-
     let filmID = e.target.closest('.movies__item').dataset.id;
-
     const movie = await movieDB.fetchMovieDetails(filmID);
-
     renderTargetMovie(movie);
 
     const watchedBtn = document.getElementById('addToWatchedBtn');
+    const queueBtn = document.getElementById('addToQueueBtn');
 
     watchedBtn.addEventListener('click', () => {
       watched.push(filmID);
       localStorage.setItem('watched', JSON.stringify(watched));
+    });
+
+    queueBtn.addEventListener('click', () => {
+      queue.push(filmID);
+      localStorage.setItem('queue', JSON.stringify(queue));
     });
   } catch (error) {
     console.log(error);
@@ -91,7 +93,7 @@ function renderTargetMovie({
             <button type="button" class="modal__btn" id="addToWatchedBtn">
             add to Watched
             </button>
-          <button type="button" class="modal__btn">add to queue</button>
+          <button type="button" class="modal__btn" id="addToQueueBtn">add to queue</button>
             </div>
             </div>
         </div>`;
