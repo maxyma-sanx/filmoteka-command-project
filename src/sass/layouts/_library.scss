@@ -13,22 +13,24 @@
   }
 }
 .libraru__image {
-  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   height: 35vh;
-  background: url(/src/images/library.jpg);
+  background-image: url(/src/images/library-mob-1x.jpg);
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 
   @include tablet {
-    width: 100%;
-    height: 500px;
+    background-image: url(/src/images/library-tab-1x.jpg);
   }
 
   @include desktop {
-    height: 35vh;
-    max-width: 1300px;
+    height: 42vh;
+    min-width: 1280px;
+
+    background-image: url(/src/images/library-desc-1x.jpg);
   }
 }
 
