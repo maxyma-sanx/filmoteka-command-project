@@ -1,30 +1,38 @@
 import refs from '../refs';
 
-refs.modalClose.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onCloseModalBackdrop);
-document.addEventListener('keydown', onCloseModalEsc);
+export default function modalClose() {
+  refs.modalClose.addEventListener('click', onCloseModal);
+  refs.backdrop.addEventListener('click', onCloseModalBackdrop);
+  document.addEventListener('keydown', onCloseModalEsc);
 
-function onCloseModal() {
-  refs.backdrop.classList.add('is-hidden');
-}
-
-function onCloseModalBackdrop(e) {
-  if (e.target !== refs.backdrop) {
-    return;
-  }
-
-  refs.backdrop.classList.add('is-hidden');
-  refs.backdrop.removeEventListener('click', onCloseModalBackdrop);
-}
-
-function onCloseModalEsc(e) {
-  if (e.key !== 'Escape') {
-    return;
-  } else {
+  function onCloseModal() {
     refs.backdrop.classList.add('is-hidden');
   }
 
-  document.removeEventListener('keydown', onCloseModalEsc);
+  function onCloseModalBackdrop(e) {
+    if (e.target !== refs.backdrop) {
+      return;
+    }
+    if (refs.backdrop.classList.contains('is-hidden')) {
+      refs.backdrop.removeEventListener('click', onCloseModalBackdrop);
+    } else {
+      return;
+    }
+  }
+
+  function onCloseModalEsc(e) {
+    console.log(e.key);
+    if (e.key !== 'Escape') {
+      return;
+    } else {
+      refs.backdrop.classList.add('is-hidden');
+    }
+    if (refs.backdrop.classList.contains('is-hidden')) {
+      document.removeEventListener('keydown', onCloseModalEsc);
+    } else {
+      return;
+    }
+  }
 }
 
-export { onCloseModal, onCloseModalBackdrop, onCloseModalEsc };
+export { modalClose };
