@@ -13,7 +13,6 @@ function onCloseModalBackdrop(e) {
 }
 
 function onCloseModalEsc(e) {
-  console.log(e.key);
   if (e.key !== 'Escape') {
     return;
   } else {

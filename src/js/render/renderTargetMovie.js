@@ -16,6 +16,12 @@ export default function renderTargetMovie({
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
 
+  const watchedData = JSON.parse(localStorage.getItem('watched')) || [];
+  const queueData = JSON.parse(localStorage.getItem('queue')) || [];
+
+  const isWatchedData = watchedData.includes(id.toString());
+  const isQueueData = queueData.includes(id.toString());
+
   const markUpModal = `
         <img class="modal__image" src=https://image.tmdb.org/t/p/w500/${poster_path} alt="Film Image" />
 
@@ -55,10 +61,12 @@ export default function renderTargetMovie({
             <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
-            <button type="button" class="modal__btn" id="addToWatchedBtn">
-            add to Watched
-            </button>
-          <button type="button" class="modal__btn" id="addToQueueBtn">add to queue</button>
+              <button type="button" class="modal__btn" id="addToWatchedBtn">
+              ${isWatchedData ? 'Remove from watched' : 'Add to watched'}
+              </button>
+              <button type="button" class="modal__btn" id="addToQueueBtn">
+              ${isQueueData ? 'Remove from queue' : 'Add to queue'}
+              </button>
             </div>
             </div>
         </div>`;
