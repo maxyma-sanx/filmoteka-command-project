@@ -12,6 +12,7 @@ export default function modalClose() {
 
   function onCloseModalBackdrop(e) {
     if (e.target === refs.backdrop) {
+      console.log('backdrop click');
       refs.backdrop.classList.add('is-hidden');
     }
     removeEventListener();
