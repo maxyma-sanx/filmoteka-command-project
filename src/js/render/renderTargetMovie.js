@@ -61,12 +61,12 @@ export default function renderTargetMovie({
             <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
-              <button type="button" class="modal__btn" id="addToWatchedBtn">
-              ${isWatchedData ? 'Remove from watched' : 'Add to watched'}
-              </button>
-              <button type="button" class="modal__btn" id="addToQueueBtn">
-              ${isQueueData ? 'Remove from queue' : 'Add to queue'}
-              </button>
+              <button type="button" class="modal__btn" id="addToWatchedBtn">${
+                isWatchedData ? 'Remove from watched' : 'Add to watched'
+              }</button>
+              <button type="button" class="modal__btn" id="addToQueueBtn">${
+                isQueueData ? 'Remove from queue' : 'Add to queue'
+              }</button>
             </div>
             </div>
         </div>`;
