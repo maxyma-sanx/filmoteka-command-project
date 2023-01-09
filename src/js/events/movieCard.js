@@ -48,17 +48,18 @@ export default async function onMovieClick(e) {
     watchedBtn.addEventListener('click', () => {
       checkData(parsedWatchedData, watched, filmID, WATCHED_KEY);
 
-      // const data = JSON.parse(localStorage.getItem('watched'));
+      const data = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
-      // if (data.includes(filmID)) {
-      //   watchedBtn.textContent = 'Remove from watched';
+      if (watchedBtn.textContent === "Add to watched") {
+        watchedBtn.textContent = 'Remove from watched';
 
-      //   const newData = data.filter(item => item !== filmID);
+        const newData = data.filter(item => item !== filmID);
 
-      //   localStorage.setItem(WATCHED_KEY, JSON.stringify(newData));
-      // } else {
-      //   watchedBtn.textContent = 'Add to watched';
-      // }
+        localStorage.setItem(WATCHED_KEY, JSON.stringify(newData));
+      } else {
+        
+      }
+      
     });
 
     queueBtn.addEventListener('click', () => {
