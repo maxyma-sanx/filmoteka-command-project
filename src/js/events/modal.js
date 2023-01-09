@@ -7,17 +7,14 @@ export default function modalClose() {
 
   function onCloseModal() {
     refs.backdrop.classList.add('is-hidden');
+    removeEventListener();
   }
 
   function onCloseModalBackdrop(e) {
     if (e.target === refs.backdrop) {
       refs.backdrop.classList.add('is-hidden');
     }
-    if (refs.backdrop.classList.contains('is-hidden')) {
-      refs.backdrop.removeEventListener('click', onCloseModalBackdrop);
-    } else {
-      return;
-    }
+    removeEventListener();
   }
 
   function onCloseModalEsc(e) {
@@ -27,11 +24,14 @@ export default function modalClose() {
     } else {
       refs.backdrop.classList.add('is-hidden');
     }
-    if (refs.backdrop.classList.contains('is-hidden')) {
-      document.removeEventListener('keydown', onCloseModalEsc);
-    } else {
-      return;
-    }
+    removeEventListener();
+  }
+
+  function removeEventListener() {
+    refs.backdrop.classList.contains('is-hidden');
+    refs.modalClose.removeEventListener('click', onCloseModal);
+    refs.backdrop.removeEventListener('click', onCloseModalBackdrop);
+    document.removeEventListener('keydown', onCloseModalEsc);
   }
 }
 
