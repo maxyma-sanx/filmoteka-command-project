@@ -1,3 +1,4 @@
+import 'animate.css';
 import './js/API/notiflixAPI';
 
 import renderPopularMovies from './js/render/renderPopularMovies';
