@@ -31,11 +31,13 @@ export default async function renderMovies(data) {
           ? genresList.join(', ')
           : `${genresList[0]}, ${genresList[1]}, Other`;
 
-      return `<li class="movies__item" id="${id}">
-        <a href="" movies__link>
+
+      return `<li class="movies__item" data-id="${id}">
+        <a href="#" class="movies__link">
           <img src="${
             poster_path ? poster : posterPlaceholder
           }" class="movies__img" alt="${title}" />
+
           <div class="movies__info">
             <h3 class="movies__title">${title}</h3>
             <p class="movies__text">${

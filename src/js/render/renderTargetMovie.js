@@ -1,28 +1,42 @@
-import { refs } from '../refs';
+import refs from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
+import modalClose from '../events/modal';
 
-// refs.movies.addEventListener('click', onMovieClick);
-
-async function onMovieClick(e) {
-  e.preventDefault();
-  if (e.target === e.currentTarget) return;
-
-  const film = await movieDB.getMovie(e.target.parentNode.dataset.id);
-
-  const modalMarkUp = await renderTargetMovie(film);
-}
+refs.movies.addEventListener('click', onMovieClick);
 
 const movieDB = new MovieDB();
 
-async function getMovie() {
+const watched = [];
+const queue = [];
+
+export default async function onMovieClick(e) {
   try {
-    const movie = await movieDB.fetchMovieDetails(id);
+    e.preventDefault();
+    modalClose();
+    refs.backdrop.classList.remove('is-hidden');
+    if (e.target === e.currentTarget) return;
+    let filmID = e.target.closest('.movies__item').dataset.id;
+    const movie = await movieDB.fetchMovieDetails(filmID);
+    renderTargetMovie(movie);
+
+    const watchedBtn = document.getElementById('addToWatchedBtn');
+    const queueBtn = document.getElementById('addToQueueBtn');
+
+    watchedBtn.addEventListener('click', () => {
+      watched.push(filmID);
+      localStorage.setItem('watched', JSON.stringify(watched));
+    });
+
+    queueBtn.addEventListener('click', () => {
+      queue.push(filmID);
+      localStorage.setItem('queue', JSON.stringify(queue));
+    });
   } catch (error) {
     console.log(error);
   }
 }
 
-export default async function renderTargetMovie({
+function renderTargetMovie({
   poster_path,
   original_title,
   title,
@@ -32,12 +46,13 @@ export default async function renderTargetMovie({
   popularity,
   genres,
   overview,
+  id,
 }) {
   const vote = vote_average.toFixed(1);
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
 
-  const markUpModal = `<div class="modal__card">
+  const markUpModal = `
         <img class="modal__image" src=https://image.tmdb.org/t/p/w500/${poster_path} alt="Film Image" />
 
         <div class="modal__wrapper">
@@ -73,13 +88,15 @@ export default async function renderTargetMovie({
             <div class="modal__desc">
             <p class="modal__desc-title">About</p>
             <p class="modal__desc-text">${overview}</p>
+            <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
-                <button type="button" class="modal__btn">add to Watched</button>
-                <button type="button" class="modal__btn">add to queue</button>
+            <button type="button" class="modal__btn" id="addToWatchedBtn">
+            add to Watched
+            </button>
+          <button type="button" class="modal__btn" id="addToQueueBtn">add to queue</button>
             </div>
             </div>
-        </div>
         </div>`;
   refs.modalMovie.innerHTML = markUpModal;
 }

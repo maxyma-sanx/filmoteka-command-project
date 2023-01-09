@@ -1,3 +1,4 @@
+import 'animate.css';
 import './js/API/notiflixAPI';
 
 import renderPopularMovies from './js/render/renderPopularMovies';
@@ -7,4 +8,4 @@ import {
   onCloseModalBackdrop,
   onCloseModalEsc,
 } from './js/events/modal';
-import getMovieId from './js/events/watched';
+import onMovieClick from './js/render/renderTargetMovie';
