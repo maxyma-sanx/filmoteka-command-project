@@ -1,4 +1,4 @@
-.container {
+.movies {
   padding-top: 20px;
   padding-bottom: 40px;
   @include tablet {
@@ -55,7 +55,7 @@
     transform: scale(1.03);
     border-radius: 5px;
     box-shadow: 0px 0px 15px 5px rgba(129, 119, 106, 0.5);
-    transition-duration: 300ms;
+    transition: transform ease-in-out 300ms;
   }
   &:focus {
     color: red;

@@ -8,4 +8,4 @@ import {
   onCloseModalBackdrop,
   onCloseModalEsc,
 } from './js/events/modal';
-import onMovieClick from './js/render/renderTargetMovie';
+import onMovieClick from './js/events/movieCard';

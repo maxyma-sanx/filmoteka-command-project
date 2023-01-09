@@ -51,6 +51,14 @@ export default class MovieDB {
     return data;
   }
 
+  async fetchMovieTrailer(id) {
+    const url = `movie/${id}/videos?`;
+
+    const { data } = await axios.get(url, this.#moviesParams);
+
+    return data;
+  }
+
   get query() {
     return this.#searchQuery;
   }
