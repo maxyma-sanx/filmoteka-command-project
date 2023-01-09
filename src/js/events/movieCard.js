@@ -10,6 +10,7 @@ import {
   removeEventListener,
 } from './modal';
 import checkData from '../utils/checkData';
+import removeLocalData from '../utils/removeData';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -49,25 +50,22 @@ export default async function onMovieClick(e) {
       if (watchedBtn.textContent === 'Add to watched') {
         watchedBtn.textContent = 'Remove from watched';
         checkData(parsedWatchedData, watched, filmID, WATCHED_KEY);
-        console.log(parsedWatchedData);
-        console.log(watched);
       } else {
         watchedBtn.textContent = 'Add to watched';
-        const indexID = watched.indexOf(filmID);
-        watched.splice(indexID, 1);
-
-        localStorage.setItem(WATCHED_KEY, JSON.stringify(watched));
-        console.log(indexID);
-
-        const parsedID = parsedWatchedData.indexOf(filmID);
-        parsedWatchedData.splice(parsedID, 1);
-
-        localStorage.setItem(WATCHED_KEY, JSON.stringify(parsedWatchedData));
+        removeLocalData(watched, filmID, WATCHED_KEY);
+        removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
       }
     });
 
     queueBtn.addEventListener('click', () => {
-      checkData(parsedQueueData, queue, filmID, QUEUE_KEY);
+      if (queueBtn.textContent === 'Add to queue') {
+        queueBtn.textContent = 'Remove from queue';
+        checkData(parsedQueueData, queue, filmID, QUEUE_KEY);
+      } else {
+        queueBtn.textContent = 'Add to queue';
+        removeLocalData(queue, filmID, QUEUE_KEY);
+        removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
+      }
     });
   } catch (error) {
     console.log(error);
