@@ -1,5 +1,6 @@
 import refs from '../refs';
 import MovieDB from '../API/fetchMovieAPI';
+import modalClose from '../events/modal';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -11,7 +12,7 @@ const queue = [];
 export default async function onMovieClick(e) {
   try {
     e.preventDefault();
-
+    modalClose();
     refs.backdrop.classList.remove('is-hidden');
     if (e.target === e.currentTarget) return;
     let filmID = e.target.closest('.movies__item').dataset.id;
