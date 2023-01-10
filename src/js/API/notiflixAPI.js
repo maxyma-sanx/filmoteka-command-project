@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 
-// Notify
+// Notify базові налаштування
 Notiflix.Notify.init({
   clickToClose: true,
   closeButton: true,

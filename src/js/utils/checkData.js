@@ -1,3 +1,4 @@
+// Функція яка перевіряє наявність id в localStorage, та пушить нові данні
 export default function checkData(data, array, id, key) {
   if (data) {
     if (!data.includes(id.toString())) {

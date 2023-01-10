@@ -1,4 +1,5 @@
 export default function (totalResults) {
+  // Базові налаштування пагігнації
   const options = {
     totalItems: totalResults,
     itemsPerPage: 20,

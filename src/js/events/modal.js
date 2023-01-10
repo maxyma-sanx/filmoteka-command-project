@@ -1,10 +1,12 @@
 import refs from '../refs';
 
+// Закриття модалки по бекдропу
 function onCloseModal() {
   refs.backdrop.classList.add('is-hidden');
   removeEventListener();
 }
 
+// Закриття модалки ???
 function onCloseModalBackdrop(e) {
   if (e.target === refs.backdrop) {
     refs.backdrop.classList.add('is-hidden');
@@ -12,6 +14,7 @@ function onCloseModalBackdrop(e) {
   removeEventListener();
 }
 
+// Закриття модалки по esc
 function onCloseModalEsc(e) {
   if (e.key !== 'Escape') {
     return;
@@ -21,6 +24,7 @@ function onCloseModalEsc(e) {
   removeEventListener();
 }
 
+// Зняття слухачів
 function removeEventListener() {
   if (refs.backdrop.classList.contains('is-hidden')) {
     refs.modalClose.removeEventListener('click', onCloseModal);

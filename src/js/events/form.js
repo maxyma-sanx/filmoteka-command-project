@@ -1,11 +1,11 @@
 import refs from '../refs';
 
-import MovieDB from '../API/fetchMovieAPI';
 import { Notify } from 'notiflix';
-
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import tuiPaginationAPI from '../API/tuiPaginationAPI';
+
+import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
 import { clearContent, clearHTML } from '../utils/clear';
@@ -17,6 +17,7 @@ const WARNING_TEXT =
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);
 
+// Функція пошуку фільмів по сабміту
 export default async function onSeachFormSubmit(e) {
   try {
     e.preventDefault();
@@ -40,6 +41,7 @@ export default async function onSeachFormSubmit(e) {
 
     renderMovies(results);
 
+    // Створення пагінації фільмів по пошуку
     const pagination = new Pagination(
       refs.pagination,
       tuiPaginationAPI(total_results)

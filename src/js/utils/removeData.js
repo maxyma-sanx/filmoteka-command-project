@@ -1,3 +1,4 @@
+// Функція видалення id та запису в localStorage нових данних
 export default function removeLocalData(arr, id, key) {
   const indexID = arr.indexOf(id);
 
