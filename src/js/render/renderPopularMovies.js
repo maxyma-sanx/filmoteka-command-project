@@ -16,8 +16,8 @@ const movieDB = new MovieDB();
 export default (async function renderPopularMovies() {
   try {
     const { results, total_results } = await movieDB.fetchPopularMovie();
-
-    renderMovies(results);
+    const renderMarkup = await renderMovies(results);
+    refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
 
     // Створення пагінації фільмів по популярності
     const pagination = new Pagination(
@@ -27,9 +27,11 @@ export default (async function renderPopularMovies() {
 
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
-      const { results } = await movieDB.fetchPopularMovie();
       clearHTML(refs.movies);
-      renderMovies(results);
+
+      const { results } = await movieDB.fetchPopularMovie();
+      const renderMarkup = await renderMovies(results);
+      refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
     });
   } catch (error) {
     Notify.failure(`${error.message}`);

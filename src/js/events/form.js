@@ -39,7 +39,8 @@ export default async function onSeachFormSubmit(e) {
     clearHTML(refs.movies);
     clearContent(refs.warningText);
 
-    renderMovies(results);
+    const renderMarkup = await renderMovies(results);
+    refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
 
     // Створення пагінації фільмів по пошуку
     const pagination = new Pagination(
@@ -49,9 +50,11 @@ export default async function onSeachFormSubmit(e) {
 
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
-      const { results } = await movieDB.fetchSearchMovie();
       clearHTML(refs.movies);
-      renderMovies(results);
+
+      const { results } = await movieDB.fetchSearchMovie();
+      const renderMarkup = await renderMovies(results);
+      refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
     });
 
     e.target.reset();

@@ -56,5 +56,5 @@ export default async function renderMovies(data) {
     })
   );
 
-  refs.movies.insertAdjacentHTML('beforeend', films.join(''));
+  return films.join('');
 }
