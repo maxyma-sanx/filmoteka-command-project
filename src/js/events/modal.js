@@ -3,6 +3,7 @@ import refs from '../refs';
 // Закриття модалки по бекдропу
 function onCloseModal() {
   refs.backdrop.classList.add('is-hidden');
+
   removeEventListener();
 }
 
@@ -30,6 +31,7 @@ function removeEventListener() {
     refs.modalClose.removeEventListener('click', onCloseModal);
     refs.backdrop.removeEventListener('click', onCloseModalBackdrop);
     document.removeEventListener('keydown', onCloseModalEsc);
+    refs.body.classList.remove('disable-scroll');
   } else {
     return;
   }
