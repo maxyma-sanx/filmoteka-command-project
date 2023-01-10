@@ -13,7 +13,7 @@ async function findGenres(genresID) {
 
   return genresID.map(id => {
     for (let i = 0; i < genres.length; i += 1) {
-      if (id === genres[i].id) {
+      if (id === genres[i].id || id.id === genres[i].id) {
         return genres[i].name;
       }
     }
@@ -24,20 +24,23 @@ async function findGenres(genresID) {
 export default async function renderMovies(data) {
   // В змінну films записується декілька промісів, тому використовуємо метод promise.all
   const films = await Promise.all(
-    data.map(async ({ poster_path, release_date, genre_ids, title, id }) => {
-      // Використовуємо синтаксис async/await в методі map, щоб отримати данні з жанрами фільмів
-      const genresList = await findGenres(genre_ids);
+    data.map(
+      async ({ poster_path, release_date, genre_ids, title, id, genres }) => {
+        // Використовуємо синтаксис async/await в методі map, щоб отримати данні з жанрами фільмів
+        const genresList = genre_ids
+          ? await findGenres(genre_ids)
+          : await findGenres(genres);
 
-      const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-      const posterPlaceholder = defaultImg;
+        const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+        const posterPlaceholder = defaultImg;
 
-      // Перевірка довжини массиву з жанрами
-      const genres =
-        genresList.length < 3
-          ? genresList.join(', ')
-          : `${genresList[0]}, ${genresList[1]}, Other`;
+        // Перевірка довжини массиву з жанрами
+        const genresArr =
+          genresList.length < 3
+            ? genresList.join(', ')
+            : `${genresList[0]}, ${genresList[1]}, Other`;
 
-      return `<li class="movies__item" data-id="${id}">
+        return `<li class="movies__item" data-id="${id}">
         <a href="#" class="movies__link">
           <img src="${
             poster_path ? poster : posterPlaceholder
@@ -46,14 +49,15 @@ export default async function renderMovies(data) {
           <div class="movies__info">
             <h3 class="movies__title">${title}</h3>
             <p class="movies__text">${
-              genres.length !== 0 ? genres : 'Genre: unknown'
+              genresArr.length !== 0 ? genresArr : 'Genre: unknown'
             } | ${
-        release_date ? new Date(release_date).getFullYear() : 'Year: unknown'
-      }</p>
+          release_date ? new Date(release_date).getFullYear() : 'Year: unknown'
+        }</p>
           </div>
         </a>
       </li>`;
-    })
+      }
+    )
   );
 
   return films.join('');

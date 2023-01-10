@@ -6,3 +6,5 @@ import {
   onCloseModalBackdrop,
   onCloseModalEsc,
 } from './js/events/modal';
+
+import watchedMovies from './js/events/watched';
