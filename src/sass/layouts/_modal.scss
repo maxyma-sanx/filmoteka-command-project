@@ -10,6 +10,8 @@
   padding: 0 15px;
 
   background-color: rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   opacity: 1;
 
@@ -256,4 +258,38 @@
   left: 0;
   top: 0;
   width: 100%;
+}
+
+.modal__trailer-btn {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.youtube {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-trailer__button--close {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  background: $color-white;
+  border: transparent;
+
+  padding: 0;
+  cursor: pointer;
 }

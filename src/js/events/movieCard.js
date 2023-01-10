@@ -5,6 +5,7 @@ import { Notify } from 'notiflix';
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderTargetMovie from '../render/renderTargetMovie';
+import renderTrailer from '../render/renderTrailerIframe';
 
 import {
   onCloseModal,
@@ -15,6 +16,7 @@ import {
 
 import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
+import renderTrailer from '../render/renderTrailerIframe';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -54,6 +56,17 @@ export default async function onMovieClick(e) {
     // Знаходимо кнопки watchedBtn та queueBtn після рендеру картки з фільмом
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
+    const trailerBtn = document.querySelector('.modal__trailer-btn');
+
+    trailerBtn.addEventListener('click', () => {
+      refs.backdropTrailer.classList.remove('is-hidden');
+      const renderTrailerMarkup = renderTrailer(results);
+      refs.modalTrailerIframe.innerHTML = renderTrailerMarkup;
+    });
+
+    refs.closeBtn.addEventListener('click', () => {
+      refs.backdropTrailer.classList.add('is-hidden');
+    });
 
     watchedBtn.addEventListener('click', () => {
       if (watchedBtn.textContent === 'Add to watched') {
