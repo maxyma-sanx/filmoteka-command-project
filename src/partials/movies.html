@@ -1,27 +1,33 @@
 <main>
   <!--MOVIE FILTER-->
-  <nav>
-    <ul>
-      <li>
-        <a>
-          <span
-            >Genres
-            <svg></svg>
-          </span>
-        </a>
-        <div></div>
-      </li>
-      <li>
-        <a>
-          <span
-            >Release year
-            <svg></svg>
-          </span>
-        </a>
-        <div></div>
-      </li>
-    </ul>
-  </nav>
+  <div class="container movies__filter">
+    <nav>
+      <ul class="nav-filter__flex">
+        <li>
+          <a>
+            <span class="filter__text"
+              >Genres
+              <svg class="filter__icon" width="15" height="15">
+                <use href="/src/images/icons/icon.svg#icon-cheveron-down"></use>
+              </svg>
+            </span>
+          </a>
+          <div></div>
+        </li>
+        <li>
+          <a>
+            <span class="filter__text"
+              >Release year
+              <svg class="filter__icon" width="15" height="15">
+                <use href="/src/images/icons/icon.svg#icon-cheveron-down"></use>
+              </svg>
+            </span>
+          </a>
+          <div></div>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <section class="container movies">
     <h2 class="is-hidden">Popular films</h2>
     <ul class="movies__list"></ul>

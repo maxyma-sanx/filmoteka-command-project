@@ -1,0 +1,37 @@
+.movies__filter {
+    padding-top: 50px;
+}
+
+.nav-filter__flex {
+    display: flex;
+    gap: 30px;
+}
+
+.filter__text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.16;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    .filter__icon:hover,
+    .filter__icon:focus {
+            
+            color: #ff6b08;
+            fill: #ff6b08;
+        }
+}
+
+// .filter__icon {
+//     transition-property: fill;
+//     transition-duration: 250ms;
+//     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
+
