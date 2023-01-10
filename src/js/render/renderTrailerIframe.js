@@ -4,8 +4,8 @@ export default function renderTrailer(data) {
 
   return `<iframe
             class="youtube";
-            width="560"
-            height="315"
+            width="782"
+            height="478"
             src="https://www.youtube.com/embed/${movieID.key}"
             title="YouTube video player"
             frameborder="0"
