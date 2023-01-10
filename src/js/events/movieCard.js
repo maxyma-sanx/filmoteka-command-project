@@ -35,7 +35,7 @@ const parsedQueueData = JSON.parse(localStorage.getItem('queue'));
 export default async function onMovieClick(e) {
   try {
     e.preventDefault();
-
+    refs.body.classList.add('disable-scroll');
     refs.modalClose.addEventListener('click', onCloseModal);
     refs.backdrop.addEventListener('click', onCloseModalBackdrop);
     document.addEventListener('keydown', onCloseModalEsc);

@@ -171,7 +171,6 @@
   font-weight: 500;
   line-height: 1.33;
   border-radius: 5px;
-  
 }
 
 .modal__info--accent {
@@ -248,4 +247,13 @@
     background: $color-accent-secondary;
     color: $color-white;
   }
+}
+
+.disable-scroll {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
