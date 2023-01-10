@@ -39,10 +39,40 @@ export default async function onMovieClick(e) {
     const movie = await movieDB.fetchMovieDetails(filmID);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
 
-    console.log(results);
+    // console.log(results);
 
     renderTargetMovie(movie, results);
 
+    const trailerBtn = document.querySelector('.modal__trailer-btn');
+    const modalTrailer = document.querySelector('.modal-trailer');
+    const backdropTrailer = document.querySelector('.backdrop-trailer');
+    const closeBtn = document.querySelector('.modal-trailer__button--close');
+
+
+    trailerBtn.addEventListener('click', () => {
+      backdropTrailer.classList.remove('is-hidden');
+      console.log(results);
+
+      const trailer = `<iframe
+          class="youtube";
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/${results}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="trailer hidden-trailer"
+        ></iframe>`;
+      return modalTrailer.insertAdjacentHTML('beforeend', trailer);
+    });
+
+    closeBtn.addEventListener('click', () => {
+      backdropTrailer.classList.add('is-hidden');
+    });
+
+
+   
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
 
