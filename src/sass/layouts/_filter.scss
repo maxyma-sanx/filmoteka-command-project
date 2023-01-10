@@ -1,0 +1,30 @@
+.filter {
+    padding-top: 50px;
+}
+
+.filter__nav-flex {
+    display: flex;
+    gap: 30px;
+}
+
+.filter__text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $color-black;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.16;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    .filter__icon:hover,
+    .filter__icon:focus {
+            color: $color-accent-primary;
+            fill: $color-accent-primary;
+        }
+}
+
+
