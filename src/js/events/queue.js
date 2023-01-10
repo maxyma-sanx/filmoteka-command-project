@@ -6,15 +6,15 @@ import renderMovies from '../render/renderSearchMovies';
 
 const movieDB = new MovieDB();
 
-const parsedWatchedData = JSON.parse(localStorage.getItem('watched'));
+const parsedQueueData = JSON.parse(localStorage.getItem('queue'));
 
 export default (async function watchedMovies() {
-  if (!parsedWatchedData) {
+  if (!parsedQueueData) {
     return;
   }
 
   const data = await Promise.all(
-    parsedWatchedData.map(async id => {
+    parsedQueueData.map(async id => {
       const movieData = await movieDB.fetchMovieDetails(id);
       return movieData;
     })

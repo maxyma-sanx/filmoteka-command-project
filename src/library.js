@@ -8,3 +8,4 @@ import {
 } from './js/events/modal';
 
 import watchedMovies from './js/events/watched';
+import queueMovies from './js/events/queue';
