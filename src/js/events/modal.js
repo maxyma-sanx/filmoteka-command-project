@@ -1,13 +1,13 @@
 import refs from '../refs';
 
-// Закриття модалки по бекдропу
+// Закриття модалки по кнопці close
 function onCloseModal() {
   refs.backdrop.classList.add('is-hidden');
 
   removeEventListener();
 }
 
-// Закриття модалки ???
+// Закриття модалки по бекдропу
 function onCloseModalBackdrop(e) {
   if (e.target === refs.backdrop) {
     refs.backdrop.classList.add('is-hidden');
