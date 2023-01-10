@@ -39,9 +39,9 @@ export default async function onMovieClick(e) {
     const movie = await movieDB.fetchMovieDetails(filmID);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
 
-    // console.log(results[0].key); Отримати id трейлера
+    console.log(results);
 
-    renderTargetMovie(movie);
+    renderTargetMovie(movie, results);
 
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
