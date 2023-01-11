@@ -269,6 +269,14 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  @include tablet {
+    top: 40px;
+    left: 40px;
+  }
+  @include desktop {
+    top: 50px;
+    left: 25px;
+  }
 }
 
 .youtube {

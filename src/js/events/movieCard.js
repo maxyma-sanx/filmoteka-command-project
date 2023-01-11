@@ -71,7 +71,7 @@ export default async function onMovieClick(e) {
     watchedBtn.addEventListener('click', () => {
       if (watchedBtn.textContent === 'Add to watched') {
         watchedBtn.textContent = 'Remove from watched';
-
+        Notify.info('Success! The movie has been added to the library.');
         // Пушимо в localStorage id фільму
         checkData(parsedWatchedData, watched, filmID, WATCHED_KEY);
       } else {
@@ -86,7 +86,7 @@ export default async function onMovieClick(e) {
     queueBtn.addEventListener('click', () => {
       if (queueBtn.textContent === 'Add to queue') {
         queueBtn.textContent = 'Remove from queue';
-
+        Notify.info('Success! The movie has been added to the library.');
         // Пушимо в localStorage id фільму
         checkData(parsedQueueData, queue, filmID, QUEUE_KEY);
       } else {
