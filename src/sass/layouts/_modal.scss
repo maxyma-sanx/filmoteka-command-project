@@ -213,6 +213,8 @@
 
   @include tablet {
     width: 264px;
+    height: 260px;
+    overflow: auto;
   }
 
   @include desktop {
