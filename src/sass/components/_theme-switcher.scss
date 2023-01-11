@@ -1,0 +1,19 @@
+body {
+  background: #222d;
+}
+
+.dark body {
+  background: #fff;
+}
+
+.themetoggle {
+  color: #fff;
+}
+
+.dark .themetoggle {
+  color: #000;
+}
+
+.theme-switcher {
+  position: fixed;
+}

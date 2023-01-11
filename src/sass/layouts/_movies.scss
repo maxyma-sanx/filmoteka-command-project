@@ -57,11 +57,10 @@
     box-shadow: 0px 0px 15px 5px rgba(129, 119, 106, 0.5);
     transition: transform ease-in-out 300ms;
   }
-  &:focus {
-    color: red;
-  }
 }
-
+.movies__link {
+  border-color: 1px solid #222222;
+}
 .movies__img {
   // display: block;
   // margin: 0 auto;
@@ -107,3 +106,15 @@
     @include fonts(500, 20px, 1.2, null);
   }
 }
+
+// .theme {
+//   position: fixed;
+//   cursor: pointer;
+//   top: 50%;
+//   left: 10px;
+//   transform: translateY(-50%);
+//   padding: 10px;
+//   background: #ffffff;
+//   border-radius: 10px;
+//   box-shadow: 0 0 10px rgba(39, 38, 40, 0.4);
+// }
