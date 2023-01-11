@@ -9,7 +9,7 @@ const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
 const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
-console.log(parsedCurrent);
+
 if (parsedCurrent === 'header__library-btn--watched') {
   refs.watchedBtn.classList.add('header__library-btn--active');
 } else if (parsedCurrent === 'header__library-btn--queue') {
@@ -48,7 +48,7 @@ export default (async function watchedMovies() {
 
     const currentPage = refs.watchedBtn.classList;
     const res = currentPage[1];
-    console.log(currentPage[1]);
+
     localStorage.setItem(CURRENT_PAGE, JSON.stringify(res));
   }
 })();

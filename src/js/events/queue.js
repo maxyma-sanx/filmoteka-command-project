@@ -8,8 +8,6 @@ import onMovieClick from './movieCard';
 const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
-const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
-console.log(parsedCurrent);
 
 const parsedQueueData = JSON.parse(localStorage.getItem('queue'));
 
