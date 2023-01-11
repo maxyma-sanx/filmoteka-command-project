@@ -125,7 +125,7 @@
 
   &:hover,
   &:focus {
-    transform: translate(-50%, -50%)scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
@@ -253,6 +253,8 @@
 
   @include tablet {
     width: 264px;
+    height: 200px;
+    overflow-y: auto;
   }
 
   @include desktop {
