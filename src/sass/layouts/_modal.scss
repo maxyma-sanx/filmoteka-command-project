@@ -33,22 +33,16 @@
   position: relative;
   top: 75%;
   left: 50%;
-
-  max-width: 280px;
-  width: 100%;
-  // height: 609px;
   padding: 48px 20px 40px;
 
   @include tablet {
     top: 50%;
     max-width: 704px;
-    height: 552px;
     padding: 40px 36px 40px;
   }
 
   @include desktop {
     max-width: 806px;
-    height: 558px;
     padding: 40px 12px;
   }
 
@@ -214,6 +208,7 @@
 .modal__desc {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 
 .modal__desc-title {
@@ -232,14 +227,14 @@
   margin-bottom: 20px;
 
   @include tablet {
-    width: 264px;
-    height: 200px;
+    width: 320px;
+    max-height: 200px;
     overflow-y: auto;
   }
 
   @include desktop {
     width: 391px;
-    height: 200px;
+    max-height: 200px;
     overflow-y: auto;
   }
 }
@@ -247,6 +242,7 @@
 .modal__buttons-container {
   gap: 15px;
   display: flex;
+  justify-content: space-around;
 }
 
 .modal__btn {
@@ -314,5 +310,3 @@
     font-size: 38px;
   }
 }
-
-
