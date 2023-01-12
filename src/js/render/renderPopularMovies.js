@@ -1,6 +1,6 @@
 import refs from '../refs';
 
-import { Notify } from 'notiflix';
+import Notiflix, { Loading, Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import tuiPaginationAPI from '../API/tuiPaginationAPI';
@@ -15,9 +15,11 @@ const movieDB = new MovieDB();
 // Функція рендеру популярних фільмів на сторінку та її виклик
 export default (async function renderPopularMovies() {
   try {
+    Loading.standard();
     const { results, total_results } = await movieDB.fetchPopularMovie();
     const renderMarkup = await renderMovies(results);
     refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+    Loading.remove();
 
     // Створення пагінації фільмів по популярності
     const pagination = new Pagination(

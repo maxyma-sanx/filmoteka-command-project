@@ -22,13 +22,35 @@
 .header__list {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 .header__logo {
   margin-right: 12px;
   fill: transparent;
   stroke: $color-white;
+}
+
+.header__link-block {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-accent-secondary;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 5px #81776a80;
+  }
+  &:focus {
+    color: $color-white;
+    background-color: $color-accent-secondary;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 5px #81776a80;
+  }
 }
 
 .header__nav {
@@ -72,6 +94,23 @@
   text-transform: uppercase;
 
   color: $color-white;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-accent-secondary;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 5px #81776a80;
+  }
+  &:focus {
+    color: $color-white;
+    background-color: $color-accent-secondary;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 5px #81776a80;
+  }
 }
 
 .header__link-filmoteka {
@@ -117,6 +156,15 @@
   color: $color-white;
   font-size: 14px;
   line-height: 16px;
+
+  &:focus {
+    color: $color-white;
+    background-color: $color-accent-secondary;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 5px #81776a80;
+  }
   @include mobile {
     width: 280px;
   }
@@ -142,11 +190,28 @@
   background: transparent;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.6);
+  }
+  &:focus {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.6);
+  }
 }
 
 .header__search-logo {
   fill: transparent;
   stroke: $color-white;
+  &:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.6);
+  }
+  &:focus {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.6);
+  }
 }
 
 .header__warning-search {
