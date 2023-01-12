@@ -14,6 +14,15 @@ refs.googleSignOut.addEventListener('click', signOutFromGoogle);
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
+const isAuth = localStorage.getItem('auth');
+console.log(isAuth);
+if (!isAuth) {
+  refs.googleSignOut.style.display = 'none';
+  refs.myLibrary.style.display = 'none';
+} else if (isAuth) {
+  refs.googleSignOut.style.display = 'block';
+  refs.googleSignUp.style.display = 'none';
+}
 
 function signUpWithGoogle() {
   // Sign in Firebase using popup auth and Google as the identity provider.
@@ -29,6 +38,7 @@ function signUpWithGoogle() {
       localStorage.setItem('auth', JSON.stringify(token));
 
       Notify.info(`Success! User ${user.displayName} is authorized!`);
+      location.reload();
       // ...
     })
     .catch(error => {
@@ -48,6 +58,7 @@ function signOutFromGoogle() {
     .then(() => {
       localStorage.removeItem('auth');
       Notify.info(`Success! You is logout`);
+      location.reload();
     })
     .catch(error => {
       Notify.failure(`${error.message}`);
