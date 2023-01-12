@@ -4,6 +4,7 @@ import * as basicLightbox from 'basiclightbox'
 import { Notify } from 'notiflix';
 
 import MovieDB from '../API/fetchMovieAPI';
+import { clearHTML } from '../utils/clear';
 
 import renderTargetMovie from '../render/renderTargetMovie';
 import renderTrailer from '../render/renderTrailerIframe';
@@ -58,33 +59,46 @@ export default async function onMovieClick(e) {
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
     const trailerBtn = document.querySelector('.modal__trailer-btn');
-
     
-
     trailerBtn.addEventListener('click', () => {
-      const instance = basicLightbox.create(`
-        <div class="modal-trailer__backdrop">
-            <iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
-              src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
-            </iframe>
-         </div>`,
+      if (results.length === 0) {
+        const instance = basicLightbox.create(
+            `<div class="modal-iframe">
+              <p class="trailer-error">Trailer not found</p>
+            </div>`,
+            {
+              onShow: instance => {
+                window.addEventListener('keydown', function onEscClick(e) {
+                  if (e.code === 'Escape') {
+                    instance.close();
+                    window.removeEventListener('keydown', onEscClick);
+                  }
+                });
+              }
+            }
+        );
+
+        instance.show();
+      }
+    
+      const instance = basicLightbox.create(
+        `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
+            src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
+          </iframe>`,
         {
-          onShow: () => {
-            document.addEventListener('keydown', onEscapeTrailer)
-          },
-          onClose: () => {
-            document.removeEventListener('keydown', onEscapeTrailer)
+          onShow: instance => {
+            window.addEventListener('keydown', function onEscClick(e) {
+              // console.log(e);
+              if (e.code === 'Escape') {
+                instance.close();
+                window.removeEventListener('keydown', onEscClick);
+              }
+            });
           }
         });
       
-      instance.show();
-
-      function onEscapeTrailer(e) {
-        if (e.key === 'Escape') {
-          instance.close();
-        }
-      }
-    });
+        instance.show();     
+    })
 
     watchedBtn.addEventListener('click', () => {
       if (watchedBtn.textContent === 'Add to watched') {

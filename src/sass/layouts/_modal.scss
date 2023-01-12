@@ -297,3 +297,18 @@
     height: 654px;
   }
 }
+
+.trailer-error {
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+
+  @include tablet {
+    font-size: 26px;
+  }
+
+  @include desktop {
+    font-size: 38px;
+  }
+}
+
