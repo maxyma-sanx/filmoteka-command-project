@@ -5,6 +5,7 @@ import MovieDB from '../API/fetchMovieAPI';
 import renderMovies from '../render/renderSearchMovies';
 
 import onMovieClick from './movieCard';
+const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
 
@@ -32,6 +33,12 @@ export default (async function watchedMovies() {
   function addClassActive() {
     refs.watchedBtn.classList.remove('header__library-btn--active');
     refs.queueBtn.classList.add('header__library-btn--active');
+
     watchedMovies();
+
+    const currentPage = refs.queueBtn.classList;
+    const res = currentPage[1];
+    // console.log(currentPage[2]);
+    localStorage.setItem(CURRENT_PAGE, JSON.stringify(res));
   }
 })();
