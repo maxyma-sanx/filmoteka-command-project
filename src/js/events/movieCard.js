@@ -41,6 +41,8 @@ export default async function onMovieClick(e) {
 
     if (e.target === e.currentTarget) return;
 
+    const isAuth = JSON.parse(localStorage.getItem('auth'));
+
     refs.body.classList.add('disable-scroll');
     refs.modalClose.addEventListener('click', onCloseModal);
     refs.backdrop.addEventListener('click', onCloseModalBackdrop);
@@ -59,6 +61,14 @@ export default async function onMovieClick(e) {
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
     const trailerBtn = document.querySelector('.modal__trailer-btn');
+
+    if (!isAuth) {
+      watchedBtn.style.display = 'none';
+      queueBtn.style.display = 'none';
+    } else {
+      watchedBtn.style.display = 'block';
+      queueBtn.style.display = 'block';
+    }
 
     trailerBtn.addEventListener('click', () => {
       if (results.length === 0) {
@@ -128,10 +138,11 @@ export default async function onMovieClick(e) {
       } else {
         queueBtn.textContent = 'Add to queue';
 
+        Notify.info('Success! The movie has been removed from the library.');
+
         // Видаляємо з localStorage id фільму
         removeLocalData(queue, filmID, QUEUE_KEY);
         removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
-        Notify.info('Success! The movie has been removed from the library.');
       }
     });
   } catch (error) {

@@ -10,3 +10,5 @@ import {
 } from './js/events/modal';
 import onMovieClick from './js/events/movieCard';
 import themeSwither from './js/events/theme-switcher';
+
+import { signUpWithGoogle, signOutFromGoogle } from './js/API/firebaseAPI';

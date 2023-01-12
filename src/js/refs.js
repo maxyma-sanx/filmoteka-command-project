@@ -15,4 +15,7 @@ export default {
   modalTrailerIframe: document.querySelector('.modal-trailer-iframe-container'),
   myLibraryBtn: document.querySelector('.header__link--my-library'),
   myLibraryWrap: document.querySelector('.library__wrap'),
+  googleSignUp: document.querySelector('.googleSignUp'),
+  googleSignOut: document.querySelector('.googleSignOut'),
+  myLibrary: document.querySelector('.library'),
 };
