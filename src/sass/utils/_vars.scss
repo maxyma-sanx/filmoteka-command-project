@@ -14,3 +14,15 @@ $color-accent-secondary: #ff6b01;
 $color-text-secondary: #545454;
 $color-text-tetriary: #8c8c8c;
 $color-text-warning: rgb(255, 0, 27);
+
+[data-theme='light'] {
+  --bg: #f8f8f8;
+  --input-back: #ddd;
+  --input-color: #9b0004;
+}
+
+[data-theme='dark'] {
+  --bg: #0d151a;
+  // --input-color: #c9da8a;
+  --input-color: #294797;
+}
