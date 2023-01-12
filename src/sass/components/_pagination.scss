@@ -1,5 +1,16 @@
+.pagination {
+  @include mobile {
+    padding-bottom: 40px;
+  }
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+}
+
 .tui-pagination {
-  padding: 0 0 60px !important;
+  padding: 0px !important;
+  margin: 0px !important;
 }
 
 .tui-pagination .tui-page-btn {
@@ -8,10 +19,25 @@
 }
 
 .tui-pagination .tui-page-btn {
-  width: 40px !important;
-  height: 40px !important;
-  padding: 13px 0 !important;
   line-height: 1 !important;
+
+  @include mobile {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 10px 0 !important;
+  }
+
+  @include tablet {
+    width: 35px !important;
+    height: 35px !important;
+    padding: 12px 0 !important;
+  }
+
+  @include desktop {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 13px 0 !important;
+  }
 }
 
 .tui-pagination .tui-ico-ellip {
