@@ -4,10 +4,11 @@
 @import './utils/helpers';
 @import './base/global';
 @import './components/buttons';
+@import './components/theme-switcher';
+
 @import './layouts/header';
 @import './layouts/filter';
 @import './layouts/library-header';
-@import './layouts/library';
 @import './layouts/movies';
 @import './components/pagination';
 @import './layouts/footer';

@@ -1,5 +1,6 @@
 import 'animate.css';
 import './js/API/notiflixAPI';
+import themeSwither from './js/events/theme-swicher';
 
 import {
   onCloseModal,
@@ -7,5 +8,3 @@ import {
   onCloseModalEsc,
 } from './js/events/modal';
 
-import watchedMovies from './js/events/watched';
-import queueMovies from './js/events/queue';
