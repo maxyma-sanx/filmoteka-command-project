@@ -125,7 +125,7 @@
 
   &:hover,
   &:focus {
-    transform: translate(-50%, -50%)scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
@@ -233,10 +233,14 @@
 
   @include tablet {
     width: 264px;
+    height: 200px;
+    overflow-y: auto;
   }
 
   @include desktop {
     width: 391px;
+    height: 200px;
+    overflow-y: auto;
   }
 }
 
@@ -291,24 +295,8 @@
     height: 425px;
   }
 
-
   @include desktop {
     width: 1164px;
     height: 654px;
   }
 }
-
-.trailer-error {
-  color: white;
-  text-transform: uppercase;
-  font-size: 18px;
-
-  @include tablet {
-    font-size: 26px;
-  }
-
-  @include desktop {
-    font-size: 38px;
-  }
-}
-

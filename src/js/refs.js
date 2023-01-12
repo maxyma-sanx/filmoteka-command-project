@@ -13,4 +13,5 @@ export default {
   backdropTrailer: document.querySelector('.backdrop-trailer'),
   closeBtn: document.querySelector('.modal-trailer__button--close'),
   modalTrailerIframe: document.querySelector('.modal-trailer-iframe-container'),
+  myLibraryBtn: document.querySelector('.header__link--my-library'),
 };

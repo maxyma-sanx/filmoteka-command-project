@@ -65,3 +65,8 @@
 .header__library-btn--queue {
   padding: 14px 45px 12px;
 }
+
+.header__library-btn--active {
+  background-color: $color-accent-secondary;
+  border: 1px solid transparent;
+}
