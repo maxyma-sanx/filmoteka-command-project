@@ -67,7 +67,23 @@ export default async function onMovieClick(e) {
             <iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
               src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
             </iframe>
-        </div>`).show()
+         </div>`,
+        {
+          onShow: () => {
+            document.addEventListener('keydown', onEscapeTrailer)
+          },
+          onClose: () => {
+            document.removeEventListener('keydown', onEscapeTrailer)
+          }
+        });
+      
+      instance.show();
+
+      function onEscapeTrailer(e) {
+        if (e.key === 'Escape') {
+          instance.close();
+        }
+      }
     });
 
     watchedBtn.addEventListener('click', () => {
@@ -103,3 +119,4 @@ export default async function onMovieClick(e) {
     Notify.failure(`${error.message}`);
   }
 }
+
