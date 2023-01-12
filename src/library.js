@@ -9,3 +9,4 @@ import {
 
 import watchedMovies from './js/events/watched';
 import queueMovies from './js/events/queue';
+import themeSwither from './js/events/theme-switcher';
