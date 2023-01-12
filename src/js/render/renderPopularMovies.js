@@ -30,10 +30,11 @@ export default (async function renderPopularMovies() {
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
       clearHTML(refs.movies);
-
+      Loading.standard();
       const { results } = await movieDB.fetchPopularMovie();
       const renderMarkup = await renderMovies(results);
       refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+      Loading.remove();
     });
   } catch (error) {
     Notify.failure(`${error.message}`);

@@ -1,6 +1,6 @@
 import refs from '../refs';
 
-import { Notify } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import tuiPaginationAPI from '../API/tuiPaginationAPI';
@@ -28,7 +28,7 @@ export default async function onSeachFormSubmit(e) {
       refs.warningText.textContent = WARNING_TEXT;
       return;
     }
-
+    Loading.standard();
     const { results, total_results } = await movieDB.fetchSearchMovie();
 
     if (results.length === 0) {
@@ -41,7 +41,7 @@ export default async function onSeachFormSubmit(e) {
 
     const renderMarkup = await renderMovies(results);
     refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
-
+    Loading.remove();
     // Створення пагінації фільмів по пошуку
     const pagination = new Pagination(
       refs.pagination,
@@ -51,10 +51,11 @@ export default async function onSeachFormSubmit(e) {
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
       clearHTML(refs.movies);
-
+      Loading.standard();
       const { results } = await movieDB.fetchSearchMovie();
       const renderMarkup = await renderMovies(results);
       refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+      Loading.remove();
     });
 
     e.target.reset();
