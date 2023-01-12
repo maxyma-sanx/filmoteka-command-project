@@ -239,6 +239,8 @@
 
   @include desktop {
     width: 391px;
+    height: 200px;
+    overflow-y: auto;
   }
 }
 
@@ -292,7 +294,6 @@
     width: 757px;
     height: 425px;
   }
-
 
   @include desktop {
     width: 1164px;
