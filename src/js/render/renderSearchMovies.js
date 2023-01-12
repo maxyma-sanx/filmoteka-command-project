@@ -36,7 +36,7 @@ export default async function renderMovies(data) {
 
         // Перевірка довжини массиву з жанрами
         const genresArr =
-          genresList.length < 3
+          genresList.length <= 3
             ? genresList.join(', ')
             : `${genresList[0]}, ${genresList[1]}, Other`;
 
