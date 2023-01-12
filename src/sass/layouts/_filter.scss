@@ -1,5 +1,6 @@
 .filter {
-    padding-top: 50px;
+    padding-top: 20px;
+
 }
 
 .filter__nav-flex {
@@ -19,33 +20,36 @@
     cursor: pointer;
 }
 
+.filter__icon {
+    margin-bottom: -3px;
+}
+
 // DROPDOWN MENU //
 .drophover {
-        display: inline-block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        border-radius: 7px;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 7px;
 
-            &:hover,
-            &:focus,
-            .filter__text:hover,
-            .filter__text:focus,
-            .filter__icon:hover,
-            .filter__icon:focus {
-                color: $color-white;
-                fill: $color-white;
-                background-color: $color-text-warning;
+        &:hover,
+        &:focus,
+        .filter__text:hover,
+        .filter__text:focus,
+        .filter__icon:hover,
+        .filter__icon:focus {
+            color: $color-white;
+            fill: $color-white;
+            background-color: $color-text-warning;
         }    
-    }        
-
+}         
 
 .dropdown {
     display: inline-block;
     
-                 &:hover .dropdown__content {
-                    display: block;
-                }
+        &:hover .dropdown__content {
+            display: block;
+        }
 }
 
 .dropdown__content {
