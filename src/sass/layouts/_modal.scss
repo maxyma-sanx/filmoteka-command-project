@@ -95,7 +95,7 @@
 
   @include tablet {
     flex-direction: row;
-    gap: 68px;
+    // gap: 68px;
   }
 
   @include desktop {
@@ -130,13 +130,13 @@
   height: 100%;
 
   @include tablet {
-    width: 264px;
-    height: 374px;
+    min-width: 264px;
+    min-height: 374px;
   }
 
   @include desktop {
-    width: 375px;
-    height: 478px;
+    min-width: 375px;
+    min-height: 478px;
   }
 }
 
@@ -220,7 +220,7 @@
 }
 
 .modal__desc-text {
-  width: 240px;
+  // width: 240px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
@@ -240,9 +240,9 @@
 }
 
 .modal__buttons-container {
-  gap: 15px;
+  gap: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .modal__btn {
