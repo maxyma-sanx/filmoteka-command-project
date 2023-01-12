@@ -38,13 +38,17 @@ const parsedQueueData = JSON.parse(localStorage.getItem('queue'));
 export default async function onMovieClick(e) {
   try {
     e.preventDefault();
+
+    if (e.target === e.currentTarget) return;
+
     refs.body.classList.add('disable-scroll');
     refs.modalClose.addEventListener('click', onCloseModal);
     refs.backdrop.addEventListener('click', onCloseModalBackdrop);
     document.addEventListener('keydown', onCloseModalEsc);
     refs.backdrop.classList.remove('is-hidden');
 
-    if (e.target === e.currentTarget) return;
+    console.log(e.target);
+    console.log(e.currentTarget);
 
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
