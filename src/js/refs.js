@@ -18,4 +18,5 @@ export default {
   googleSignUp: document.querySelector('.googleSignUp'),
   googleSignOut: document.querySelector('.googleSignOut'),
   myLibrary: document.querySelector('.library'),
+  googleSignOutFromLibrary: document.querySelector('.googleSignOut-library'),
 };
