@@ -242,6 +242,7 @@
 .modal__buttons-container {
   gap: 15px;
   display: flex;
+  justify-content: space-around;
 }
 
 .modal__btn {
