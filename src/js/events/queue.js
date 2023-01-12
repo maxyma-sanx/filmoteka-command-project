@@ -22,9 +22,14 @@ export default (async function watchedMovies() {
       return movieData;
     })
   );
+
   if (refs.queueBtn.classList.contains('header__library-btn--active')) {
     const renderMarkup = await renderMovies(data);
     refs.movies.innerHTML = renderMarkup;
+
+    if (renderMarkup.includes('li class="movies__item"')) {
+      refs.myLibraryWrap.innerHTML = '';
+    }
   }
 
   refs.movies.addEventListener('click', onMovieClick);
