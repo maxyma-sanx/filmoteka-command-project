@@ -1,5 +1,5 @@
 import refs from '../refs';
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
 
 import { Notify } from 'notiflix';
 
@@ -73,13 +73,13 @@ export default async function onMovieClick(e) {
                   window.removeEventListener('keydown', onEscClick);
                 }
               });
-            }
+            },
           }
         );
 
         instance.show();
       }
-    
+
       const instance = basicLightbox.create(
         `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
             src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
@@ -93,9 +93,10 @@ export default async function onMovieClick(e) {
                 window.removeEventListener('keydown', onEscClick);
               }
             });
-          }
-        });
-      
+          },
+        }
+      );
+
       instance.show();
     });
 
@@ -112,6 +113,7 @@ export default async function onMovieClick(e) {
         // Видаляємо з localStorage id фільму
         removeLocalData(watched, filmID, WATCHED_KEY);
         removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
+        Notify.info('Success! The movie has been removed from the library.');
       }
     });
 
@@ -128,10 +130,10 @@ export default async function onMovieClick(e) {
         // Видаляємо з localStorage id фільму
         removeLocalData(queue, filmID, QUEUE_KEY);
         removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
+        Notify.info('Success! The movie has been removed from the library.');
       }
     });
   } catch (error) {
     Notify.failure(`${error.message}`);
   }
 }
-
