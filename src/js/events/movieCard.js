@@ -47,9 +47,6 @@ export default async function onMovieClick(e) {
     document.addEventListener('keydown', onCloseModalEsc);
     refs.backdrop.classList.remove('is-hidden');
 
-    console.log(e.target);
-    console.log(e.currentTarget);
-
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
 
