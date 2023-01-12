@@ -146,26 +146,6 @@
   }
 }
 
-.modal-trailer__button--close {
-  position: absolute;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  top: 8px;
-  right: 8px;
-
-  width: 30px;
-  height: 30px;
-
-  background: $color-white;
-  border: transparent;
-
-  padding: 0;
-  cursor: pointer;
-}
-
 .modal__wrapper {
   flex-direction: column;
   gap: 20px;
@@ -300,4 +280,20 @@
   left: 0;
   top: 0;
   width: 100%;
+}
+
+.video-trailer {
+  width: 100%;
+  height: 170px;
+
+  @include tablet {
+    width: 757px;
+    height: 425px;
+  }
+
+
+  @include desktop {
+    width: 1164px;
+    height: 654px;
+  }
 }

@@ -1,4 +1,5 @@
 import refs from '../refs';
+import * as basicLightbox from 'basiclightbox'
 
 import { Notify } from 'notiflix';
 
@@ -58,14 +59,15 @@ export default async function onMovieClick(e) {
     const queueBtn = document.getElementById('addToQueueBtn');
     const trailerBtn = document.querySelector('.modal__trailer-btn');
 
-    trailerBtn.addEventListener('click', () => {
-      refs.backdropTrailer.classList.remove('is-hidden');
-      const renderTrailerMarkup = renderTrailer(results);
-      refs.modalTrailerIframe.innerHTML = renderTrailerMarkup;
-    });
+    
 
-    refs.closeBtn.addEventListener('click', () => {
-      refs.backdropTrailer.classList.add('is-hidden');
+    trailerBtn.addEventListener('click', () => {
+      const instance = basicLightbox.create(`
+        <div class="modal-trailer__backdrop">
+            <iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
+              src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
+            </iframe>
+        </div>`).show()
     });
 
     watchedBtn.addEventListener('click', () => {
