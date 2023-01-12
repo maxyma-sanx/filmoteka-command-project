@@ -1,7 +1,7 @@
 import refs from '../refs';
 import * as basicLightbox from 'basiclightbox';
 
-import { Notify } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 
 import MovieDB from '../API/fetchMovieAPI';
 
@@ -51,12 +51,12 @@ export default async function onMovieClick(e) {
 
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
-
+    Loading.standard();
     const movie = await movieDB.fetchMovieDetails(filmID);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
 
     renderTargetMovie(movie, results);
-
+    Loading.remove();
     // Знаходимо кнопки watchedBtn та queueBtn після рендеру картки з фільмом
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
