@@ -21,6 +21,8 @@
     transition-property: color;
     transition-duration: 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // DARK THEME SWITCH
+    color: var(--default-text-color);
 }
 
 .filter__icon {
@@ -28,6 +30,8 @@
     transition-property: fill;
     transition-duration: 100ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // DARK THEME SWITCH
+    fill: var(--default-text-color);
 }
 
 // DROPDOWN MENU
@@ -97,24 +101,21 @@
 }
 
 // SCROLL DROPDOWN MENU
-.force-scroll {
+.dropdown__scroll {
     overflow: auto;
     height: 205px;
 }
 
-/* width */
-.force-scroll::-webkit-scrollbar {
+.dropdown__scroll::-webkit-scrollbar {
     width: 9px;
 }
 
-/* Track */
-.force-scroll::-webkit-scrollbar-track {
+.dropdown__scroll::-webkit-scrollbar-track {
     background: $color-grey;
     border-radius: 7px;
 }
 
-/* Handle */
-.force-scroll::-webkit-scrollbar-thumb {
+.dropdown__scroll::-webkit-scrollbar-thumb {
     background: $color-accent-primary;
     border-radius: 7px;
 }
