@@ -17,7 +17,7 @@ $color-text-warning: rgb(255, 0, 27);
 
 [data-theme='light'] {
   --default-text-color: #000;
-  --bg: #f8f8f8;
+  --bg: #fff;
   --input-back: #ddd;
   --input-color: #9b0004;
 }
@@ -27,5 +27,4 @@ $color-text-warning: rgb(255, 0, 27);
   --bg: #0d151a;
   --input-back: #ddd;
   --input-color: #294797;
-  // --input-color: #c9da8a;
 }
