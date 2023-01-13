@@ -1,0 +1,32 @@
+.footer {
+  background-color: $color-grey;
+}
+
+.footer__info {
+  text-align: center;
+  color: $color-text-secondary;
+
+  @include mobile {
+    padding: 29px 0 30px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @include tablet {
+    padding: 30px 0 30px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @include desktop {
+    padding: 30px 0 28px;
+  }
+}
+
+.footer__link {
+  text-decoration: underline;
+}
+
+.footer__logo {
+  fill: $color-accent-primary;
+}

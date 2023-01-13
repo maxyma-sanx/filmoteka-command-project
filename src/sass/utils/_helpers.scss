@@ -1,0 +1,28 @@
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include mobile {
+    width: $mobile;
+  }
+
+  @include tablet {
+    padding: 0 30px;
+    width: $tablet;
+  }
+
+  @include desktop {
+    width: $desktop;
+  }
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}

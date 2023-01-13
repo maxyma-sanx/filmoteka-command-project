@@ -1,0 +1,102 @@
+.library__info {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  @include tablet {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  @include desktop {
+    font-size: 20px;
+    line-height: 27px;
+  }
+}
+.library__image {
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  width: 100%;
+  height: 35vh;
+  background-image: url(/src/images/library-mob-1x.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  @include tablet {
+    background-image: url(/src/images/library-tab-1x.jpg);
+  }
+
+  @include desktop {
+    height: 42vh;
+    min-width: 1280px;
+
+    background-image: url(/src/images/library-desc-1x.jpg);
+  }
+}
+
+.container__my-library--margin-top {
+  margin-top: 20px;
+  @include tablet {
+    margin-top: 60px;
+  }
+}
+.library__btn {
+  // width: 130px;
+  // height: 40px;
+  // line-height: 42px;
+  display: inline-block;
+  cursor: pointer;
+
+  min-width: 215px;
+  height: 20px;
+  padding: 3px;
+  border: none;
+  color: $color-white;
+  background: rgb(255, 107, 8);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 107, 8, 1) 0%,
+    rgb(249, 21, 21) 100%
+  );
+  transition: transform 0.3s ease-in-out;
+  @include tablet {
+    min-width: 240px;
+    height: 24px;
+  }
+  @include desktop {
+    min-width: 300px;
+    height: 30px;
+  }
+}
+.library__btn:hover {
+  color: $color-black;
+  background: transparent;
+  box-shadow: none;
+}
+.library__btn:before,
+.library__btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: rgb(255, 107, 8);
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+.library__btn:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.library__btn:hover:before,
+.library__btn:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
