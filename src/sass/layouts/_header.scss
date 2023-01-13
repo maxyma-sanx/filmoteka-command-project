@@ -37,18 +37,18 @@
 
   &:hover {
     color: $color-white;
-    background-color: $color-accent-secondary;
+    // background-color: $color-accent-secondary;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.03);
+    transform: scale(1.1);
     box-shadow: 0 0 15px 5px #81776a80;
   }
   &:focus {
     color: $color-white;
-    background-color: $color-accent-secondary;
+    // background-color: $color-accent-secondary;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.03);
+    transform: scale(1.1);
     box-shadow: 0 0 15px 5px #81776a80;
   }
 }
@@ -97,18 +97,18 @@
 
   &:hover {
     color: $color-white;
-    background-color: $color-accent-secondary;
+    // background-color: $color-accent-secondary;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.03);
+    transform: scale(1.15);
     box-shadow: 0 0 15px 5px #81776a80;
   }
   &:focus {
     color: $color-white;
-    background-color: $color-accent-secondary;
+    // background-color: $color-accent-secondary;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.03);
+    transform: scale(1.15);
     box-shadow: 0 0 15px 5px #81776a80;
   }
 }
@@ -159,10 +159,10 @@
 
   &:focus {
     color: $color-white;
-    background-color: $color-accent-secondary;
+    // background-color: $color-accent-secondary;
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    transform: scale(1.03);
+    transform: scale(1.1);
     box-shadow: 0 0 15px 5px #81776a80;
   }
   @include mobile {
