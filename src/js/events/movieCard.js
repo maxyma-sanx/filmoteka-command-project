@@ -71,29 +71,29 @@ export default async function onMovieClick(e) {
     }
 
     trailerBtn.addEventListener('click', () => {
-      if (results.length === 0) {
-        const instance = basicLightbox.create(
-          `<div class="modal-iframe">
-              <p class="trailer-error">Trailer not found</p>
-            </div>`,
-          {
-            onShow: instance => {
-              window.addEventListener('keydown', function onEscClick(e) {
-                if (e.code === 'Escape') {
-                  instance.close();
-                  window.removeEventListener('keydown', onEscClick);
-                }
-              });
-            },
-          }
-        );
+      // if (results.length === 0) {
+      //   const instance = basicLightbox.create(
+      //     `<div class="modal-iframe">
+      //         <p class="trailer-error">Trailer not found</p>
+      //       </div>`,
+      //     {
+      //       onShow: instance => {
+      //         window.addEventListener('keydown', function onEscClick(e) {
+      //           if (e.code === 'Escape') {
+      //             instance.close();
+      //             window.removeEventListener('keydown', onEscClick);
+      //           }
+      //         });
+      //       },
+      //     }
+      //   );
 
-        instance.show();
-      }
+      //   instance.show();
+      // }
 
       const instance = basicLightbox.create(
         `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
-            src="https://www.youtube.com/embed/${results[0].key}?autoplay=1" >
+            src="https://www.youtube.com/embed/${results[0] ? results[0].key : 'zwBpUdZ0lrQ'}?autoplay=1" >
           </iframe>`,
         {
           onShow: instance => {
