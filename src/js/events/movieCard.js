@@ -25,6 +25,10 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 const movieDB = new MovieDB();
+let lang = JSON.parse(localStorage.getItem('user-setting'));
+if (!lang) {
+  lang = 'en-US';
+}
 
 // Пусті массиви на той випадок, коли localStorage порожній
 const watched = [];
@@ -52,7 +56,7 @@ export default async function onMovieClick(e) {
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
     Loading.standard();
-    const movie = await movieDB.fetchMovieDetails(filmID);
+    const movie = await movieDB.fetchMovieDetails(filmID, lang.lang);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
 
     renderTargetMovie(movie, results);
@@ -93,7 +97,9 @@ export default async function onMovieClick(e) {
 
       const instance = basicLightbox.create(
         `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
-            src="https://www.youtube.com/embed/${results[0] ? results[0].key : 'zwBpUdZ0lrQ'}?autoplay=1" >
+            src="https://www.youtube.com/embed/${
+              results[0] ? results[0].key : 'zwBpUdZ0lrQ'
+            }?autoplay=1" >
           </iframe>`,
         {
           onShow: instance => {

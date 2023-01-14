@@ -11,12 +11,18 @@ import renderMovies from '../render/renderSearchMovies';
 import { clearHTML } from '../utils/clear';
 
 const movieDB = new MovieDB();
+let lang = JSON.parse(localStorage.getItem('user-setting'));
+if (!lang) {
+  lang = 'en-US';
+}
 
 // Функція рендеру популярних фільмів на сторінку та її виклик
 export default (async function renderPopularMovies() {
   try {
     Loading.standard();
-    const { results, total_results } = await movieDB.fetchPopularMovie();
+    const { results, total_results } = await movieDB.fetchPopularMovie(
+      lang.lang
+    );
     const renderMarkup = await renderMovies(results);
     refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
     Loading.remove();
