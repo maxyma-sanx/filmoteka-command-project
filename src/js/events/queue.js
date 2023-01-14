@@ -8,6 +8,10 @@ import onMovieClick from './movieCard';
 const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
+let lang = JSON.parse(localStorage.getItem('user-setting'));
+if (!lang) {
+  lang = 'en-US';
+}
 
 const parsedQueueData = JSON.parse(localStorage.getItem('queue'));
 
@@ -18,7 +22,7 @@ export default (async function watchedMovies() {
 
   const data = await Promise.all(
     parsedQueueData.map(async id => {
-      const movieData = await movieDB.fetchMovieDetails(id);
+      const movieData = await movieDB.fetchMovieDetails(id, lang.lang);
       return movieData;
     })
   );

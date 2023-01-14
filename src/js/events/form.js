@@ -11,6 +11,10 @@ import renderMovies from '../render/renderSearchMovies';
 import { clearContent, clearHTML } from '../utils/clear';
 
 const movieDB = new MovieDB();
+let lang = JSON.parse(localStorage.getItem('user-setting'));
+if (!lang) {
+  lang = 'en-US';
+}
 
 const WARNING_TEXT =
   'Search result not successful. Enter the correct movie name and try again';
@@ -29,7 +33,9 @@ export default async function onSeachFormSubmit(e) {
       return;
     }
     Loading.standard();
-    const { results, total_results } = await movieDB.fetchSearchMovie();
+    const { results, total_results } = await movieDB.fetchSearchMovie(
+      lang.lang
+    );
 
     if (results.length === 0) {
       refs.warningText.textContent = WARNING_TEXT;

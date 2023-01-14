@@ -16,8 +16,8 @@ export default class MovieDB {
   };
 
   // Запит на отримання фільмів по популярності
-  async fetchPopularMovie() {
-    const url = `trending/movie/day?page=${this.#page}`;
+  async fetchPopularMovie(lang) {
+    const url = `trending/movie/day?page=${this.#page}&language=${lang}`;
 
     const { data } = await axios.get(url, this.#moviesParams);
 
@@ -25,8 +25,10 @@ export default class MovieDB {
   }
 
   // Запит на отримання фільмів по запиту (пошуку)
-  async fetchSearchMovie() {
-    const url = `search/movie/?query=${this.#searchQuery}&page=${this.#page}`;
+  async fetchSearchMovie(lang) {
+    const url = `search/movie/?query=${this.#searchQuery}&page=${
+      this.#page
+    }&language=${lang}`;
 
     const { data } = await axios.get(url, this.#moviesParams);
 
@@ -34,17 +36,20 @@ export default class MovieDB {
   }
 
   // Запит на отримання жанрів фільмів
-  async fetchMoviesGenres() {
+  async fetchMoviesGenres(lang) {
     const {
       data: { genres },
-    } = await axios.get(`genre/movie/list?`, this.#moviesParams);
+    } = await axios.get(
+      `genre/movie/list?language=${lang}`,
+      this.#moviesParams
+    );
 
     return genres;
   }
 
   // Запит на отримання детальної інформації про один фільм по id
-  async fetchMovieDetails(id) {
-    const url = `movie/${id}?`;
+  async fetchMovieDetails(id, lang) {
+    const url = `movie/${id}?language=${lang}`;
 
     const { data } = await axios.get(url, this.#moviesParams);
 

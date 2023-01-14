@@ -2,7 +2,11 @@ import langs from '../events/language-map';
 import refs from '../refs';
 
 const languageSelect = refs.languageSelectBtn;
-const allLang = ['en', 'ru', 'uk'];
+// refs.languageSelectBtn.children[1].textContent
+
+// console.log(refs.languageSelectBtn.value);
+// console.log(refs.languageSelectBtn.value);
+const allLang = ['en-US', 'ru-RU', 'uk-UA'];
 
 function getStorageSetting() {
   const saveData = localStorage.getItem('user-setting');
@@ -30,6 +34,7 @@ function setStorageSetting(key, value) {
   }
 
   const dataJson = JSON.stringify(newData);
+  console.log(dataJson);
 
   localStorage.setItem('user-setting', dataJson);
 }
@@ -40,6 +45,7 @@ function changeURLLanguage(e) {
   let lang = e.currentTarget.value;
   location.href = `${window.location.pathname}#${lang}`;
   setStorageSetting('lang', lang);
+
   location.reload();
   // changeLanguage();
 }
@@ -56,11 +62,12 @@ function changeLanguage() {
   let hash = window.location.hash.substring(1);
 
   if (!allLang.includes(hash)) {
-    location.href = `${window.location.pathname}#en`;
+    location.href = `${window.location.pathname}#en-US`;
     location.reload();
   }
 
   languageSelect.value = hash;
+  console.log(languageSelect.value);
   setStorageSetting('lang', hash);
 
   const keys = Object.keys(langs);
