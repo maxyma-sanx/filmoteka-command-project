@@ -134,25 +134,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px;
 
   margin: 0 auto;
 
   border: 0;
   border-bottom: 0.5px solid $color-white;
-  outline: none;
 
   background: transparent;
   color: $color-white;
   font-size: 14px;
   line-height: 16px;
 
+  transition-property: transform, outline, border-radius, border-bottom;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:focus {
-    color: $color-white;
-    // background-color: $color-accent-secondary;
+    outline: 3px solid #9b0004;
+    outline-offset: 7px;
     border-radius: 5px;
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.1);
-    box-shadow: 0 0 15px 5px #81776a80;
+    border-bottom: none;
+  }
+
+  &:focus ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
+  }
+
+  &:hover ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
   }
   @include mobile {
     width: 280px;
@@ -174,33 +184,17 @@
 .header__btn {
   position: absolute;
   right: -7px;
-  top: 0;
+  top: 5px;
   display: block;
   background: transparent;
   border: none;
   cursor: pointer;
-
-  &:hover {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.6);
-  }
-  &:focus {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.6);
-  }
 }
 
 .header__search-logo {
   fill: transparent;
   stroke: $color-white;
-  &:hover {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.6);
-  }
-  &:focus {
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.6);
-  }
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header__warning-search {

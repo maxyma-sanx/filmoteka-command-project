@@ -15,7 +15,7 @@ refs.googleSignOut.addEventListener('click', signOutFromGoogle);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const isAuth = localStorage.getItem('auth');
-console.log(isAuth);
+
 if (!isAuth) {
   refs.googleSignOut.style.display = 'none';
   refs.myLibrary.style.display = 'none';
