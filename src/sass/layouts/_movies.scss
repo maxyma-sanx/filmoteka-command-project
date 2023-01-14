@@ -23,6 +23,7 @@
 }
 
 .movies__item {
+  display: flex;
   border: 1px solid rgb(127, 118, 118);
   border-radius: 5px;
   margin-top: 32px;
@@ -43,12 +44,18 @@
     }
   }
   &:hover,
-  &focus {
+  &:focus-within {
     scale: 1.03;
     border-radius: 5px;
     box-shadow: 0px 0px 15px 5px rgb(127, 118, 118);
     outline: 3px solid $color-accent-secondary;
   }
+}
+
+.movies__link {
+  display: flex;
+  flex-direction: column;
+  outline: none;
 }
 
 .movies__img {
@@ -72,6 +79,7 @@
 }
 
 .movies__info {
+  flex-grow: 1;
   padding: 10px 10px;
   @include tablet {
     max-width: 336px;
