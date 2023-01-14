@@ -19,4 +19,5 @@ export default {
   googleSignOut: document.getElementById('googleSignOut'),
   myLibrary: document.querySelector('.header__link--library'),
   googleSignOutFromLibrary: document.getElementById('libraryGoogleSignOut'),
+  languageSelectBtn: document.querySelector('.language-btn'),
 };
