@@ -33,7 +33,7 @@ export default function renderTargetMovie(data, results) {
   const markUpModal = `
         <div class="modal__img-container">
           <img class="modal__image" src='${
-          poster_path ? poster : posterPlaceholder
+            poster_path ? poster : posterPlaceholder
           }' alt="${title}" />
           <button class="modal__trailer-btn" type="button">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 1024 1024">
@@ -95,5 +95,6 @@ export default function renderTargetMovie(data, results) {
             </div>
             </div>
         </div>`;
+
   refs.modalMovie.innerHTML = markUpModal;
 }

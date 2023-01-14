@@ -1,6 +1,6 @@
 import refs from '../refs';
-import * as basicLightbox from 'basiclightbox';
 
+import * as basicLightbox from 'basiclightbox';
 import { Loading, Notify } from 'notiflix';
 
 import MovieDB from '../API/fetchMovieAPI';
@@ -16,6 +16,7 @@ import {
 
 import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
+import lang from '../utils/checkLang';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -23,10 +24,6 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 const movieDB = new MovieDB();
-let lang = JSON.parse(localStorage.getItem('user-setting'));
-if (!lang) {
-  lang = 'en-US';
-}
 
 // Массиви данних які беруться з localStorage при завантаженні сторінки
 const parsedWatchedData = JSON.parse(localStorage.getItem('watched')) || [];
@@ -39,27 +36,29 @@ export default async function onMovieClick(e) {
 
     if (e.target === e.currentTarget) return;
 
-    const isAuth = JSON.parse(localStorage.getItem('auth'));
+    modalCloseHandler();
 
-    refs.body.classList.add('disable-scroll');
-    refs.modalClose.addEventListener('click', onCloseModal);
-    refs.backdrop.addEventListener('click', onCloseModalBackdrop);
-    document.addEventListener('keydown', onCloseModalEsc);
-    refs.backdrop.classList.remove('is-hidden');
+    // Отримуємо статус авторизації
+    const isAuth = JSON.parse(localStorage.getItem('auth'));
 
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
+
     Loading.standard();
-    const movie = await movieDB.fetchMovieDetails(filmID, lang.lang);
+
+    const movie = await movieDB.fetchMovieDetails(filmID, lang);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
 
     renderTargetMovie(movie, results);
+
     Loading.remove();
+
     // Знаходимо кнопки watchedBtn та queueBtn після рендеру картки з фільмом
     const watchedBtn = document.getElementById('addToWatchedBtn');
     const queueBtn = document.getElementById('addToQueueBtn');
     const trailerBtn = document.querySelector('.modal__trailer-btn');
 
+    // Статус кнопок на сторінці модалки, відповідно до статусу авторизації
     if (!isAuth) {
       watchedBtn.style.display = 'none';
       queueBtn.style.display = 'none';
@@ -68,34 +67,17 @@ export default async function onMovieClick(e) {
       queueBtn.style.display = 'block';
     }
 
+    // Клік по кнопці Youtube
     trailerBtn.addEventListener('click', () => {
-      const movieID = results.find(item => item.name === 'Official Trailer');
-
-      const instance = basicLightbox.create(
-        `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
-            src="https://www.youtube.com/embed/${
-              movieID ? movieID.key : 'zwBpUdZ0lrQ'
-            }?autoplay=1" >
-          </iframe>`,
-        {
-          onShow: instance => {
-            window.addEventListener('keydown', function onEscClick(e) {
-              if (e.code === 'Escape') {
-                instance.close();
-                window.removeEventListener('keydown', onEscClick);
-              }
-            });
-          },
-        }
-      );
-
-      instance.show();
+      createBasicLightBoxIframe(results);
     });
 
+    // Клік по кнопці Watched
     watchedBtn.addEventListener('click', () => {
       changeWatchedBtn(watchedBtn, filmID);
     });
 
+    // Клік по кнопці Queue
     queueBtn.addEventListener('click', () => {
       queueWatchedBtn(queueBtn, filmID);
     });
@@ -139,4 +121,40 @@ function queueWatchedBtn(btn, filmID) {
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
   }
+}
+
+// Функція створює розмітку для iFrame відео з ютубу по id
+
+function createBasicLightBoxIframe(data) {
+  const movieID = data.find(item => item.name === 'Official Trailer');
+
+  const instance = basicLightbox.create(
+    `<iframe class="video-trailer" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
+            src="https://www.youtube.com/embed/${
+              movieID ? movieID.key : 'zwBpUdZ0lrQ'
+            }?autoplay=1" >
+          </iframe>`,
+    {
+      onShow: instance => {
+        window.addEventListener('keydown', function onEscClick(e) {
+          if (e.code === 'Escape') {
+            instance.close();
+            window.removeEventListener('keydown', onEscClick);
+          }
+        });
+      },
+    }
+  );
+
+  instance.show();
+}
+
+// Обробка слухачів модального вікна
+
+function modalCloseHandler() {
+  refs.body.classList.add('disable-scroll');
+  refs.modalClose.addEventListener('click', onCloseModal);
+  refs.backdrop.addEventListener('click', onCloseModalBackdrop);
+  document.addEventListener('keydown', onCloseModalEsc);
+  refs.backdrop.classList.remove('is-hidden');
 }

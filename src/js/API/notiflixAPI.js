@@ -17,15 +17,3 @@ Notiflix.Notify.init({
     backOverlayColor: 'rgba(38,192,211,0.2)',
   },
 });
-
-// Report
-Notiflix.Report.init({});
-
-// Confirm
-Notiflix.Confirm.init({});
-
-// Loading
-Notiflix.Loading.init({});
-
-// Block
-Notiflix.Block.init({});

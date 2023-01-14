@@ -1,6 +1,7 @@
 import refs from '../refs';
 
 import { Loading, Notify } from 'notiflix';
+
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import tuiPaginationAPI from '../API/tuiPaginationAPI';
@@ -8,13 +9,11 @@ import tuiPaginationAPI from '../API/tuiPaginationAPI';
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
+
 import { clearContent, clearHTML } from '../utils/clear';
+import lang from '../utils/checkLang';
 
 const movieDB = new MovieDB();
-let lang = JSON.parse(localStorage.getItem('user-setting'));
-if (!lang) {
-  lang = 'en-US';
-}
 
 const WARNING_TEXT =
   'Search result not successful. Enter the correct movie name and try again';
@@ -32,14 +31,16 @@ export default async function onSeachFormSubmit(e) {
       refs.warningText.textContent = WARNING_TEXT;
       return;
     }
+
     Loading.standard();
-    const { results, total_results } = await movieDB.fetchSearchMovie(
-      lang.lang
-    );
+
+    const { results, total_results } = await movieDB.fetchSearchMovie(lang);
 
     if (results.length === 0) {
       refs.warningText.textContent = WARNING_TEXT;
+
       Loading.remove();
+
       return;
     }
 
@@ -48,7 +49,9 @@ export default async function onSeachFormSubmit(e) {
 
     const renderMarkup = await renderMovies(results);
     refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+
     Loading.remove();
+
     // Створення пагінації фільмів по пошуку
     const pagination = new Pagination(
       refs.pagination,
@@ -58,10 +61,14 @@ export default async function onSeachFormSubmit(e) {
     pagination.on('afterMove', async event => {
       movieDB.page = event.page;
       clearHTML(refs.movies);
+
       Loading.standard();
+
       const { results } = await movieDB.fetchSearchMovie();
       const renderMarkup = await renderMovies(results);
+
       refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+
       Loading.remove();
     });
 

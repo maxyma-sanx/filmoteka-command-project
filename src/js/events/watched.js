@@ -1,18 +1,19 @@
 import refs from '../refs';
 
+import { Loading } from 'notiflix';
+
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
 
 import onMovieClick from './movieCard';
-import { Loading } from 'notiflix';
+
+import lang from '../utils/checkLang';
+
 const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
-let lang = JSON.parse(localStorage.getItem('user-setting'));
-if (!lang) {
-  lang = 'en-US';
-}
+
 const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
 
 if (parsedCurrent === 'header__library-btn--watched') {
@@ -32,7 +33,7 @@ export default (async function watchedMovies() {
   Loading.standard();
   const data = await Promise.all(
     parsedWatchedData.map(async id => {
-      const movieData = await movieDB.fetchMovieDetails(id, lang.lang);
+      const movieData = await movieDB.fetchMovieDetails(id, lang);
       return movieData;
     })
   );

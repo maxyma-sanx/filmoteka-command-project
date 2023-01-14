@@ -20,4 +20,5 @@ export default {
   myLibrary: document.querySelector('.header__link--library'),
   googleSignOutFromLibrary: document.getElementById('libraryGoogleSignOut'),
   languageSelectBtn: document.querySelector('.language-btn'),
+  themeSwitcher: document.querySelector('.theme-switcher input'),
 };

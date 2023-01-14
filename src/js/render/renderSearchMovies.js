@@ -2,17 +2,16 @@ import refs from '../refs';
 
 import MovieDB from '../API/fetchMovieAPI';
 
+import lang from '../utils/checkLang';
+
 // Імпорт зображення для плейсхолдеру, коли зображення немає
 import defaultImg from '../../images/default.jpg';
 
 const movieDB = new MovieDB();
-let lang = JSON.parse(localStorage.getItem('user-setting'));
-if (!lang) {
-  lang = 'en-US';
-}
+
 // Функція приймає массив id жанрів з фільму та повертає массив назв жанрів
 async function findGenres(genresID) {
-  const genres = await movieDB.fetchMoviesGenres(lang.lang);
+  const genres = await movieDB.fetchMoviesGenres(lang);
 
   return genresID.map(id => {
     for (let i = 0; i < genres.length; i += 1) {

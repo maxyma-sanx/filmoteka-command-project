@@ -11,8 +11,6 @@ import { Notify } from 'notiflix';
 
 const auth = getAuth(app);
 
-const isAuth = localStorage.getItem('auth');
-
 refs.googleSignOutFromLibrary.addEventListener('click', signOutFromGoogle);
 
 function signOutFromGoogle() {
