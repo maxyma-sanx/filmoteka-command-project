@@ -10,6 +10,7 @@ $color-grey: #f7f7f7;
 
 $color-accent-primary: rgb(255, 107, 8);
 $color-accent-secondary: #ff6b01;
+$color-accent-red: #ff6b01;
 
 $color-text-secondary: #545454;
 $color-text-tetriary: #8c8c8c;
@@ -17,7 +18,7 @@ $color-text-warning: rgb(255, 0, 27);
 
 [data-theme='light'] {
   --default-text-color: #000;
-  --bg: #f8f8f8;
+  --bg: #fff;
   --input-back: #ddd;
   --input-color: #9b0004;
 }
@@ -27,5 +28,4 @@ $color-text-warning: rgb(255, 0, 27);
   --bg: #0d151a;
   --input-back: #ddd;
   --input-color: #294797;
-  // --input-color: #c9da8a;
 }
