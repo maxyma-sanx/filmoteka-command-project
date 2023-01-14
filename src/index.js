@@ -11,3 +11,4 @@ import onMovieClick from './js/events/movieCard';
 import themeSwither from './js/events/theme-switcher';
 import { trackScroll, сlickToUpBtn } from './js/events/btnUp';
 import { signUpWithGoogle, signOutFromGoogle } from './js/API/firebaseAPI';
+import './js/render/multi-language';
