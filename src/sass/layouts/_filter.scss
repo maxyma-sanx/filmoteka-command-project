@@ -25,12 +25,17 @@
 }
 
 .filter__icon {
-  margin-bottom: -3px;
-  transition-property: fill;
-  transition-duration: 100ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  // DARK THEME SWITCH
-  fill: var(--default-text-color);
+
+    transition-property: fill;
+    transition-duration: 100ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // DARK THEME SWITCH
+    fill: var(--default-text-color);
+
+}
+
+.filter__icon-flex {
+    margin-bottom: -3px;
 }
 
 // DROPDOWN MENU
