@@ -33,6 +33,7 @@ export default async function onSeachFormSubmit(e) {
 
     if (results.length === 0) {
       refs.warningText.textContent = WARNING_TEXT;
+      Loading.remove();
       return;
     }
 
