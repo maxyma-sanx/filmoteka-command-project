@@ -17,8 +17,10 @@ import {
 import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
 import lang from '../utils/checkLang';
+import langs from '../utils/language-map';
 
 refs.movies.addEventListener('click', onMovieClick);
+const languageSelect = refs.languageSelectBtn;
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
@@ -91,8 +93,7 @@ export default async function onMovieClick(e) {
 function changeWatchedBtn(btn, filmID) {
   if (btn.textContent === 'Add to watched') {
     btn.textContent = 'Remove from watched';
-    Notify.info('Success! The movie has been added to the library.');
-
+    Notify.info(langs.addedToWatched[languageSelect.value]);
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
   } else {
@@ -100,7 +101,7 @@ function changeWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-    Notify.info('Success! The movie has been removed from the library.');
+    Notify.info(langs.removedFromWatched[languageSelect.value]);
   }
 }
 
@@ -109,14 +110,14 @@ function changeWatchedBtn(btn, filmID) {
 function queueWatchedBtn(btn, filmID) {
   if (btn.textContent === 'Add to queue') {
     btn.textContent = 'Remove from queue';
-    Notify.info('Success! The movie has been added to the library.');
+    Notify.info(langs.addedToWatched[languageSelect.value]);
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
   } else {
     btn.textContent = 'Add to queue';
 
-    Notify.info('Success! The movie has been removed from the library.');
+    Notify.info(langs.removedFromWatched[languageSelect.value]);
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);

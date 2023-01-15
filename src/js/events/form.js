@@ -12,11 +12,12 @@ import renderMovies from '../render/renderSearchMovies';
 
 import { clearContent, clearHTML } from '../utils/clear';
 import lang from '../utils/checkLang';
+import langs from '../utils/language-map';
 
 const movieDB = new MovieDB();
+const languageSelect = refs.languageSelectBtn;
 
-const WARNING_TEXT =
-  'Search result not successful. Enter the correct movie name and try again';
+// ('Search result not successful. Enter the correct movie name and try again');
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);
 
@@ -28,7 +29,7 @@ export default async function onSeachFormSubmit(e) {
     movieDB.query = e.target.elements.query.value.trim();
 
     if (!movieDB.query) {
-      refs.warningText.textContent = WARNING_TEXT;
+      refs.warningText.textContent = langs.badQuery[languageSelect.value];
       return;
     }
 
@@ -37,7 +38,7 @@ export default async function onSeachFormSubmit(e) {
     const { results, total_results } = await movieDB.fetchSearchMovie(lang);
 
     if (results.length === 0) {
-      refs.warningText.textContent = WARNING_TEXT;
+      refs.warningText.textContent = langs.badQuery[languageSelect.value];
 
       Loading.remove();
 
