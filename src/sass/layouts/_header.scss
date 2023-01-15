@@ -64,7 +64,19 @@
   display: flex;
   gap: 40px;
 }
+.header__links-container-swithers {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  margin-top: 25px;
 
+  @include tablet {
+    margin-top: 10px;
+  }
+  @include desktop {
+    margin-top: 0px;
+  }
+}
 .header__links-container .current {
   position: relative;
   &::after {
