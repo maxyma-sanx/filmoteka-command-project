@@ -70,3 +70,9 @@
   background-color: $color-accent-secondary;
   border: 1px solid transparent;
 }
+.header__links-container-swithers.lib {
+  margin-bottom: 10px;
+  @include tablet {
+    margin-bottom: 20px;
+  }
+}
