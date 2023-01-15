@@ -52,7 +52,7 @@ export default async function onSeachFormSubmit(e) {
 
     Loading.remove();
 
-    // Створення пагінації фільмів по пошуку
+    // Створення пагінації для фільмів по пошуку
     const pagination = new Pagination(
       refs.pagination,
       tuiPaginationAPI(total_results)

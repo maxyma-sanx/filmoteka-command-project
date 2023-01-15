@@ -1,5 +1,3 @@
-import refs from '../refs';
-
 import MovieDB from '../API/fetchMovieAPI';
 
 import lang from '../utils/checkLang';

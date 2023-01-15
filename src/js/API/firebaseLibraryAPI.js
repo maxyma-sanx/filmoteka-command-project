@@ -1,11 +1,6 @@
 import refs from '../refs';
 
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-} from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import { app } from '../../firebase-config';
 import { Notify } from 'notiflix';
 

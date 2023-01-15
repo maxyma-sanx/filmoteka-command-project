@@ -46,42 +46,50 @@ export default function renderTargetMovie(data, results) {
         </div>
         
         <div class="modal__wrapper">
-            <h2 class="modal__title">${title || original_title}</h2>
+            <h2 class="modal__title">${
+              title || original_title || 'Information is not available'
+            }</h2>
             <ul class="modal__list">
             <li class="modal__item">
                 <p class="modal__text">Vote / Votes</p>
                 <div class="modal__vote-container">
                 <span class="modal__info modal__info--accent">${
-                  vote || 'Not vodet yet'
+                  vote || 'Information is not available'
                 }</span>
                 <span>/</span>
                 <span class="modal__info modal__info--noaccent">${
-                  vote_count || 'Not counted yet'
+                  vote_count || 'Information is not available'
                 }</span>
                 </div>
             </li>
 
             <li class="modal__item">
                 <p class="modal__text">Popularity</p>
-                <span class="modal__info">${populary || 'No popularity'}</span>
+                <span class="modal__info">${
+                  populary || 'Information is not available'
+                }</span>
             </li>
 
             <li class="modal__item">
                 <p class="modal__text">Original Title</p>
-                <span class="modal__info">${title || original_title}</span>
+                <span class="modal__info">${
+                  original_title || title || 'Information is not available'
+                }</span>
             </li>
 
             <li class="modal__item">
                 <p class="modal__text">Genre</p>
                 <span class="modal__info">${
-                  genres.length !== 0 ? genre : 'Genre: unknown'
+                  genres.length !== 0 ? genre : 'Information is not available'
                 }</span>
             </li>
             </ul>
 
             <div class="modal__desc">
             <p class="modal__desc-title">About</p>
-            <p class="modal__desc-text">${overview || 'No description'}</p>
+            <p class="modal__desc-text">${
+              overview || 'Information is not available'
+            }</p>
             <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">

@@ -1,6 +1,6 @@
 import refs from '../refs';
 
-import Notiflix, { Loading, Notify } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';

@@ -26,8 +26,8 @@ const QUEUE_KEY = 'queue';
 const movieDB = new MovieDB();
 
 // Массиви данних які беруться з localStorage при завантаженні сторінки
-const parsedWatchedData = JSON.parse(localStorage.getItem('watched')) || [];
-const parsedQueueData = JSON.parse(localStorage.getItem('queue')) || [];
+const parsedWatchedData = JSON.parse(localStorage.getItem(WATCHED_KEY)) || [];
+const parsedQueueData = JSON.parse(localStorage.getItem(QUEUE_KEY)) || [];
 
 // Логіка при відкритті модалки з фільмом
 export default async function onMovieClick(e) {
