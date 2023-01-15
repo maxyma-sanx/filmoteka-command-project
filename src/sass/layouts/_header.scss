@@ -59,7 +59,9 @@
 
   color: $color-white;
 }
-
+.header-container {
+  display: flex;
+}
 .header__links-container {
   display: flex;
   gap: 40px;
@@ -72,6 +74,7 @@
 
   @include tablet {
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   @include desktop {
     margin-top: 0px;
@@ -215,6 +218,7 @@
   align-items: center;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 5px;
   font-size: 14px;
   line-height: 16px;
   color: $color-text-warning;
