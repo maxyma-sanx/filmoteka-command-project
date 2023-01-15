@@ -105,6 +105,14 @@ const langs = {
     'ru-RU': 'Добавить в просмотренные',
     'uk-UA': 'Додати до переглянутих',
   },
+  addedToWatched: {
+    'en-US': 'Success! The movie has been added to the library.',
+    'uk-UA': 'Фільм додано до бібліотеки!',
+  },
+  removedFromWatched: {
+    'en-US': 'The movie has been removed from the library.',
+    'uk-UA': 'Фільм вилучено з бібліотеки!',
+  },
   delwatched: {
     'en-US': 'Remove from watched',
     'ru-RU': 'Удалить из просмотренных',
