@@ -95,7 +95,6 @@
 
   @include tablet {
     flex-direction: row;
-    // gap: 68px;
   }
 
   @include desktop {
@@ -220,7 +219,6 @@
 }
 
 .modal__desc-text {
-  // width: 240px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
