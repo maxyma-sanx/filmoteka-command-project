@@ -1,16 +1,10 @@
 .change-language {
-  // margin-left: 230px;
-  background-color: $color-grey;
+  background-color: #ddd;
   border-radius: 10px;
   border: 2px solid transparent;
   width: 50px;
   height: 22px;
   &:focus {
-    border-color: $color-grey;
-  }
-  @include tablet {
-    // margin-left: 230px;
-  }
-  @include desktop {
+    border-color: #ddd;
   }
 }

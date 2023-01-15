@@ -11,6 +11,18 @@ const langs = {
     'uk-UA': 'бібліотека',
   },
 
+  logOut: {
+    'en-US': 'Log out',
+    'ru-RU': 'Выйти',
+    'uk-UA': 'Вийти',
+  },
+
+  logIn: {
+    'en-US': 'Log in',
+    'ru-RU': 'Войти',
+    'uk-UA': 'Увійти',
+  },
+
   watched: {
     'en-US': 'watched',
     'ru-RU': 'просмотренные',
@@ -278,18 +290,6 @@ const langs = {
     'en-US': 'No information',
     'ru-RU': 'Нету информации',
     'uk-UA': 'Інформації немає',
-  },
-
-  logOut: {
-    'en-US': 'Log out',
-    'ru-RU': 'Выйти',
-    'uk-UA': 'Вийти',
-  },
-
-  logIn: {
-    'en-US': 'Log in',
-    'ru-RU': 'Войти',
-    'uk-UA': 'Увійти',
   },
 
   hello: {
