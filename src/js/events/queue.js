@@ -1,5 +1,7 @@
 import refs from '../refs';
 
+import { Loading } from 'notiflix';
+
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
@@ -19,6 +21,8 @@ export default (async function watchedMovies() {
     return;
   }
 
+  Loading.standard();
+
   const data = await Promise.all(
     parsedQueueData.map(async id => {
       const movieData = await movieDB.fetchMovieDetails(id, lang);
@@ -34,6 +38,8 @@ export default (async function watchedMovies() {
       refs.myLibraryWrap.innerHTML = '';
     }
   }
+
+  Loading.remove();
 
   refs.movies.addEventListener('click', onMovieClick);
   refs.queueBtn.addEventListener('click', addClassActive);
