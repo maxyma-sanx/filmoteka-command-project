@@ -12,4 +12,4 @@ import themeSwither from './js/events/theme-switcher';
 import { trackScroll, сlickToUpBtn } from './js/events/btnUp';
 import { signUpWithGoogle, signOutFromGoogle } from './js/API/firebaseAPI';
 import './js/events/multi-language';
-import onCloseModalDev from './js/events/modal_devs';
+import onCloseModalDev from './js/events/modalDevs';
