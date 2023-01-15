@@ -118,6 +118,12 @@ const langs = {
     'ru-RU': 'Удалить из просмотренных',
     'uk-UA': 'Видалити з переглянутих',
   },
+
+  searchwarning: {
+    'en-US': 'Search result not successful. Enter the correct movie name and try again',
+    'uk-UA': 'Результат пошуку невдалий. Введіть правильну назву фільму та повторіть спробу',
+  },
+
   addqueue: {
     'en-US': 'add to queue',
     'ru-RU': 'добавить в очередь',

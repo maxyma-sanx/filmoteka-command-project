@@ -11,13 +11,17 @@ import MovieDB from '../API/fetchMovieAPI';
 import renderMovies from '../render/renderSearchMovies';
 
 import { clearContent, clearHTML } from '../utils/clear';
+
+import langs from '../utils/language-map';
 import lang from '../utils/checkLang';
 import langs from '../utils/language-map';
 
 const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;
 
-// ('Search result not successful. Enter the correct movie name and try again');
+const WARNING_TEXT = langs.searchwarning[lang];
+  
+refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);
 
