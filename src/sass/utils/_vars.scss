@@ -10,19 +10,22 @@ $color-grey: #f7f7f7;
 
 $color-accent-primary: rgb(255, 107, 8);
 $color-accent-secondary: #ff6b01;
+$color-accent-tetriary: #bb1021;
 
 $color-text-secondary: #545454;
 $color-text-tetriary: #8c8c8c;
 $color-text-warning: rgb(255, 0, 27);
 
 [data-theme='light'] {
-  --bg: #f8f8f8;
+  --default-text-color: #000;
+  --bg: #fff;
   --input-back: #ddd;
-  --input-color: #9b0004;
+  --input-color: #bb1021;
 }
 
 [data-theme='dark'] {
+  --default-text-color: #fff;
   --bg: #0d151a;
-  // --input-color: #c9da8a;
+  --input-back: #ddd;
   --input-color: #294797;
 }

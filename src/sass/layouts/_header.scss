@@ -22,13 +22,30 @@
 .header__list {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 .header__logo {
   margin-right: 12px;
   fill: transparent;
   stroke: $color-white;
+}
+
+.header__link-block {
+  display: flex;
+  align-items: center;
+
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white;
+    transform: scale(1.1);
+  }
+  &:focus {
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white,
+      0 0 40px $color-white;
+    transform: scale(1.1);
+  }
 }
 
 .header__nav {
@@ -42,12 +59,27 @@
 
   color: $color-white;
 }
-
+.header-container {
+  display: flex;
+}
 .header__links-container {
   display: flex;
   gap: 40px;
 }
+.header__links-container-swithers {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  margin-top: 25px;
 
+  @include tablet {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  @include desktop {
+    margin-top: 0px;
+  }
+}
 .header__links-container .current {
   position: relative;
   &::after {
@@ -56,7 +88,7 @@
     width: 100%;
     height: 3px;
 
-    background-color: $color-text-warning;
+    background-color: $color-accent-tetriary;
     position: absolute;
     bottom: -3px;
   }
@@ -72,6 +104,17 @@
   text-transform: uppercase;
 
   color: $color-white;
+
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px $color-white, 0 0 20px $color-white,
+      0 0 40px $color-white;
+  }
+  &:focus {
+    transform: scale(1.2);
+  }
 }
 
 .header__link-filmoteka {
@@ -106,17 +149,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px;
 
   margin: 0 auto;
 
   border: 0;
   border-bottom: 0.5px solid $color-white;
-  outline: none;
 
   background: transparent;
   color: $color-white;
   font-size: 14px;
   line-height: 16px;
+
+  transition-property: transform, outline, border-radius, border-bottom;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: 3px solid $color-accent-tetriary;
+    outline-offset: 7px;
+    border-radius: 5px;
+    border-bottom: none;
+  }
+
+  &:focus ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
+  }
+
+  &:hover ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
+  }
   @include mobile {
     width: 280px;
   }
@@ -137,7 +199,7 @@
 .header__btn {
   position: absolute;
   right: -7px;
-  top: 0;
+  top: 5px;
   display: block;
   background: transparent;
   border: none;
@@ -147,6 +209,7 @@
 .header__search-logo {
   fill: transparent;
   stroke: $color-white;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header__warning-search {
@@ -155,6 +218,7 @@
   align-items: center;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 5px;
   font-size: 14px;
   line-height: 16px;
   color: $color-text-warning;
@@ -163,5 +227,18 @@
   @include tablet {
     width: 394px;
     text-align: center;
+  }
+}
+
+.header__logo--animate {
+  animation: header__logo--animate 3s linear infinite both;
+}
+
+@keyframes header__logo--animate {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(-360deg);
   }
 }

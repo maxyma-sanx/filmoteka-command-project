@@ -2,11 +2,9 @@
   padding-top: 20px;
   padding-bottom: 40px;
   @include tablet {
-    padding-top: 59px;
     padding-bottom: 61px;
   }
   @include desktop {
-    padding-top: 60px;
     padding-bottom: 60px;
   }
 }
@@ -22,23 +20,16 @@
     justify-content: flex-start;
     gap: 16px;
   }
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // @include tablet {
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  //   justify-content: center;
-  //   gap: 32px;
-  // }
-  // @include desktop {
-  //   justify-content: start;
-  //   gap: 16px;
-  // }
 }
 
 .movies__item {
+  display: flex;
+  border: 1px solid rgb(127, 118, 118);
+  border-radius: 5px;
   margin-top: 32px;
+  transition-property: scale, box-shadow, border-radius;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:first-child {
     margin-top: 0;
   }
@@ -46,25 +37,28 @@
     margin-top: 0;
   }
   @include desktop {
+    max-width: 395px;
     margin-top: 16px;
     &:nth-child(-n + 3) {
       margin-top: 0;
     }
   }
-  &:hover {
-    transform: scale(1.03);
+  &:hover,
+  &:focus-within {
+    scale: 1.03;
     border-radius: 5px;
-    box-shadow: 0px 0px 15px 5px rgba(129, 119, 106, 0.5);
-    transition: transform ease-in-out 300ms;
-  }
-  &:focus {
-    color: red;
+    box-shadow: 0px 0px 15px 5px rgb(127, 118, 118);
+    outline: 3px solid $color-accent-secondary;
   }
 }
 
+.movies__link {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
 .movies__img {
-  // display: block;
-  // margin: 0 auto;
   border-radius: 5px;
   width: 100%;
 
@@ -85,14 +79,21 @@
 }
 
 .movies__info {
-  margin-top: 10px;
+  flex-grow: 1;
+  padding: 10px 10px;
+  @include tablet {
+    max-width: 336px;
+  }
+  @include desktop {
+    max-width: 395px;
+  }
 }
 
 .movies__title {
-  max-width: 395px;
+  white-space: normal;
   @include fonts(500, 12px, 1.16, null);
   text-transform: uppercase;
-  color: $color-black;
+  color: var(--default-text-color);
 
   @include desktop {
     @include fonts(500, 20px, 1.2, null);
@@ -100,6 +101,7 @@
   }
 }
 .movies__text {
+  white-space: normal;
   @include fonts(500, 12px, 1.33, null);
   color: $color-accent-primary;
 

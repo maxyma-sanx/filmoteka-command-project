@@ -14,6 +14,13 @@ export default {
   closeBtn: document.querySelector('.modal-trailer__button--close'),
   modalTrailerIframe: document.querySelector('.modal-trailer-iframe-container'),
   myLibraryBtn: document.querySelector('.header__link--my-library'),
+  myLibraryWrap: document.querySelector('.library__wrap'),
+  googleSignUp: document.getElementById('googleSignUp'),
+  googleSignOut: document.getElementById('googleSignOut'),
+  myLibrary: document.querySelector('.header__link--library'),
+  googleSignOutFromLibrary: document.getElementById('libraryGoogleSignOut'),
+  languageSelectBtn: document.querySelector('.language-btn'),
+  themeSwitcher: document.querySelector('.theme-switcher input'),
   backdropDev: document.querySelector('.backdrop_dev'),
   closeBtnDev: document.querySelector('.modal_dev_btn--close '),
 };

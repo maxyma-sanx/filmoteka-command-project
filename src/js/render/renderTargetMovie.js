@@ -2,6 +2,8 @@ import refs from '../refs';
 
 import defaultImg from '../../images/default.jpg';
 
+import langs from '../utils/language-map';
+
 export default function renderTargetMovie(data, results) {
   const {
     poster_path,
@@ -15,9 +17,11 @@ export default function renderTargetMovie(data, results) {
     id,
   } = data;
 
+
   const vote = vote_average.toFixed(1);
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
+
 
   // Отримуємо масив данних з localStorage
   const watchedData = JSON.parse(localStorage.getItem('watched')) || [];
@@ -33,55 +37,61 @@ export default function renderTargetMovie(data, results) {
   const markUpModal = `
         <div class="modal__img-container">
           <img class="modal__image" src='${
-          poster_path ? poster : posterPlaceholder
+            poster_path ? poster : posterPlaceholder
           }' alt="${title}" />
           <button class="modal__trailer-btn" type="button">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 1024 1024">
-            <title>youtube</title>
-            <g id="icomoon-ignore">
-            </g>
-            <path fill="#f00" d="M1002.453 264.747c-12.365-43.307-45.781-76.722-88.183-88.866l-0.905-0.222c-79.787-21.376-400.896-21.376-400.896-21.376s-320.299-0.427-400.896 21.376c-43.307 12.365-76.722 45.781-88.866 88.183l-0.222 0.905c-14.173 72.978-22.281 156.904-22.281 242.723 0 1.743 0.003 3.484 0.010 5.225l-0.001-0.268c-0.004 1.198-0.006 2.617-0.006 4.035 0 85.813 8.107 169.732 23.598 251.033l-1.32-8.327c12.365 43.307 45.781 76.722 88.183 88.866l0.905 0.222c79.701 21.419 400.896 21.419 400.896 21.419s320.256 0 400.896-21.419c43.307-12.365 76.722-45.781 88.866-88.183l0.222-0.905c13.59-71.472 21.364-153.686 21.364-237.715 0-3.173-0.011-6.344-0.033-9.513l0.003 0.486c0.024-2.951 0.037-6.439 0.037-9.929 0-84.041-7.776-166.267-22.648-245.996l1.278 8.245zM409.984 665.643v-306.901l267.264 153.685z"></path>
+            <svg width="100" height="100" viewBox="-35.2 -41.333 305.067 248">
+              <path fill="red" d="M229.763 25.817c-2.699-10.162-10.65-18.165-20.748-20.881C190.716 0 117.333 0 117.333 0S43.951 0 25.651 4.936C15.553 7.652 7.6 15.655 4.903 25.817 0 44.236 0 82.667 0 82.667s0 38.429 4.903 56.85C7.6 149.68 15.553 157.681 25.65 160.4c18.3 4.934 91.682 4.934 91.682 4.934s73.383 0 91.682-4.934c10.098-2.718 18.049-10.72 20.748-20.882 4.904-18.421 4.904-56.85 4.904-56.85s0-38.431-4.904-56.85"/>
+              <path fill="#fff" d="m93.333 117.559 61.333-34.89-61.333-34.894z"/>
             </svg>
           </button>  
         </div>
         
         <div class="modal__wrapper">
-            <h2 class="modal__title">${title || original_title}</h2>
+            <h2 class="modal__title">${
+              title || original_title || 'Information is not available'
+            }</h2>
             <ul class="modal__list">
             <li class="modal__item">
-                <p class="modal__text">Vote / Votes</p>
+                <p class="modal__text lang-rating">Vote / Votes</p>
                 <div class="modal__vote-container">
                 <span class="modal__info modal__info--accent">${
-                  vote || 'Not vodet yet'
+                  vote || 'Information is not available'
                 }</span>
                 <span>/</span>
                 <span class="modal__info modal__info--noaccent">${
-                  vote_count || 'Not counted yet'
+                  vote_count || 'Information is not available'
                 }</span>
                 </div>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text">Popularity</p>
-                <span class="modal__info">${populary || 'No popularity'}</span>
-            </li>
-
-            <li class="modal__item">
-                <p class="modal__text">Original Title</p>
-                <span class="modal__info">${title || original_title}</span>
-            </li>
-
-            <li class="modal__item">
-                <p class="modal__text">Genre</p>
+                <p class="modal__text lang-popularity">Popularity</p>
                 <span class="modal__info">${
-                  genres.length !== 0 ? genre : 'Genre: unknown'
+                  populary || 'Information is not available'
+                }</span>
+            </li>
+
+            <li class="modal__item">
+                <p class="modal__text lang-original">Original Title</p>
+                <span class="modal__info">${
+                  original_title || title || 'Information is not available'
+                }</span>
+            </li>
+
+            <li class="modal__item">
+                <p class="modal__text lang-genre">Genre</p>
+                <span class="modal__info">${
+                  genres.length !== 0 ? genre : 'Information is not available'
                 }</span>
             </li>
             </ul>
 
             <div class="modal__desc">
             <p class="modal__desc-title">About</p>
-            <p class="modal__desc-text">${overview || 'No description'}</p>
+            <p class="modal__desc-text">${
+              overview || 'Information is not available'
+            }</p>
             <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
@@ -95,5 +105,6 @@ export default function renderTargetMovie(data, results) {
             </div>
             </div>
         </div>`;
+
   refs.modalMovie.innerHTML = markUpModal;
 }

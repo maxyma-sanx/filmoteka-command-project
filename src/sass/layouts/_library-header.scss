@@ -40,6 +40,10 @@
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  transition-property: background-color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   @include tablet {
     width: 152px;
   }
@@ -69,4 +73,10 @@
 .header__library-btn--active {
   background-color: $color-accent-secondary;
   border: 1px solid transparent;
+}
+.header__links-container-swithers.lib {
+  margin-bottom: 10px;
+  @include tablet {
+    margin-bottom: 20px;
+  }
 }

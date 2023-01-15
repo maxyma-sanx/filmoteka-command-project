@@ -1,13 +1,19 @@
 import refs from '../refs';
 
+import { Loading } from 'notiflix';
+
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
 
 import onMovieClick from './movieCard';
+
+import lang from '../utils/checkLang';
+
 const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
+
 const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
 
 if (parsedCurrent === 'header__library-btn--watched') {
@@ -24,10 +30,10 @@ export default (async function watchedMovies() {
   if (!parsedWatchedData) {
     return;
   }
-
+  Loading.standard();
   const data = await Promise.all(
     parsedWatchedData.map(async id => {
-      const movieData = await movieDB.fetchMovieDetails(id);
+      const movieData = await movieDB.fetchMovieDetails(id, lang);
       return movieData;
     })
   );
@@ -35,7 +41,12 @@ export default (async function watchedMovies() {
   if (refs.watchedBtn.classList.contains('header__library-btn--active')) {
     const renderMarkup = await renderMovies(data);
     refs.movies.innerHTML = renderMarkup;
+
+    if (renderMarkup.includes('li class="movies__item"')) {
+      refs.myLibraryWrap.innerHTML = '';
+    }
   }
+  Loading.remove();
 
   refs.movies.addEventListener('click', onMovieClick);
   refs.watchedBtn.addEventListener('click', addClassActive);

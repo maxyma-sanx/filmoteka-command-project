@@ -79,10 +79,13 @@
 .modal__icon--close {
   stroke: $color-black;
 
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: rotate, stroke;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
+    rotate: 180deg;
     stroke: $color-accent-primary;
   }
 }
@@ -95,7 +98,6 @@
 
   @include tablet {
     flex-direction: row;
-    gap: 68px;
   }
 
   @include desktop {
@@ -115,7 +117,10 @@
   border: none;
   cursor: pointer;
   transform: translate(-50%, -50%);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -130,13 +135,13 @@
   height: 100%;
 
   @include tablet {
-    width: 264px;
-    height: 374px;
+    min-width: 264px;
+    min-height: 374px;
   }
 
   @include desktop {
-    width: 375px;
-    height: 478px;
+    min-width: 375px;
+    min-height: 478px;
   }
 }
 
@@ -220,7 +225,6 @@
 }
 
 .modal__desc-text {
-  width: 240px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
@@ -240,9 +244,9 @@
 }
 
 .modal__buttons-container {
-  gap: 15px;
+  gap: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .modal__btn {
@@ -266,9 +270,13 @@
     width: 136px;
   }
 
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    background: $color-accent-secondary;
+    background-color: $color-accent-secondary;
     color: $color-white;
   }
 }

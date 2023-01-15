@@ -1,6 +1,7 @@
 import refs from '../refs';
 
-import { Notify } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
+
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import tuiPaginationAPI from '../API/tuiPaginationAPI';
@@ -8,12 +9,19 @@ import tuiPaginationAPI from '../API/tuiPaginationAPI';
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
+
 import { clearContent, clearHTML } from '../utils/clear';
 
-const movieDB = new MovieDB();
+import langs from '../utils/language-map';
+import lang from '../utils/checkLang';
+import langs from '../utils/language-map';
 
-const WARNING_TEXT =
-  'Search result not successful. Enter the correct movie name and try again';
+const movieDB = new MovieDB();
+const languageSelect = refs.languageSelectBtn;
+
+const WARNING_TEXT = langs.searchwarning[lang];
+  
+refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);
 
@@ -25,14 +33,19 @@ export default async function onSeachFormSubmit(e) {
     movieDB.query = e.target.elements.query.value.trim();
 
     if (!movieDB.query) {
-      refs.warningText.textContent = WARNING_TEXT;
+      refs.warningText.textContent = langs.badQuery[languageSelect.value];
       return;
     }
 
-    const { results, total_results } = await movieDB.fetchSearchMovie();
+    Loading.standard();
+
+    const { results, total_results } = await movieDB.fetchSearchMovie(lang);
 
     if (results.length === 0) {
-      refs.warningText.textContent = WARNING_TEXT;
+      refs.warningText.textContent = langs.badQuery[languageSelect.value];
+
+      Loading.remove();
+
       return;
     }
 
@@ -42,7 +55,9 @@ export default async function onSeachFormSubmit(e) {
     const renderMarkup = await renderMovies(results);
     refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
 
-    // Створення пагінації фільмів по пошуку
+    Loading.remove();
+
+    // Створення пагінації для фільмів по пошуку
     const pagination = new Pagination(
       refs.pagination,
       tuiPaginationAPI(total_results)
@@ -52,9 +67,14 @@ export default async function onSeachFormSubmit(e) {
       movieDB.page = event.page;
       clearHTML(refs.movies);
 
+      Loading.standard();
+
       const { results } = await movieDB.fetchSearchMovie();
       const renderMarkup = await renderMovies(results);
+
       refs.movies.insertAdjacentHTML('beforeend', renderMarkup);
+
+      Loading.remove();
     });
 
     e.target.reset();

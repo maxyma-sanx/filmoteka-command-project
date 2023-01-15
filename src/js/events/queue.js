@@ -5,6 +5,9 @@ import MovieDB from '../API/fetchMovieAPI';
 import renderMovies from '../render/renderSearchMovies';
 
 import onMovieClick from './movieCard';
+
+import lang from '../utils/checkLang';
+
 const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
@@ -18,13 +21,18 @@ export default (async function watchedMovies() {
 
   const data = await Promise.all(
     parsedQueueData.map(async id => {
-      const movieData = await movieDB.fetchMovieDetails(id);
+      const movieData = await movieDB.fetchMovieDetails(id, lang);
       return movieData;
     })
   );
+
   if (refs.queueBtn.classList.contains('header__library-btn--active')) {
     const renderMarkup = await renderMovies(data);
     refs.movies.innerHTML = renderMarkup;
+
+    if (renderMarkup.includes('li class="movies__item"')) {
+      refs.myLibraryWrap.innerHTML = '';
+    }
   }
 
   refs.movies.addEventListener('click', onMovieClick);
@@ -38,7 +46,6 @@ export default (async function watchedMovies() {
 
     const currentPage = refs.queueBtn.classList;
     const res = currentPage[1];
-    // console.log(currentPage[2]);
     localStorage.setItem(CURRENT_PAGE, JSON.stringify(res));
   }
 })();

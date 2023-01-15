@@ -1,38 +1,17 @@
 <main>
-  <div class="swither-container">
-    <<link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <label class="theme-switcher" for="themeswitch">
-      <div class="background"></div>
-      <input type="checkbox" id="themeswitch" />
-      <div class="switch">
-        <img
-          class="sun"
-          src="https://codeorum.com/images/article_images/150/20201011T160248_150.png"
-        />
-        <img
-          class="moon"
-          src="https://codeorum.com/images/article_images/150/20201011T160425_150.png"
-        />
-      </div>
-    </label>
-  </div>
   <!--FILTER-->
   <div class="container filter">
     <nav>
       <ul class="filter__nav-flex">
         <li class="dropdown">
-          <a href="#" class="drophover filter__text">
-            <span
-              >Genres
-              <svg class="filter__icon" width="15" height="15">
+          <a href="#" class="drophover filter__text filter__icon">
+            <span class="lang-genre">Genres
+              <svg class="filter__icon-flex" width="15" height="15">
                 <use href="/src/images/icons/icon.svg#icon-cheveron-down"></use>
               </svg>
             </span>
           </a>
-          <div class="dropdown__content">
+          <div class="dropdown__content dropdown__scroll">
             <a class="dropdown__item" href="#">Action</a>
             <a class="dropdown__item" href="#">Adventure</a>
             <a class="dropdown__item" href="#">Animation</a>
@@ -55,15 +34,14 @@
           </div>
         </li>
         <li class="dropdown">
-          <a href="#" class="drophover filter__text">
-            <span
-              >Release year
-              <svg class="filter__icon" width="15" height="15">
+          <a href="#" class="drophover filter__text filter__icon">
+            <span class="lang-year">Release year
+              <svg class="filter__icon-flex" width="15" height="15">
                 <use href="/src/images/icons/icon.svg#icon-cheveron-down"></use>
               </svg>
             </span>
           </a>
-          <div class="dropdown__content">
+          <div class="dropdown__content dropdown__scroll">
             <a class="dropdown__item" href="#">2022</a>
             <a class="dropdown__item" href="#">2021</a>
             <a class="dropdown__item" href="#">2020</a>
