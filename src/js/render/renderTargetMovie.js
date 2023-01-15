@@ -2,6 +2,8 @@ import refs from '../refs';
 
 import defaultImg from '../../images/default.jpg';
 
+import langs from '../utils/language-map';
+
 export default function renderTargetMovie(data, results) {
   const {
     poster_path,
@@ -15,9 +17,11 @@ export default function renderTargetMovie(data, results) {
     id,
   } = data;
 
+
   const vote = vote_average.toFixed(1);
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
+
 
   // Отримуємо масив данних з localStorage
   const watchedData = JSON.parse(localStorage.getItem('watched')) || [];
@@ -49,7 +53,7 @@ export default function renderTargetMovie(data, results) {
             }</h2>
             <ul class="modal__list">
             <li class="modal__item">
-                <p class="modal__text">Vote / Votes</p>
+                <p class="modal__text lang-rating">Vote / Votes</p>
                 <div class="modal__vote-container">
                 <span class="modal__info modal__info--accent">${
                   vote || 'Information is not available'
@@ -62,21 +66,21 @@ export default function renderTargetMovie(data, results) {
             </li>
 
             <li class="modal__item">
-                <p class="modal__text">Popularity</p>
+                <p class="modal__text lang-popularity">Popularity</p>
                 <span class="modal__info">${
                   populary || 'Information is not available'
                 }</span>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text">Original Title</p>
+                <p class="modal__text lang-original">Original Title</p>
                 <span class="modal__info">${
                   original_title || title || 'Information is not available'
                 }</span>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text">Genre</p>
+                <p class="modal__text lang-genre">Genre</p>
                 <span class="modal__info">${
                   genres.length !== 0 ? genre : 'Information is not available'
                 }</span>

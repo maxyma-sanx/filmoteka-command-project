@@ -17,6 +17,7 @@ import {
 import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
 import lang from '../utils/checkLang';
+import langs from '../utils/language-map';
 
 refs.movies.addEventListener('click', onMovieClick);
 
