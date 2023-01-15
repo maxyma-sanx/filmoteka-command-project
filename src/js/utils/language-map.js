@@ -35,6 +35,11 @@ const langs = {
     'uk-UA': 'черга',
   },
 
+  year: {
+    'en-US': 'Release year',
+    'uk-UA': 'рік',
+  },
+
   polyci: {
     'en-US': 'All Rights Reserved',
     'ru-RU': 'Все права защищены',
