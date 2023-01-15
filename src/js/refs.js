@@ -21,4 +21,6 @@ export default {
   googleSignOutFromLibrary: document.getElementById('libraryGoogleSignOut'),
   languageSelectBtn: document.querySelector('.language-btn'),
   themeSwitcher: document.querySelector('.theme-switcher input'),
+  backdropDev: document.querySelector('.backdrop_dev'),
+  closeBtnDev: document.querySelector('.modal_dev_btn--close '),
 };
