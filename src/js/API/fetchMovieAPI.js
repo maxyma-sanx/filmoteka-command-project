@@ -48,9 +48,9 @@ export default class MovieDB {
   }
 
   // Запит на отримання фільмів по жанрам
-  async fetchMoviesDiscover(id) {
+  async fetchMoviesDiscover(id, lang) {
     const { data } = await axios.get(
-      `discover/movie?with_genres=${id}&page=${this.#page}`,
+      `discover/movie?with_genres=${id}&page=${this.#page}&language=${lang}`,
       this.#moviesParams
     );
 

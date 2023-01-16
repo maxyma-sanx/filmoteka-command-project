@@ -70,6 +70,11 @@ const langs = {
     'uk-UA': 'Рейтинг / Голосів',
   },
 
+  action: {
+    'en-US': 'Action',
+    'uk-UA': 'Бойовик',
+  },
+
   popularity: {
     'en-US': 'Popularity',
     'ru-RU': 'Популярность',

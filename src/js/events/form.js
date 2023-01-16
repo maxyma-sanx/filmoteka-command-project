@@ -14,13 +14,12 @@ import { clearContent, clearHTML } from '../utils/clear';
 
 import langs from '../utils/language-map';
 import lang from '../utils/checkLang';
-import langs from '../utils/language-map';
 
 const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;
 
 const WARNING_TEXT = langs.searchwarning[lang];
-  
+
 refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);

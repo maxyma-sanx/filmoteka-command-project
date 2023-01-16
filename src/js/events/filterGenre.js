@@ -11,6 +11,8 @@ import renderMovies from '../render/renderSearchMovies';
 import { clearHTML, clearContent } from '../utils/clear';
 import { Loading } from 'notiflix';
 
+import lang from '../utils/checkLang';
+
 const movieDB = new MovieDB();
 
 for (const item of refs.filterGenreBtn.children) {
@@ -23,7 +25,8 @@ async function onGenreBtnClick(e) {
   Loading.standard();
 
   const { results, total_results } = await movieDB.fetchMoviesDiscover(
-    e.target.id
+    e.target.id,
+    lang
   );
 
   // Проверка по дате (нужно доработать)
@@ -57,7 +60,7 @@ async function onGenreBtnClick(e) {
 
     Loading.standard();
 
-    const { results } = await movieDB.fetchMoviesDiscover(e.target.id);
+    const { results } = await movieDB.fetchMoviesDiscover(e.target.id, lang);
 
     const renderMarkup = await renderMovies(results);
 
