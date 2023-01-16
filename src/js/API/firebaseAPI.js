@@ -37,7 +37,6 @@ function signUpWithGoogle() {
 
       localStorage.setItem('auth', JSON.stringify(token));
 
-      Notify.info(`Success! User ${user.displayName} is authorized!`);
       location.reload();
       // ...
     })
@@ -57,7 +56,7 @@ function signOutFromGoogle() {
   signOut(auth)
     .then(() => {
       localStorage.removeItem('auth');
-      Notify.info(`Success! You is logout`);
+
       location.reload();
     })
     .catch(error => {
