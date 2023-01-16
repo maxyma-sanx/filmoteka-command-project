@@ -120,8 +120,10 @@ const langs = {
   },
 
   searchwarning: {
-    'en-US': 'Search result not successful. Enter the correct movie name and try again',
-    'uk-UA': 'Результат пошуку невдалий. Введіть правильну назву фільму та повторіть спробу',
+    'en-US':
+      'Search result not successful. Enter the correct movie name and try again',
+    'uk-UA':
+      'Результат пошуку невдалий. Введіть правильну назву фільму та повторіть спробу',
   },
 
   addqueue: {
@@ -164,65 +166,66 @@ const langs = {
     'uk-UA': 'Група',
   },
   andrii: {
-    'en-US': 'Mazka Andrii',
-    'ru-RU': 'Мазка Андрей',
-    'uk-UA': 'Мазка Андрій',
+    'en-US': 'Andrii Mazka',
+    // 'ru-RU': 'Мазка Андрей',
+    'uk-UA': 'Андрій Мазка',
   },
+
   aleksandr: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
-  },
-  alex: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Alexander Kisliy',
+    // 'ru-RU': '',
+    'uk-UA': 'Олександр Кислий',
   },
   aleksey: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Aleksei Krupsky',
+    // 'ru-RU': '',
+    'uk-UA': 'Олексій Крупський',
   },
   vitaliy: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Vitaliy Ishchuk',
+    // 'ru-RU': '',
+    'uk-UA': 'Віталій Іщук',
   },
-  vadim: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+  vadym: {
+    'en-US': 'Vadym Zhuravlov',
+    // 'ru-RU': '',
+    'uk-UA': 'Вадим Журавльов',
   },
   vladislav: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': ' Vladyslav Sanhinov',
+    // 'ru-RU': '',
+    'uk-UA': 'Владислав Санхінов',
   },
   denis: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Denis Murov',
+    // 'ru-RU': '',
+    'uk-UA': 'Денис Муров',
   },
   dmitriy: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Dmytro Avramenko',
+    // 'ru-RU': '',
+    'uk-UA': 'Дмитро Авраменко',
   },
   lesya: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Larysa Furmanchuk',
+    // 'ru-RU': '',
+    'uk-UA': 'Лариса Фурманчук',
   },
   maksim: {
-    'en-US': '',
-    'ru-RU': '',
-    'uk-UA': '',
+    'en-US': 'Maxym Koralkov',
+    // 'ru-RU': '',
+    'uk-UA': 'Максим Коралков',
+  },
+  modalTitle: {
+    'en-US': 'Developed with participation',
+    // 'ru-RU': '',
+    'uk-UA': 'Розроблено за участю',
   },
 
   lead: {
     'en-US': 'Team Lead',
     'ru-RU': 'Тимлид',
-    'uk-UA': 'Тімлід',
+    'uk-UA': 'Тім-лід',
   },
 
   scrum: {
@@ -231,7 +234,7 @@ const langs = {
     'uk-UA': 'Скрам майстер',
   },
 
-  dev1: {
+  dev: {
     'en-US': 'Developer',
     'ru-RU': 'Разработчик',
     'uk-UA': 'Розробник',
