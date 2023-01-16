@@ -96,12 +96,14 @@ function changeWatchedBtn(btn, filmID) {
     Notify.info(langs.addedToWatched[languageSelect.value]);
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
+    location.reload();
   } else {
     btn.textContent = 'Add to watched';
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
     Notify.info(langs.removedFromWatched[languageSelect.value]);
+    location.reload();
   }
 }
 
@@ -114,6 +116,7 @@ function queueWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
+    location.reload();
   } else {
     btn.textContent = 'Add to queue';
 
@@ -121,6 +124,7 @@ function queueWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
+    location.reload();
   }
 }
 

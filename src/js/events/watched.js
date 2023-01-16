@@ -38,12 +38,20 @@ export default (async function watchedMovies() {
     })
   );
 
+  // Це перевірка для 'заглушки', якщо не буду що рендерить.
+  if (data) {
+    refs.myLibraryWrap.children[0].style.display = 'block';
+    refs.myLibraryWrap.children[1].style.display = 'block';
+    Loading.remove();
+  }
+
   if (refs.watchedBtn.classList.contains('header__library-btn--active')) {
     const renderMarkup = await renderMovies(data);
     refs.movies.innerHTML = renderMarkup;
 
     if (renderMarkup.includes('li class="movies__item"')) {
-      refs.myLibraryWrap.innerHTML = '';
+      refs.myLibraryWrap.children[0].style.display = 'none';
+      refs.myLibraryWrap.children[1].style.display = 'none';
     }
   }
   Loading.remove();
