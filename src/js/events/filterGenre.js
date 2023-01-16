@@ -26,7 +26,15 @@ async function onGenreBtnClick(e) {
     e.target.id
   );
 
-  console.log(results);
+  // Проверка по дате (нужно доработать)
+  // for (const movie of results) {
+  //   if (
+  //     new Date(movie.release_date).getFullYear() > 2015 &&
+  //     new Date(movie.release_date).getFullYear() < 2020
+  //   ) {
+  //     console.log(movie);
+  //   }
+  // }
 
   clearHTML(refs.movies);
   clearContent(refs.warningText);
@@ -50,8 +58,6 @@ async function onGenreBtnClick(e) {
     Loading.standard();
 
     const { results } = await movieDB.fetchMoviesDiscover(e.target.id);
-
-    console.log(results);
 
     const renderMarkup = await renderMovies(results);
 
