@@ -146,14 +146,13 @@
 }
 
 .modal__wrapper {
+  display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .modal__title {
-  margin: 0;
   text-transform: uppercase;
-  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.15;
@@ -164,14 +163,13 @@
   }
 }
 
-.modal__list {
-  margin-bottom: 20px;
-}
-
 .modal__item {
   margin-bottom: 8px;
   display: flex;
-  gap: 40px;
+}
+
+.modal__item:last-child {
+  margin-bottom: 0;
 }
 
 .modal__vote-container {
@@ -179,21 +177,18 @@
 }
 
 .modal__text {
-  width: 72px;
+  min-width: 70px;
   color: $color-text-tetriary;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.3;
+  margin-right: 40px;
 }
 
 .modal__info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
-  border-radius: 5px;
 }
 
 .modal__info--accent {
@@ -201,12 +196,14 @@
   background-color: $color-accent-secondary;
   color: $color-white;
   margin-right: 2px;
+  border-radius: 5px;
 }
 
 .modal__info--noaccent {
   padding: 1px 10px;
   background-color: $color-grey;
   color: $color-black;
+  border-radius: 5px;
   // margin-left: 2px;
 }
 
@@ -228,16 +225,15 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
-  margin-bottom: 20px;
-
+  
   @include tablet {
-    width: 320px;
+    width: 300px;
     max-height: 200px;
     overflow-y: auto;
   }
 
   @include desktop {
-    width: 391px;
+    width: 380px;
     max-height: 200px;
     overflow-y: auto;
   }
