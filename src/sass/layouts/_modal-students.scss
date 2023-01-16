@@ -27,28 +27,22 @@
 }
 
 .modal_dev {
-  // position: relative;
-  top: 380%;
+  top: 450%;
   left: 50%;
   padding: 48px 20px 40px;
-  width: 100%;
+  width: 250%;
+  max-width: 320px;
 
   position: absolute;
-  @include mobile {
-    top: 125%;
-    max-width: 704px;
-    padding: 40px 36px 40px;
-    max-width: 450px;
-  }
 
   @include tablet {
-    top: 125%;
+    top: 150%;
     max-width: 704px;
     padding: 40px 36px 40px;
   }
 
   @include desktop {
-    top: 75%;
+    top: 65%;
     max-width: 1200px;
     padding: 40px 12px;
   }
@@ -94,15 +88,25 @@
         0px 2px 1px rgb(0 0 0 / 20%);
       border-radius: 0px 0px 4px 4px;
     }
-
     @include desktop {
       max-width: calc((100% - 120px) / 5);
     }
   }
 
+  &_items:hover,
+  &_items:focus-within {
+    border-radius: 5px;
+    // outline: 3px solid #ff6b01;
+    scale: 1.03;
+    box-shadow: 0 0 15px 5px #7f7676;
+
+    transition: scale 250ms, box-shadow 250ms;
+  }
+
   &_info {
     // padding: 30px 15px 24px;
     padding-bottom: 30px;
+    background-color: $color-grey;
   }
 
   &_subtitle {
@@ -142,8 +146,10 @@
   }
   &_link:hover,
   &_link:focus {
-    background-color: v$color-text-warning;
+    // background-color: v$color-text-warning;
     fill: $color-accent-primary;
+
+    transition: fill 250ms;
   }
 }
 
@@ -170,4 +176,10 @@
   color: $color-text-secondary;
   background-color: $color-grey;
   // text-decoration: underline;
+}
+.footer__link:hover {
+  color: $color-accent-primary;
+  transition: color 250ms;
+
+  cursor: pointer;
 }
