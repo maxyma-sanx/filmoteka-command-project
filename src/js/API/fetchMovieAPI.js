@@ -47,6 +47,16 @@ export default class MovieDB {
     return genres;
   }
 
+  // Запит на отримання фільмів по жанрам
+  async fetchMoviesDiscover(id) {
+    const { data } = await axios.get(
+      `discover/movie?with_genres=${id}&page=${this.#page}`,
+      this.#moviesParams
+    );
+
+    return data;
+  }
+
   // Запит на отримання детальної інформації про один фільм по id
   async fetchMovieDetails(id, lang) {
     const url = `movie/${id}?language=${lang}`;
