@@ -33,12 +33,12 @@ export default function renderTargetMovie(data, results) {
 
   const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const posterPlaceholder = defaultImg;
-
+  
   const markUpModal = `
         <div class="modal__img-container">
           <img class="modal__image" src='${
             poster_path ? poster : posterPlaceholder
-          }' alt="${title}" />
+          }' alt="${title}" width="264" height="374"/>
           <button class="modal__trailer-btn" type="button">
             <svg width="100" height="100" viewBox="-35.2 -41.333 305.067 248">
               <path fill="red" d="M229.763 25.817c-2.699-10.162-10.65-18.165-20.748-20.881C190.716 0 117.333 0 117.333 0S43.951 0 25.651 4.936C15.553 7.652 7.6 15.655 4.903 25.817 0 44.236 0 82.667 0 82.667s0 38.429 4.903 56.85C7.6 149.68 15.553 157.681 25.65 160.4c18.3 4.934 91.682 4.934 91.682 4.934s73.383 0 91.682-4.934c10.098-2.718 18.049-10.72 20.748-20.882 4.904-18.421 4.904-56.85 4.904-56.85s0-38.431-4.904-56.85"/>
