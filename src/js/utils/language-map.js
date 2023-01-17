@@ -75,6 +75,79 @@ const langs = {
     'uk-UA': 'Бойовик',
   },
 
+  adventure: {
+    'en-US': 'Adventure',
+    'uk-UA': 'Пригоди',
+  },
+  animation: {
+    'en-US': 'Animation',
+    'uk-UA': 'Мультфільм',
+  },
+  сomedy: {
+    'en-US': 'Comedy',
+    'uk-UA': 'Комедія',
+  },
+  crime: {
+    'en-US': 'Crime',
+    'uk-UA': 'Кримінал',
+  },
+  documentary: {
+    'en-US': 'Documentary',
+    'uk-UA': 'Документальний',
+  },
+  drama: {
+    'en-US': 'Drama',
+    'uk-UA': 'Драма',
+  },
+  family: {
+    'en-US': 'Family',
+    'uk-UA': 'Сімейний',
+  },
+  fantasy: {
+    'en-US': 'Fantasy',
+    'uk-UA': 'Фентезі',
+  },
+  history: {
+    'en-US': 'History',
+    'uk-UA': 'Історичний',
+  },
+  horror: {
+    'en-US': 'Horror',
+    'uk-UA': 'Жахи',
+  },
+  music: {
+    'en-US': 'Music',
+    'uk-UA': 'Музичний',
+  },
+  mystery: {
+    'en-US': 'Mystery',
+    'uk-UA': 'Містика',
+  },
+  romance: {
+    'en-US': 'Romance',
+    'uk-UA': 'Романтичний',
+  },
+  scienceFiction: {
+    'en-US': 'Science Fiction',
+    'uk-UA': 'Наукова фантастика',
+  },
+  tvMovie: {
+    'en-US': 'TV Movie',
+    'uk-UA': 'Серіал',
+  },
+  thriller: {
+    'en-US': 'Thriller',
+    'uk-UA': 'Трилер',
+  },
+  war: {
+    'en-US': 'War',
+    'uk-UA': 'Про війну',
+  },
+
+  western: {
+    'en-US': 'Western<',
+    'uk-UA': 'Вестерн',
+  },
   popularity: {
     'en-US': 'Popularity',
     'ru-RU': 'Популярность',
