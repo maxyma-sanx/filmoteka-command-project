@@ -14,19 +14,47 @@ const CURRENT_PAGE = 'current';
 
 const movieDB = new MovieDB();
 
-const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
-
-if (parsedCurrent === 'header__library-btn--watched') {
-  refs.watchedBtn.classList.add('header__library-btn--active');
-} else if (parsedCurrent === 'header__library-btn--queue') {
-  refs.queueBtn.classList.add('header__library-btn--active');
-} else {
-  refs.watchedBtn.classList.add('header__library-btn--active');
-}
-
+// Достаємо проглянуті фільми з локал стореж
 const parsedWatchedData = JSON.parse(localStorage.getItem('watched'));
 
-export default (async function watchedMovies() {
+// Достаємо поточну сторінку з локал стореж
+const parsedCurrent = JSON.parse(localStorage.getItem(CURRENT_PAGE));
+
+// Якщо поточної сторінки немає в LocalStorage, то по defaultу
+// буде Watched
+if (!parsedCurrent) {
+  refs.watchedBtn.classList.add('header__library-btn--active');
+  refs.queueBtn.classList.remove('header__library-btn--active');
+  renderWatchedMovies();
+}
+// Перевіряємо чи поточна зараз сторінка Watched
+if (parsedCurrent === 'header__library-btn--watched') {
+  refs.watchedBtn.classList.add('header__library-btn--active');
+  refs.queueBtn.classList.remove('header__library-btn--active');
+  renderWatchedMovies();
+}
+//
+// Слухач на вибране кіно
+refs.movies.addEventListener('click', onMovieClick);
+
+// Слухач на кнопку Watched
+refs.watchedBtn.addEventListener('click', addClassActive);
+
+// Функція при натисканні на кнопку Watched
+async function addClassActive() {
+  refs.watchedBtn.classList.add('header__library-btn--active');
+  refs.queueBtn.classList.remove('header__library-btn--active');
+
+  const currentPage = refs.watchedBtn.classList;
+  const res = currentPage[1];
+
+  localStorage.setItem(CURRENT_PAGE, JSON.stringify(res));
+
+  renderWatchedMovies();
+}
+
+// функція рендера контенту на сторінку Watched
+async function renderWatchedMovies() {
   if (!parsedWatchedData) {
     return;
   }
@@ -38,36 +66,17 @@ export default (async function watchedMovies() {
     })
   );
 
-  // Це перевірка для 'заглушки', якщо не буду що рендерить.
   if (data) {
     refs.myLibraryWrap.children[0].style.display = 'block';
     refs.myLibraryWrap.children[1].style.display = 'block';
     Loading.remove();
   }
+  const renderMarkup = await renderMovies(data);
+  refs.movies.innerHTML = renderMarkup;
 
-  if (refs.watchedBtn.classList.contains('header__library-btn--active')) {
-    const renderMarkup = await renderMovies(data);
-    refs.movies.innerHTML = renderMarkup;
-
-    if (renderMarkup.includes('li class="movies__item"')) {
-      refs.myLibraryWrap.children[0].style.display = 'none';
-      refs.myLibraryWrap.children[1].style.display = 'none';
-    }
+  if (renderMarkup.includes('li class="movies__item"')) {
+    refs.myLibraryWrap.children[0].style.display = 'none';
+    refs.myLibraryWrap.children[1].style.display = 'none';
   }
   Loading.remove();
-
-  refs.movies.addEventListener('click', onMovieClick);
-  refs.watchedBtn.addEventListener('click', addClassActive);
-
-  function addClassActive() {
-    refs.queueBtn.classList.remove('header__library-btn--active');
-    refs.watchedBtn.classList.add('header__library-btn--active');
-
-    watchedMovies();
-
-    const currentPage = refs.watchedBtn.classList;
-    const res = currentPage[1];
-
-    localStorage.setItem(CURRENT_PAGE, JSON.stringify(res));
-  }
-})();
+}
