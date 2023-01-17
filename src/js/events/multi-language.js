@@ -60,6 +60,9 @@ function changeLanguage() {
 
   if (saveLang.lang) {
     location.href = `${window.location.pathname}#${saveLang.lang}`;
+  } else {
+    location.href = `${window.location.pathname}#'en-US'`;
+    languageSelect.value = hash;
   }
 
   let hash = window.location.hash.substring(1);
