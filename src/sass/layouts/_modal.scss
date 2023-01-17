@@ -18,6 +18,8 @@
 
   transition: opacity 250ms, visibility 250ms;
 
+  z-index: 10000;
+
   &.is-hidden {
     visibility: hidden;
     opacity: 0;
@@ -225,7 +227,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
-  
+
   @include tablet {
     width: 300px;
     max-height: 200px;
