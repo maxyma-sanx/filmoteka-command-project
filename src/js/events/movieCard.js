@@ -100,7 +100,10 @@ function changeWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
-    location.reload();
+
+    if (window.location.pathname === '/library.html') {
+      location.reload();
+    }
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до перегляду')
@@ -108,7 +111,10 @@ function changeWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-    location.reload();
+
+    if (window.location.pathname === '/library.html') {
+      location.reload();
+    }
   }
 }
 
@@ -125,7 +131,10 @@ function queueWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
-    location.reload();
+
+    if (window.location.pathname === '/library.html') {
+      location.reload();
+    }
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до черги')
@@ -133,7 +142,10 @@ function queueWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
-    location.reload();
+
+    if (window.location.pathname === '/library.html') {
+      location.reload();
+    }
   }
 }
 
