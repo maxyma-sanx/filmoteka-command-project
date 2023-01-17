@@ -47,7 +47,6 @@ function changeURLLanguage(e) {
   let lang = e.currentTarget.value;
   location.href = `${window.location.pathname}#${lang}`;
   setStorageSetting('lang', lang);
-
   location.reload();
 }
 
@@ -60,9 +59,6 @@ function changeLanguage() {
 
   if (saveLang.lang) {
     location.href = `${window.location.pathname}#${saveLang.lang}`;
-  } else {
-    location.href = `${window.location.pathname}#'en-US'`;
-    languageSelect.value = hash;
   }
 
   let hash = window.location.hash.substring(1);
