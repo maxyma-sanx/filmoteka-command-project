@@ -17,10 +17,14 @@ import lang from '../utils/checkLang';
 
 const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;
+const placeholder = refs.searchForm.elements.query.placeholder;
 
 const WARNING_TEXT = langs.searchwarning[lang];
 
 refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
+if (lang === undefined) {
+  refs.searchForm.elements.query.placeholder = 'Movie search'
+};
 
 refs.searchForm.addEventListener('submit', onSeachFormSubmit);
 
