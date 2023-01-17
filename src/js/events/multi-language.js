@@ -3,7 +3,8 @@ import refs from '../refs';
 import langs from '../utils/language-map';
 
 const languageSelect = refs.languageSelectBtn;
-const allLang = ['en-US', 'uk-UA'];
+// const allLang = ['en-US', 'uk-UA'];
+
 
 // Отримання даних налаштувань мови з LocalStorage
 
@@ -26,12 +27,14 @@ function getStorageSetting() {
 
 function setStorageSetting(key, value) {
   const savedData = getStorageSetting();
+  
   let newData = {};
 
   if (savedData) {
     newData = { ...savedData, [key]: value };
   } else {
     newData = { [key]: value };
+
   }
 
   const dataJson = JSON.stringify(newData);
@@ -53,6 +56,7 @@ function changeURLLanguage(e) {
 
 changeLanguage();
 
+
 // Функція перекладу
 
 function changeLanguage() {
@@ -64,12 +68,19 @@ function changeLanguage() {
 
   let hash = window.location.hash.substring(1);
 
-  if (!allLang.includes(hash)) {
-    location.href = `${window.location.pathname}#'en-US'`;
-    // location.reload();
-  }
+  // if (!allLang.includes(hash)) {
+  //   if(hash === '') {
+    
+  //   }
+    
+  //   location.href = `${window.location.pathname}#'en-US'`;
+  //   location.reload();
+  // }
 
   languageSelect.value = hash;
+  if (languageSelect.value === ''){
+    languageSelect.value = "en-US"
+  }
   setStorageSetting('lang', hash);
 
   const keys = Object.keys(langs);
