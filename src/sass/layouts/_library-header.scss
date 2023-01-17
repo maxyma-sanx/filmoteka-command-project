@@ -23,9 +23,14 @@
 }
 
 .header__library-item {
-  margin: 22px 0 62px;
   @include tablet {
-    margin: 0 0 60px;
+    margin-top: 20px;
+  }
+
+  @include desktop {
+    padding-bottom: 40px;
+    // margin: 0 0 60px;
+    // margin: 22px 0 62px;
   }
 }
 
@@ -75,7 +80,9 @@
   border: 1px solid transparent;
 }
 .header__links-container-swithers.lib {
-  margin-bottom: 10px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+
   @include tablet {
     margin-bottom: 20px;
   }
