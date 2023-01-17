@@ -3,7 +3,7 @@ import refs from '../refs';
 import langs from '../utils/language-map';
 
 const languageSelect = refs.languageSelectBtn;
-const allLang = ['en-US', 'ru-RU', 'uk-UA'];
+const allLang = ['en-US', 'uk-UA'];
 
 // Отримання даних налаштувань мови з LocalStorage
 
@@ -65,7 +65,7 @@ function changeLanguage() {
   let hash = window.location.hash.substring(1);
 
   if (!allLang.includes(hash)) {
-    location.href = `${window.location.pathname}#en-US`;
+    location.href = `${window.location.pathname}#'en-US'`;
     // location.reload();
   }
 
