@@ -16,8 +16,8 @@ import {
 
 import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
-import lang from '../utils/checkLang';
-import langs from '../utils/language-map';
+import lang from '../utils/checkStorageLang';
+import isUkraineLang from '../utils/checkUrkLang';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -90,14 +90,21 @@ export default async function onMovieClick(e) {
 // Функція додає та видаляє з localStorage id переглянутих фільмів
 
 function changeWatchedBtn(btn, filmID) {
-  if (btn.textContent === 'Add to watched') {
-    btn.textContent = 'Remove from watched';
+  if (
+    btn.textContent === 'Add to watched' ||
+    btn.textContent === 'Додати до перегляду'
+  ) {
+    isUkraineLang
+      ? (btn.textContent = 'Видалити з переглянутого')
+      : (btn.textContent = 'Remove from watched');
 
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
     location.reload();
   } else {
-    btn.textContent = 'Add to watched';
+    isUkraineLang
+      ? (btn.textContent = 'Додати до перегляду')
+      : (btn.textContent = 'Add to watched');
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
@@ -108,17 +115,21 @@ function changeWatchedBtn(btn, filmID) {
 // Функція додає та видаляє з localStorage id фільмів у черзі
 
 function queueWatchedBtn(btn, filmID) {
-  if (btn.textContent === 'Add to queue') {
-    btn.textContent = 'Remove from queue';
-    Notify.info(langs.addedToWatched[languageSelect.value]);
+  if (
+    btn.textContent === 'Add to queue' ||
+    btn.textContent === 'Додати до черги'
+  ) {
+    isUkraineLang
+      ? (btn.textContent = 'Видалити з черги')
+      : (btn.textContent = 'Remove from queue');
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
     location.reload();
   } else {
-    btn.textContent = 'Add to queue';
-
-    Notify.info(langs.removedFromWatched[languageSelect.value]);
+    isUkraineLang
+      ? (btn.textContent = 'Додати до черги')
+      : (btn.textContent = 'Add to queue');
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);

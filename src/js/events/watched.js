@@ -8,7 +8,7 @@ import renderMovies from '../render/renderSearchMovies';
 
 import onMovieClick from './movieCard';
 
-import lang from '../utils/checkLang';
+import lang from '../utils/checkStorageLang';
 
 const CURRENT_PAGE = 'current';
 

@@ -2,7 +2,7 @@ import refs from '../refs';
 
 import defaultImg from '../../images/default.jpg';
 
-import langs from '../utils/language-map';
+import isUkraineLang from '../utils/checkUrkLang';
 
 export default function renderTargetMovie(data, results) {
   const {
@@ -17,11 +17,9 @@ export default function renderTargetMovie(data, results) {
     id,
   } = data;
 
-
   const vote = vote_average.toFixed(1);
   const populary = popularity.toFixed(1);
   const genre = genres.map(obj => obj.name).join(', ');
-
 
   // Отримуємо масив данних з localStorage
   const watchedData = JSON.parse(localStorage.getItem('watched')) || [];
@@ -33,7 +31,7 @@ export default function renderTargetMovie(data, results) {
 
   const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const posterPlaceholder = defaultImg;
-  
+
   const markUpModal = `
         <div class="modal__img-container">
           <img class="modal__image" src='${
@@ -53,53 +51,100 @@ export default function renderTargetMovie(data, results) {
             }</h2>
             <ul class="modal__list">
             <li class="modal__item">
-                <p class="modal__text lang-rating">Vote / Votes</p>
+                <p class="modal__text lang-rating">${
+                  isUkraineLang ? 'Оцінка / Оцінок' : 'Vote / Votes'
+                }</p>
                 <div class="modal__vote-container">
                 <span class="modal__info modal__info--accent">${
                   vote || 'Information is not available'
                 }</span>
                 <span>/</span>
                 <span class="modal__info modal__info--noaccent">${
-                  vote_count || 'Information is not available'
+                  vote_count ||
+                  `${
+                    isUkraineLang
+                      ? 'Інформація не доступна'
+                      : 'Information is not available'
+                  }`
                 }</span>
                 </div>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text lang-popularity">Popularity</p>
+                <p class="modal__text lang-popularity">${
+                  isUkraineLang ? 'Популярність' : 'Popularity'
+                }</p>
                 <span class="modal__info">${
-                  populary || 'Information is not available'
+                  populary ||
+                  `${
+                    isUkraineLang
+                      ? 'Інформація не доступна'
+                      : 'Information is not available'
+                  }`
                 }</span>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text lang-original">Original Title</p>
+                <p class="modal__text lang-original">${
+                  isUkraineLang ? 'Оригінальна назва' : 'Original Title'
+                }</p>
                 <span class="modal__info">${
-                  original_title || title || 'Information is not available'
+                  original_title ||
+                  title ||
+                  `${
+                    isUkraineLang
+                      ? 'Інформація не доступна'
+                      : 'Information is not available'
+                  }`
                 }</span>
             </li>
 
             <li class="modal__item">
-                <p class="modal__text lang-genre">Genre</p>
+                <p class="modal__text lang-genre">${
+                  isUkraineLang ? 'Жанр' : 'Genre'
+                }</p>
                 <span class="modal__info">${
-                  genres.length !== 0 ? genre : 'Information is not available'
+                  genres.length !== 0
+                    ? genre
+                    : `${
+                        isUkraineLang
+                          ? 'Інформація не доступна'
+                          : 'Information is not available'
+                      }`
                 }</span>
             </li>
             </ul>
 
             <div class="modal__desc">
-            <p class="modal__desc-title">About</p>
+            <p class="modal__desc-title">${isUkraineLang ? 'Опис' : 'About'}</p>
             <p class="modal__desc-text">${
-              overview || 'Information is not available'
+              overview ||
+              `${
+                isUkraineLang
+                  ? 'Інформація не доступна'
+                  : 'Information is not available'
+              }`
             }</p>
             <p class="modal__movie-id is-hidden">${id}</p>
 
             <div class="modal__buttons-container">
               <button type="button" class="modal__btn" id="addToWatchedBtn">${
-                isWatchedData ? 'Remove from watched' : 'Add to watched'
+                isWatchedData
+                  ? `${
+                      isUkraineLang
+                        ? 'Видалити з переглянутого'
+                        : 'Remove from watched'
+                    }`
+                  : `${
+                      isUkraineLang ? 'Додати до перегляду' : 'Add to watched'
+                    }`
               }</button>
               <button type="button" class="modal__btn" id="addToQueueBtn">${
-                isQueueData ? 'Remove from queue' : 'Add to queue'
+                isQueueData
+                  ? `${
+                      isUkraineLang ? 'Видалити з черги' : 'Remove from queue'
+                    }`
+                  : `${isUkraineLang ? 'Додати до черги' : 'Add to queue'}`
               }</button>
                    
             </div>

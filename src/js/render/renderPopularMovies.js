@@ -10,7 +10,7 @@ import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
 import { clearHTML } from '../utils/clear';
-import lang from '../utils/checkLang';
+import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 

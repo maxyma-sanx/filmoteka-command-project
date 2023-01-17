@@ -11,7 +11,7 @@ import renderMovies from '../render/renderSearchMovies';
 import { clearHTML, clearContent } from '../utils/clear';
 import { Loading } from 'notiflix';
 
-import lang from '../utils/checkLang';
+import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 

@@ -1,7 +1,6 @@
 import refs from '../refs';
 
 import langs from '../utils/language-map';
-import lang from '../utils/checkLang';
 
 const languageSelect = refs.languageSelectBtn;
 const allLang = ['en-US', 'ru-RU', 'uk-UA'];

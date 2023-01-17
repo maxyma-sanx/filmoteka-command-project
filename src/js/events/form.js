@@ -13,7 +13,7 @@ import renderMovies from '../render/renderSearchMovies';
 import { clearContent, clearHTML } from '../utils/clear';
 
 import langs from '../utils/language-map';
-import lang from '../utils/checkLang';
+import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;

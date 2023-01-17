@@ -1,9 +1,12 @@
 import MovieDB from '../API/fetchMovieAPI';
 
-import lang from '../utils/checkLang';
+import lang from '../utils/checkStorageLang';
 
 // Імпорт зображення для плейсхолдеру, коли зображення немає
 import defaultImg from '../../images/default.jpg';
+
+import lang from '../utils/checkStorageLang';
+import isUkraineLang from '../utils/checkUrkLang';
 
 const movieDB = new MovieDB();
 
@@ -38,7 +41,9 @@ export default async function renderMovies(data) {
         const genresArr =
           genresList.length <= 3
             ? genresList.join(', ')
-            : `${genresList[0]}, ${genresList[1]}, Other`;
+            : `${genresList[0]}, ${genresList[1]}, ${
+                isUkraineLang ? 'Інші' : 'Other'
+              }`;
 
         return `<li class="movies__item" data-id="${id}">
         <a href="#" class="movies__link">
@@ -49,9 +54,13 @@ export default async function renderMovies(data) {
           <div class="movies__info">
             <h3 class="movies__title">${title}</h3>
             <p class="movies__text">${
-              genresArr.length !== 0 ? genresArr : 'Genre: unknown'
+              genresArr.length !== 0
+                ? genresArr
+                : `${isUkraineLang ? 'Жанр: невідомо' : 'Genre: unknown'}`
             } | ${
-          release_date ? new Date(release_date).getFullYear() : 'Year: unknown'
+          release_date
+            ? new Date(release_date).getFullYear()
+            : `${isUkraineLang ? 'Рік: невідомо' : 'Year: unknown'}`
         }</p>
           </div>
         </a>
