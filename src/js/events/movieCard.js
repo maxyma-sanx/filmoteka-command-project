@@ -100,10 +100,7 @@ function changeWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
-
-    if (window.location.pathname === '/library.html') {
-      location.reload();
-    }
+    onBtnClickReload();
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до перегляду')
@@ -111,10 +108,7 @@ function changeWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-
-    if (window.location.pathname === '/library.html') {
-      location.reload();
-    }
+    onBtnClickReload();
   }
 }
 
@@ -131,10 +125,7 @@ function queueWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
-
-    if (window.location.pathname === '/library.html') {
-      location.reload();
-    }
+    onBtnClickReload();
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до черги')
@@ -142,10 +133,7 @@ function queueWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
-
-    if (window.location.pathname === '/library.html') {
-      location.reload();
-    }
+    onBtnClickReload();
   }
 }
 
@@ -183,4 +171,11 @@ function modalCloseHandler() {
   refs.backdrop.addEventListener('click', onCloseModalBackdrop);
   document.addEventListener('keydown', onCloseModalEsc);
   refs.backdrop.classList.remove('is-hidden');
+}
+
+// Функція перевіряє сторінку на якій ми зараз знаходимось, якщо умова виконується, поточна сторінка перезавантажується
+function onBtnClickReload() {
+  if (window.location.pathname === '/library.html') {
+    location.reload();
+  }
 }
