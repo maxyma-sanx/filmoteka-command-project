@@ -6,6 +6,8 @@ import lang from '../utils/checkLang';
 const languageSelect = refs.languageSelectBtn;
 const allLang = ['en-US', 'ru-RU', 'uk-UA'];
 
+// Отримання даних налаштувань мови з LocalStorage
+
 function getStorageSetting() {
   const saveData = localStorage.getItem('user-setting');
 
@@ -20,6 +22,8 @@ function getStorageSetting() {
     console.log(error);
   }
 }
+
+//Перевірка наявності налаштувань мови у LocalStorage та додавання даних
 
 function setStorageSetting(key, value) {
   const savedData = getStorageSetting();
@@ -38,6 +42,8 @@ function setStorageSetting(key, value) {
 
 languageSelect.addEventListener('change', changeURLLanguage);
 
+//Додавання мови у хєш URL
+
 function changeURLLanguage(e) {
   let lang = e.currentTarget.value;
   location.href = `${window.location.pathname}#${lang}`;
@@ -47,6 +53,8 @@ function changeURLLanguage(e) {
 }
 
 changeLanguage();
+
+// Функція перекладу
 
 function changeLanguage() {
   const saveLang = getStorageSetting();
