@@ -100,7 +100,9 @@
     scale: 1.03;
     box-shadow: 0 0 15px 5px #7f7676;
 
-    transition: scale 250ms, box-shadow 250ms;
+    transition-property: scale, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &_info {
@@ -140,16 +142,16 @@
     justify-content: center;
     align-items: center;
     fill: $color-text-secondary;
-
-    // transition-property: fill, background-color;
-    // @extend %transition;
   }
   &_link:hover,
   &_link:focus {
     // background-color: v$color-text-warning;
     fill: $color-accent-primary;
+    scale: 1.5;
 
-    transition: fill 250ms;
+    transition-property: scale, fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -179,7 +181,10 @@
 }
 .footer__link:hover {
   color: $color-accent-primary;
-  transition: color 250ms;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   cursor: pointer;
 }

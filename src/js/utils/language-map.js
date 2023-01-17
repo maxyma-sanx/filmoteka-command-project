@@ -290,7 +290,7 @@ const langs = {
     'uk-UA': 'Лариса Фурманчук',
   },
   maksim: {
-    'en-US': 'Maxym Koralkov',
+    'en-US': 'Maksym Koralkov',
     // 'ru-RU': '',
     'uk-UA': 'Максим Коралков',
   },
@@ -302,13 +302,13 @@ const langs = {
 
   lead: {
     'en-US': 'Team Lead',
-    'ru-RU': 'Тимлид',
+    // 'ru-RU': 'Тимлид',
     'uk-UA': 'Тім-лід',
   },
 
   scrum: {
     'en-US': 'Scrum Master',
-    'ru-RU': 'Скрам мастер',
+    // 'ru-RU': 'Скрам мастер',
     'uk-UA': 'Скрам майстер',
   },
 
