@@ -145,7 +145,7 @@ const langs = {
   },
 
   western: {
-    'en-US': 'Western<',
+    'en-US': 'Western',
     'uk-UA': 'Вестерн',
   },
   popularity: {
@@ -161,9 +161,9 @@ const langs = {
   },
 
   genre: {
-    'en-US': 'Genre',
-    'ru-RU': 'Жанр',
-    'uk-UA': 'Жанр',
+    'en-US': 'Genres',
+    'ru-RU': 'Жанри',
+    'uk-UA': 'Жанри',
   },
 
   other: {
