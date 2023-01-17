@@ -20,7 +20,6 @@ import lang from '../utils/checkLang';
 import langs from '../utils/language-map';
 
 refs.movies.addEventListener('click', onMovieClick);
-const languageSelect = refs.languageSelectBtn;
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
@@ -93,7 +92,7 @@ export default async function onMovieClick(e) {
 function changeWatchedBtn(btn, filmID) {
   if (btn.textContent === 'Add to watched') {
     btn.textContent = 'Remove from watched';
-    Notify.info(langs.addedToWatched[languageSelect.value]);
+
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
     location.reload();
@@ -102,7 +101,6 @@ function changeWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-    Notify.info(langs.removedFromWatched[languageSelect.value]);
     location.reload();
   }
 }
