@@ -322,12 +322,12 @@ const langs = {
     'uk-UA': 'Додайте свій перший фільм.',
   },
   emptyQueue1: {
-    'en-US': "You don't have any movies in the queue.",
-    'uk-UA': 'У вас ще немає фільмів у черзі для перегляду.',
+    'en-US': "You don't have any movies to watch yet.",
+    'uk-UA': 'У вас ще немає фільмів для перегляду.',
   },
   emptyQueue2: {
-    'en-US': 'Add the first one.',
-    'uk-UA': 'Додайте свій перший фільм.',
+    'en-US': 'Go to the most popular movies',
+    'uk-UA': 'Перейдіть до найпопулярніших фільмів',
   },
 
   trailer: {
