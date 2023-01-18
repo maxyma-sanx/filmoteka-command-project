@@ -15,11 +15,11 @@ import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 
-for (const item of refs.filterGenreBtn.children) {
-  item.addEventListener('click', onGenreBtnClick);
+for (const item of refs.filterReleaseYearBtn.children) {
+  item.addEventListener('click', onReleaseYearBtnClick);
 }
 
-async function onGenreBtnClick(e) {
+async function onReleaseYearBtnClick(e) {
   e.preventDefault();
 
   Loading.standard();
@@ -28,6 +28,15 @@ async function onGenreBtnClick(e) {
     e.target.id,
     lang
   );
+
+  for (const movie of results) {
+  if (
+  new Date(movie.release_date).getFullYear() > 2010 &&
+  new Date(movie.release_date).getFullYear() < 2015
+  ) {
+  console.log(movie);
+  }
+  }
 
   clearHTML(refs.movies);
   clearContent(refs.warningText);

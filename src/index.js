@@ -14,3 +14,4 @@ import { signUpWithGoogle, signOutFromGoogle } from './js/API/firebaseAPI';
 import './js/events/multi-language';
 import onCloseModalDev from './js/events/modalDevs';
 import filterGenre from './js/events/filterGenre';
+import filterReleaseYear from './js/events/filterReleaseYear'
