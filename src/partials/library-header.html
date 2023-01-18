@@ -2,27 +2,48 @@
   <div class="container">
     <nav class="header__list">
       <div class="header__nav">
-        <a class="header__link-block" href="index.html">
-          <svg class="header__logo header__logo--animate" width="24" height="24">
-            <use href="./images/icons/icon.svg#icon-logo"></use>
-          </svg>
-          <p class="header__link-filmoteka" href="index.html">Filmoteka</p>
-        </a>
+        <div class="header__link-block">
+          <a href="index.html">
+            <svg
+              class="header__logo header__logo--animate"
+              width="24"
+              height="24"
+            >
+              <use href="./images/icons/icon.svg#icon-logo"></use>
+            </svg>
+          </a>
+          <a class="header__link-filmoteka" href="index.html">Filmoteka</a>
+        </div>
       </div>
       <div class="header__links-container">
         <a class="header__link lang-home" href="index.html">home</a>
-        <a class="header__link header__link--my-library current lang-library" href="library.html">my library</a>
-        <a class="header__link lang-logOut" id="libraryGoogleSignOut" href="index.html">logout</a>
+        <a
+          class="header__link header__link--my-library current lang-library"
+          href="library.html"
+          >my library</a
+        >
+        <a
+          class="header__link lang-logOut"
+          id="libraryGoogleSignOut"
+          href="index.html"
+          >logout</a
+        >
       </div>
     </nav>
     <ul class="header__library-list">
       <li class="header__library-item">
-        <button type="button" class="header__library-btn header__library-btn--watched lang-watched">
+        <button
+          type="button"
+          class="header__library-btn header__library-btn--watched lang-watched"
+        >
           watched
         </button>
       </li>
       <li class="header__library-item">
-        <button type="button" class="header__library-btn header__library-btn--queue lang-queue">
+        <button
+          type="button"
+          class="header__library-btn header__library-btn--queue lang-queue"
+        >
           queue
         </button>
       </li>
@@ -31,17 +52,23 @@
     <div class="header__links-container-swithers lib">
       <div class="swither-container">
         <label class="theme-switcher" for="themeswitch">
-          <div class="background"></div>
+          <span class="background"></span>
           <input type="checkbox" id="themeswitch" />
-          <div class="switch">
-            <img class="sun" src="https://codeorum.com/images/article_images/150/20201011T160248_150.png" />
-            <img class="moon" src="https://codeorum.com/images/article_images/150/20201011T160425_150.png" />
-          </div>
+          <span class="switch">
+            <img
+              class="sun"
+              src="https://codeorum.com/images/article_images/150/20201011T160248_150.png"
+              alt="light theme"
+            />
+            <img
+              class="moon"
+              src="https://codeorum.com/images/article_images/150/20201011T160425_150.png"
+              alt="dark theme"
+            />
+          </span>
         </label>
-
       </div>
       <include src="./partials/change-language.html"></include>
     </div>
-
   </div>
 </header>

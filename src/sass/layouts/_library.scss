@@ -62,13 +62,16 @@
   }
 }
 
+.lang-emptyQueue1 {
+  color: var(--default-text-color);
+}
+
 .library__btn {
   display: inline-block;
   cursor: pointer;
-
   min-width: 215px;
-  height: 20px;
-  padding: 3px;
+  padding: 10px;
+  margin-top: 15px;
   border: none;
   color: $color-white;
   background: rgb(255, 107, 8);
@@ -79,16 +82,16 @@
   );
   transition: transform 0.3s ease-in-out;
   @include tablet {
+    padding: 15px;
     min-width: 240px;
-    height: 24px;
   }
   @include desktop {
     min-width: 300px;
-    height: 30px;
+    padding: 20px;
   }
 }
 .library__btn:hover {
-  color: $color-black;
+  color: var(--default-text-color);
   background: transparent;
   box-shadow: none;
 }
