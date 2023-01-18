@@ -29,22 +29,22 @@
 }
 
 .modal_dev {
-  top: 360%;
+  top: 50%;
   left: 50%;
   padding: 48px 20px 40px;
   width: 250%;
   max-width: 320px;
 
+  max-height: 85vh;
   position: absolute;
+  overflow-y: scroll;
 
   @include tablet {
-    top: 115%;
     max-width: 704px;
     padding: 40px 36px 40px;
   }
 
   @include desktop {
-    top: 95%;
     max-width: 1200px;
     padding: 40px 12px;
   }
@@ -84,8 +84,6 @@
     width: 100%;
     @include tablet {
       max-width: calc((100% - 60px) / 3);
-
-      // background-color: var(--primary-bg-color);
       box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
         0px 2px 1px rgb(0 0 0 / 20%);
       border-radius: 0px 0px 4px 4px;
@@ -98,7 +96,6 @@
   &_items:hover,
   &_items:focus-within {
     border-radius: 5px;
-    // outline: 3px solid #ff6b01;
     scale: 1.03;
     box-shadow: 0 0 15px 5px #7f7676;
 
@@ -108,7 +105,6 @@
   }
 
   &_info {
-    // padding: 30px 15px 24px;
     padding-bottom: 30px;
     background-color: $color-grey;
   }
@@ -147,7 +143,6 @@
   }
   &_link:hover,
   &_link:focus {
-    // background-color: v$color-text-warning;
     fill: $color-accent-primary;
     scale: 1.5;
 
@@ -179,7 +174,6 @@
 
   color: $color-text-secondary;
   background-color: $color-grey;
-  // text-decoration: underline;
 }
 .footer__link:hover {
   color: $color-accent-primary;
