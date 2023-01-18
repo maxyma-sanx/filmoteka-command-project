@@ -1,3 +1,2 @@
-import watchedMovies from './events/watched';
-import queueMovies from './events/queue';
+import libraryBtn from './events/libraryBtn';
 import { signOutFromGoogle } from './API/firebaseLibraryAPI';
