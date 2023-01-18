@@ -38,12 +38,12 @@
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    // text-shadow: 0 0 15px $color-white, 0 0 30px $color-white;
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white;
     transform: scale(1.1);
   }
   &:focus {
-    // text-shadow: 0 0 15px $color-white, 0 0 30px $color-white,
-    //   0 0 40px $color-white;
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white,
+      0 0 40px $color-white;
     transform: scale(1.1);
   }
 }
@@ -123,80 +123,6 @@
   }
 }
 
-.header__nav--wrapper {
-  // height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  // overflow: hidden;
-}
-
-.header__nav--bass {
-  position: relative;
-  margin: 5px;
-  background-color: transparent;
-}
-
-.header__nav--update::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  -webkit-box-shadow: 0 0 17px 3px $color-accent-secondary,
-    0 0 4px 2px $color-accent-secondary;
-  box-shadow: 0 0 17px 3px $color-accent-secondary,
-    0 0 4px 2px$color-accent-secondary;
-  z-index: -1;
-  -webkit-animation-name: half-yellow-shadow;
-  animation-name: half-yellow-shadow;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.header__nav--update::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  height: 100%;
-  -webkit-box-shadow: 0 0 17px 3px #f91515, 0 0 4px 2px #f91515;
-  box-shadow: 0 0 17px 3px #f91515, 0 0 4px 2px #f91515;
-  z-index: -1;
-  -webkit-animation-name: half-cyan-shadow;
-  animation-name: half-cyan-shadow;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
 .header__link-filmoteka {
   display: none;
 
@@ -205,106 +131,6 @@
     font-size: 30px;
     line-height: 35px;
     color: $color-white;
-    border-radius: 3px;
-
-    margin: 0;
-    position: relative;
-    z-index: 3;
-    padding: 0;
-    background-color: $color-black;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-  }
-}
-@keyframes half-yellow-shadow {
-  0% {
-    top: 0;
-    left: 0;
-    height: 50%;
-    width: 50%;
-  }
-  16.66% {
-    top: 0;
-    left: 0;
-    height: 50%;
-    width: 100%;
-  }
-  32.32% {
-    top: 0;
-    left: 50%;
-    height: 50%;
-    width: 50%;
-  }
-  49.98% {
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 50%;
-  }
-  66.64% {
-    top: 50%;
-    left: 0;
-    height: 50%;
-    width: 100%;
-  }
-  83.3% {
-    top: 50%;
-    left: 0;
-    height: 50%;
-    width: 50%;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    height: 50%;
-    width: 50%;
-  }
-}
-
-@keyframes half-cyan-shadow {
-  0% {
-    bottom: 0;
-    right: 0;
-    height: 50%;
-    width: 50%;
-  }
-  16.66% {
-    bottom: 0;
-    right: 0;
-    height: 50%;
-    width: 100%;
-  }
-  32.32% {
-    bottom: 0;
-    right: 50%;
-    height: 50%;
-    width: 50%;
-  }
-  49.98% {
-    bottom: 50%;
-    right: 50%;
-    height: 50%;
-    width: 50%;
-  }
-  66.64% {
-    bottom: 50%;
-    right: 0;
-    height: 50%;
-    width: 100%;
-  }
-  83.3% {
-    bottom: 50%;
-    right: 0;
-    height: 50%;
-    width: 50%;
-  }
-  100% {
-    bottom: 0;
-    right: 0;
-    height: 50%;
-    width: 50%;
   }
 }
 
