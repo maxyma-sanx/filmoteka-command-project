@@ -52,7 +52,7 @@ export default function renderTargetMovie(data, results) {
             <ul class="modal__list">
             <li class="modal__item">
                 <p class="modal__text lang-rating">${
-                  isUkraineLang ? 'Оцінка / Оцінок' : 'Vote / Votes'
+                  isUkraineLang ? 'Рейтинг / Голосів' : 'Vote / Votes'
                 }</p>
                 <div class="modal__vote-container">
                 <span class="modal__info modal__info--accent">${
