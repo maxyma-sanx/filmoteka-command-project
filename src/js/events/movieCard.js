@@ -100,7 +100,7 @@ function changeWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedWatchedData, filmID, WATCHED_KEY);
-    location.reload();
+    onBtnClickReload();
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до перегляду')
@@ -108,7 +108,7 @@ function changeWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-    location.reload();
+    onBtnClickReload();
   }
 }
 
@@ -125,7 +125,7 @@ function queueWatchedBtn(btn, filmID) {
 
     // Пушимо в localStorage id фільму
     checkData(parsedQueueData, filmID, QUEUE_KEY);
-    location.reload();
+    onBtnClickReload();
   } else {
     isUkraineLang
       ? (btn.textContent = 'Додати до черги')
@@ -133,13 +133,15 @@ function queueWatchedBtn(btn, filmID) {
 
     // Видаляємо з localStorage id фільму
     removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
-    location.reload();
+    onBtnClickReload();
   }
 }
 
 // Функція створює розмітку для iFrame відео з ютубу по id
 
 function createBasicLightBoxIframe(data) {
+  document.removeEventListener('keydown', onCloseModalEsc);
+
   const movieID = data.find(item => item.name === 'Official Trailer');
 
   const instance = basicLightbox.create(
@@ -154,6 +156,7 @@ function createBasicLightBoxIframe(data) {
           if (e.code === 'Escape') {
             instance.close();
             window.removeEventListener('keydown', onEscClick);
+            document.addEventListener('keydown', onCloseModalEsc);
           }
         });
       },
@@ -171,4 +174,11 @@ function modalCloseHandler() {
   refs.backdrop.addEventListener('click', onCloseModalBackdrop);
   document.addEventListener('keydown', onCloseModalEsc);
   refs.backdrop.classList.remove('is-hidden');
+}
+
+// Функція перевіряє сторінку на якій ми зараз знаходимось, якщо умова виконується, поточна сторінка перезавантажується
+function onBtnClickReload() {
+  if (window.location.pathname === '/library.html') {
+    location.reload();
+  }
 }

@@ -50,7 +50,6 @@ function changeURLLanguage(e) {
   let lang = e.currentTarget.value;
   location.href = `${window.location.pathname}#${lang}`;
   setStorageSetting('lang', lang);
-
   location.reload();
 }
 
