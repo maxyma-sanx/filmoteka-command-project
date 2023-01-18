@@ -176,7 +176,7 @@ function modalCloseHandler() {
 
 // Функція перевіряє сторінку на якій ми зараз знаходимось, якщо умова виконується, поточна сторінка перезавантажується
 function onBtnClickReload() {
-  if (window.location.pathname === '/library.html') {
+  if (window.location.pathname === '/filmoteka-command-project/library.html') {
     location.reload();
   }
 }
