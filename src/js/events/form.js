@@ -19,7 +19,7 @@ const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;
 const placeholder = refs.searchForm.elements.query.placeholder;
 
-const WARNING_TEXT = langs.searchwarning[lang];
+// const WARNING_TEXT = langs.searchwarning[lang];
 
 refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
 
