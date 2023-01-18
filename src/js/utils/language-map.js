@@ -256,6 +256,7 @@ const langs = {
     'en-US': 'Maksym Koralkov',
     'uk-UA': 'Максим Коральков',
   },
+
   aleks: {
     'en-US': 'Alexander Lytvyniuk',
     'uk-UA': 'Олександр Литвинюк',

@@ -29,7 +29,7 @@
 }
 
 .modal_dev {
-  top: 450%;
+  top: 360%;
   left: 50%;
   padding: 48px 20px 40px;
   width: 250%;
@@ -38,13 +38,13 @@
   position: absolute;
 
   @include tablet {
-    top: 150%;
+    top: 115%;
     max-width: 704px;
     padding: 40px 36px 40px;
   }
 
   @include desktop {
-    top: 65%;
+    top: 95%;
     max-width: 1200px;
     padding: 40px 12px;
   }
