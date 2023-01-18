@@ -5,7 +5,6 @@ import { Loading } from 'notiflix';
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
-
 import onMovieClick from './movieCard';
 
 import lang from '../utils/checkStorageLang';
@@ -51,7 +50,9 @@ async function renderQueueMovies() {
   if (!parsedQueueData) {
     return;
   }
+
   Loading.standard();
+
   const data = await Promise.all(
     parsedQueueData.map(async id => {
       const movieData = await movieDB.fetchMovieDetails(id, lang);
@@ -64,6 +65,7 @@ async function renderQueueMovies() {
     refs.myLibraryWrap.children[1].style.display = 'block';
     Loading.remove();
   }
+
   const renderMarkup = await renderMovies(data);
   refs.movies.innerHTML = renderMarkup;
 
@@ -71,5 +73,6 @@ async function renderQueueMovies() {
     refs.myLibraryWrap.children[0].style.display = 'none';
     refs.myLibraryWrap.children[1].style.display = 'none';
   }
+
   Loading.remove();
 }

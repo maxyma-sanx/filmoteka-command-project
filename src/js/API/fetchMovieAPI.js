@@ -8,7 +8,7 @@ export default class MovieDB {
   #searchQuery = '';
   #page = 1;
 
-  // Параметри запиту, в майбутньому може змінитись
+  // Параметри запиту
   #moviesParams = {
     params: {
       api_key: API_KEY,

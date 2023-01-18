@@ -17,12 +17,11 @@ import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 const languageSelect = refs.languageSelectBtn;
-const placeholder = refs.searchForm.elements.query.placeholder;
 
-// const WARNING_TEXT = langs.searchwarning[lang];
-
+// Встановлюємо значення плейсхолдеру (пошук фільмів) відповідно до обраної мови
 refs.searchForm.elements.query.placeholder = langs.searchplaceholder[lang];
 
+// Якщо мова ніяка не обрана, за дефолтом встановлюємо Movie search
 if (!lang) {
   refs.searchForm.elements.query.placeholder = 'Movie search';
 }

@@ -3,11 +3,8 @@ import refs from '../refs';
 import langs from '../utils/language-map';
 
 const languageSelect = refs.languageSelectBtn;
-// const allLang = ['en-US', 'uk-UA'];
-
 
 // Отримання даних налаштувань мови з LocalStorage
-
 function getStorageSetting() {
   const saveData = localStorage.getItem('user-setting');
 
@@ -24,17 +21,15 @@ function getStorageSetting() {
 }
 
 //Перевірка наявності налаштувань мови у LocalStorage та додавання даних
-
 function setStorageSetting(key, value) {
   const savedData = getStorageSetting();
-  
+
   let newData = {};
 
   if (savedData) {
     newData = { ...savedData, [key]: value };
   } else {
     newData = { [key]: value };
-
   }
 
   const dataJson = JSON.stringify(newData);
@@ -45,7 +40,6 @@ function setStorageSetting(key, value) {
 languageSelect.addEventListener('change', changeURLLanguage);
 
 //Додавання мови у хєш URL
-
 function changeURLLanguage(e) {
   let lang = e.currentTarget.value;
   location.href = `${window.location.pathname}#${lang}`;
@@ -55,9 +49,7 @@ function changeURLLanguage(e) {
 
 changeLanguage();
 
-
 // Функція перекладу
-
 function changeLanguage() {
   const saveLang = getStorageSetting();
 
@@ -67,19 +59,12 @@ function changeLanguage() {
 
   let hash = window.location.hash.substring(1);
 
-  // if (!allLang.includes(hash)) {
-  //   if(hash === '') {
-    
-  //   }
-    
-  //   location.href = `${window.location.pathname}#'en-US'`;
-  //   location.reload();
-  // }
-
   languageSelect.value = hash;
-  if (languageSelect.value === ''){
-    languageSelect.value = "en-US"
+
+  if (languageSelect.value === '') {
+    languageSelect.value = 'en-US';
   }
+
   setStorageSetting('lang', hash);
 
   const keys = Object.keys(langs);
@@ -87,6 +72,7 @@ function changeLanguage() {
   for (let key of keys) {
     const element = document.querySelector(`.lang-${key}`);
     const language = langs[key][hash];
+
     if (element && language) {
       element.innerHTML = language;
     }

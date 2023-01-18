@@ -1,13 +1,15 @@
 import refs from '../refs';
 
+import { Notify } from 'notiflix';
+
 import { getAuth, signOut } from 'firebase/auth';
 import { app } from '../../firebase-config';
-import { Notify } from 'notiflix';
 
 const auth = getAuth(app);
 
 refs.googleSignOutFromLibrary.addEventListener('click', signOutFromGoogle);
 
+// Вийти з аккаунта гугл
 function signOutFromGoogle() {
   signOut(auth)
     .then(() => {

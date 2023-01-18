@@ -21,6 +21,7 @@ $color-text-warning: rgb(255, 0, 27);
   --bg: #fff;
   --input-back: #ddd;
   --input-color: #bb1021;
+  --pagination-text-color: #fff;
 }
 
 [data-theme='dark'] {
@@ -28,4 +29,5 @@ $color-text-warning: rgb(255, 0, 27);
   --bg: #0d151a;
   --input-back: #ddd;
   --input-color: #294797;
+  --pagination-text-color: #fff;
 }

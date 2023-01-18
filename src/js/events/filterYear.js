@@ -19,6 +19,7 @@ for (const item of refs.filterYearBtn.children) {
   item.addEventListener('click', onYearBtnClick);
 }
 
+// Функція фільтрації фільмів по рокам
 async function onYearBtnClick(e) {
   e.preventDefault();
 
@@ -38,6 +39,7 @@ async function onYearBtnClick(e) {
 
   Loading.remove();
 
+  // Створення пагінації для фільмів по рокам
   const pagination = new Pagination(
     refs.pagination,
     tuiPaginationAPI(total_results)

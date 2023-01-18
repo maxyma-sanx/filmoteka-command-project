@@ -1,5 +1,7 @@
 import refs from '../refs';
 
+import { Notify } from 'notiflix';
+
 import {
   getAuth,
   GoogleAuthProvider,
@@ -7,7 +9,6 @@ import {
   signOut,
 } from 'firebase/auth';
 import { app } from '../../firebase-config';
-import { Notify } from 'notiflix';
 
 refs.googleSignUp.addEventListener('click', signUpWithGoogle);
 refs.googleSignOut.addEventListener('click', signOutFromGoogle);
@@ -16,6 +17,7 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
 const isAuth = localStorage.getItem('auth');
 
+// Перевірка чи авторизований користувач, якщо так, то приховувати (або показувати) кнопки з хедеру
 if (!isAuth) {
   refs.googleSignOut.style.display = 'none';
   refs.myLibrary.style.display = 'none';
@@ -24,34 +26,28 @@ if (!isAuth) {
   refs.googleSignUp.style.display = 'none';
 }
 
+// Авторизація через гугл
 function signUpWithGoogle() {
   // Sign in Firebase using popup auth and Google as the identity provider.
-
   signInWithPopup(auth, provider)
     .then(result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
 
       localStorage.setItem('auth', JSON.stringify(token));
 
       location.reload();
-      // ...
     })
     .catch(error => {
       // Handle Errors here.
-      const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
+
       Notify.failure(`${errorMessage}`);
     });
 }
 
+// Вийти з аккаунта гугл
 function signOutFromGoogle() {
   signOut(auth)
     .then(() => {

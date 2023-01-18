@@ -19,13 +19,14 @@ for (const item of refs.filterGenreBtn.children) {
   item.addEventListener('click', onGenreBtnClick);
 }
 
+// Функція фільтрації фільмів по жанрам
 async function onGenreBtnClick(e) {
   e.preventDefault();
 
   Loading.standard();
 
   const { results, total_results } = await movieDB.fetchMoviesDiscoverByGenres(
-    e.target.id,
+    e.target.dataset.id,
     lang
   );
 
@@ -38,6 +39,7 @@ async function onGenreBtnClick(e) {
 
   Loading.remove();
 
+  // Створення пагінації для фільмів по жанрам
   const pagination = new Pagination(
     refs.pagination,
     tuiPaginationAPI(total_results)

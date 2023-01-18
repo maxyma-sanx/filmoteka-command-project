@@ -88,7 +88,6 @@ export default async function onMovieClick(e) {
 }
 
 // Функція додає та видаляє з localStorage id переглянутих фільмів
-
 function changeWatchedBtn(btn, filmID) {
   if (
     btn.textContent === 'Add to watched' ||
@@ -113,7 +112,6 @@ function changeWatchedBtn(btn, filmID) {
 }
 
 // Функція додає та видаляє з localStorage id фільмів у черзі
-
 function queueWatchedBtn(btn, filmID) {
   if (
     btn.textContent === 'Add to queue' ||
@@ -138,7 +136,6 @@ function queueWatchedBtn(btn, filmID) {
 }
 
 // Функція створює розмітку для iFrame відео з ютубу по id
-
 function createBasicLightBoxIframe(data) {
   document.removeEventListener('keydown', onCloseModalEsc);
 
@@ -167,7 +164,6 @@ function createBasicLightBoxIframe(data) {
 }
 
 // Обробка слухачів модального вікна
-
 function modalCloseHandler() {
   refs.body.classList.add('disable-scroll');
   refs.modalClose.addEventListener('click', onCloseModal);

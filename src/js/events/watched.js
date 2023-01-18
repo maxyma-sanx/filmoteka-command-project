@@ -5,7 +5,6 @@ import { Loading } from 'notiflix';
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
-
 import onMovieClick from './movieCard';
 
 import lang from '../utils/checkStorageLang';
@@ -33,7 +32,7 @@ if (parsedCurrent === 'header__library-btn--watched') {
   refs.queueBtn.classList.remove('header__library-btn--active');
   renderWatchedMovies();
 }
-//
+
 // Слухач на вибране кіно
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -58,7 +57,9 @@ async function renderWatchedMovies() {
   if (!parsedWatchedData) {
     return;
   }
+
   Loading.standard();
+
   const data = await Promise.all(
     parsedWatchedData.map(async id => {
       const movieData = await movieDB.fetchMovieDetails(id, lang);
@@ -71,6 +72,7 @@ async function renderWatchedMovies() {
     refs.myLibraryWrap.children[1].style.display = 'block';
     Loading.remove();
   }
+
   const renderMarkup = await renderMovies(data);
   refs.movies.innerHTML = renderMarkup;
 
@@ -78,5 +80,6 @@ async function renderWatchedMovies() {
     refs.myLibraryWrap.children[0].style.display = 'none';
     refs.myLibraryWrap.children[1].style.display = 'none';
   }
+
   Loading.remove();
 }

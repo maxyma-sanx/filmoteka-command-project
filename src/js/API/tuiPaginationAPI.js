@@ -1,7 +1,8 @@
 export default function (totalResults) {
-  // Базові налаштування пагігнації
+  // Перевірка по точці перелому
   const mediaQuery = window.matchMedia('(max-width: 768px)');
 
+  // Базові налаштування пагігнації
   const options = {
     totalItems: totalResults,
     itemsPerPage: 20,
