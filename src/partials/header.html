@@ -1,0 +1,72 @@
+<header class="header">
+  <div class="container">
+    <nav class="header__list">
+      <div class="header__nav">
+        <div class="header__link-block">
+          <a href="index.html"
+            ><svg
+              class="header__logo header__logo--animate"
+              width="24"
+              height="24"
+            >
+              <use href="./images/icons/icon.svg#icon-logo"></use>
+            </svg>
+          </a>
+          <a class="header__link-filmoteka" href="index.html">Filmoteka</a>
+        </div>
+      </div>
+      <div class="header__links-container">
+        <a class="header__link current lang-home" href="index.html">home</a>
+        <a
+          class="header__link header__link--library lang-library"
+          href="library.html"
+          >my library</a
+        >
+        <a class="header__link lang-logIn" id="googleSignUp" href="#">login</a>
+        <a class="header__link lang-logOut" id="googleSignOut" href="#"
+          >logout</a
+        >
+      </div>
+    </nav>
+    <form class="header__form searchplaceholder" action="GET">
+      <input
+        class="header__input"
+        type="text"
+        name="query"
+        placeholder="Movie search"
+      />
+      <button
+        class="header__btn animate__animated animate__fadeInLeft"
+        type="submit"
+        aria-label="search"
+      >
+        <svg class="header__search-logo" width="12" height="12">
+          <use href="./images/icons/icon.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <p class="header__warning-search"></p>
+    <button class="btn-up" type="button" title="Up"></button>
+    <div class="header__links-container-swithers">
+      <div class="swither-container">
+        <label class="theme-switcher" for="themeswitch">
+          <span class="background"></span>
+          <input type="checkbox" id="themeswitch" />
+          <span class="switch">
+            <img
+              class="sun"
+              src="https://codeorum.com/images/article_images/150/20201011T160248_150.png"
+              alt="light theme"
+            />
+            <img
+              class="moon"
+              src="https://codeorum.com/images/article_images/150/20201011T160425_150.png"
+              alt="dark theme"
+            />
+          </span>
+        </label>
+      </div>
+      <include src="./partials/change-language.html"></include>
+    </div>
+  </div>
+</header>

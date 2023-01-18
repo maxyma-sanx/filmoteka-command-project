@@ -1,0 +1,10 @@
+.change-language {
+  background-color: #ddd;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  width: 50px;
+  height: 22px;
+  &:focus {
+    border-color: #ddd;
+  }
+}

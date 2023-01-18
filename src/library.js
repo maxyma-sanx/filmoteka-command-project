@@ -1,16 +1,15 @@
 import 'animate.css';
 import './js/API/notiflixAPI';
-import renderPopularMovies from './js/render/renderPopularMovies';
-import onSeachFormSubmit from './js/events/form';
 import {
   onCloseModal,
   onCloseModalBackdrop,
   onCloseModalEsc,
 } from './js/events/modal';
-import onMovieClick from './js/events/movieCard';
+import watchedMovies from './js/events/watched';
+import queueMovies from './js/events/queue';
 import themeSwither from './js/events/theme-switcher';
 import { trackScroll, сlickToUpBtn } from './js/events/btnUp';
-import { signUpWithGoogle, signOutFromGoogle } from './js/API/firebaseAPI';
+import { signOutFromGoogle } from './js/API/firebaseLibraryAPI';
 import './js/events/multi-language';
 import {
   onCloseModalDev,
@@ -18,5 +17,3 @@ import {
   onOpenModalDev,
   onCloseModaDevlEsc,
 } from './js/events/modalDevs';
-import filterGenre from './js/events/filterGenre';
-import filterYear from './js/events/filterYear';

@@ -1,0 +1,33 @@
+// Breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+// Base
+$color-white: #fff;
+$color-black: #000;
+$color-grey: #f7f7f7;
+
+$color-accent-primary: rgb(255, 107, 8);
+$color-accent-secondary: #ff6b01;
+$color-accent-tetriary: #bb1021;
+
+$color-text-secondary: #545454;
+$color-text-tetriary: #8c8c8c;
+$color-text-warning: rgb(255, 0, 27);
+
+[data-theme='light'] {
+  --default-text-color: #000;
+  --bg: #fff;
+  --input-back: #ddd;
+  --input-color: #bb1021;
+  --pagination-text-color: #fff;
+}
+
+[data-theme='dark'] {
+  --default-text-color: #fff;
+  --bg: #0d151a;
+  --input-back: #ddd;
+  --input-color: #294797;
+  --pagination-text-color: #fff;
+}

@@ -1,0 +1,62 @@
+.pagination {
+  @include mobile {
+    padding-bottom: 40px;
+  }
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+}
+
+.tui-pagination {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.tui-pagination .tui-page-btn {
+  border: none !important;
+  border-radius: 7px;
+  color: var(--default-text-color) !important;
+}
+
+.tui-page-btn.tui-is-selected {
+  color: $color-white !important;
+}
+
+.tui-pagination .tui-page-btn:hover,
+.tui-pagination .tui-page-btn:focus {
+  color: $color-white !important;
+  background-color: $color-accent-primary !important;
+}
+
+.tui-pagination .tui-page-btn {
+  line-height: 1 !important;
+
+  @include mobile {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 10px 0 !important;
+  }
+
+  @include tablet {
+    width: 35px !important;
+    height: 35px !important;
+    padding: 12px 0 !important;
+  }
+
+  @include desktop {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 13px 0 !important;
+  }
+}
+
+.tui-pagination .tui-ico-ellip {
+  margin-top: 5px !important;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background-color: $color-accent-primary !important;
+  border-color: $color-accent-primary !important;
+}

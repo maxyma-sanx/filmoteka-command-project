@@ -1,0 +1,250 @@
+.header {
+  background: rgba(0, 0, 0, 0.56);
+  background-image: url(/src/images/header-background-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include mobile {
+    min-height: 230px;
+  }
+
+  @include tablet {
+    min-height: 216px;
+    background-image: url(/src/images/header-background-tablet.png);
+  }
+
+  @include desktop {
+    min-width: 1280px;
+    background-image: url(/src/images/header-background-desktop.png);
+  }
+}
+
+.header__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  margin-right: 12px;
+  fill: transparent;
+  stroke: $color-white;
+}
+
+.header__link-block {
+  display: flex;
+  align-items: center;
+
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white;
+    transform: scale(1.1);
+  }
+  &:focus {
+    text-shadow: 0 0 15px $color-white, 0 0 30px $color-white,
+      0 0 40px $color-white;
+    transform: scale(1.1);
+  }
+}
+
+.header__nav {
+  margin-bottom: 40px;
+  padding-top: 40px;
+
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: $color-white;
+
+  @include tablet {
+    padding-top: 19px;
+    margin-bottom: 25px;
+  }
+}
+.header-container {
+  display: flex;
+}
+.header__links-container {
+  display: flex;
+  gap: 40px;
+}
+.header__links-container-swithers {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  margin-top: 25px;
+  margin-bottom: 20px;
+
+  @include tablet {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  @include desktop {
+    margin-top: 40px;
+  }
+}
+.header__links-container .current {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: $color-accent-tetriary;
+    position: absolute;
+    bottom: -3px;
+  }
+}
+
+.header__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: $color-white;
+
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px $color-white, 0 0 20px $color-white,
+      0 0 40px $color-white;
+  }
+  &:focus {
+    transform: scale(1.2);
+  }
+}
+
+.header__link-filmoteka {
+  display: none;
+
+  @include tablet {
+    display: block;
+    font-size: 30px;
+    line-height: 35px;
+    color: $color-white;
+  }
+}
+
+.header__form {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+
+  @include mobile {
+    width: 280px;
+  }
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.header__input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+
+  margin: 0 auto;
+
+  border: 0;
+  border-bottom: 0.5px solid $color-white;
+
+  background: transparent;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 16px;
+
+  transition-property: transform, outline, border-radius, border-bottom;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: 3px solid $color-accent-tetriary;
+    outline-offset: 7px;
+    border-radius: 5px;
+    border-bottom: none;
+  }
+
+  &:focus ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
+  }
+
+  &:hover ~ .header__btn .header__search-logo {
+    transform: scale(1.5);
+  }
+  @include mobile {
+    width: 280px;
+  }
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.header__input::placeholder {
+  color: $color-white;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.header__btn {
+  position: absolute;
+  right: -7px;
+  top: 5px;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__search-logo {
+  fill: transparent;
+  stroke: $color-white;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__warning-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-text-warning;
+  width: 280px;
+
+  @include tablet {
+    width: 394px;
+    text-align: center;
+  }
+}
+
+.header__logo--animate {
+  animation: header__logo--animate 3s linear infinite both;
+}
+
+@keyframes header__logo--animate {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(-360deg);
+  }
+}
