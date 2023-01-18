@@ -21,8 +21,6 @@ import isUkraineLang from '../utils/checkUrkLang';
 
 refs.movies.addEventListener('click', onMovieClick);
 
-console.log(window.location.pathname);
-
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
