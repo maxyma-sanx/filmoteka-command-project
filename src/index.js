@@ -18,5 +18,4 @@ import {
   onOpenModalDev,
   onCloseModaDevlEsc,
 } from './js/events/modalDevs';
-import filterGenre from './js/events/filterGenre';
-import filterYear from './js/events/filterYear';
+import moviesFilter from './js/events/moviesFilter';

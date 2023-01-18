@@ -48,9 +48,9 @@ export default class MovieDB {
   }
 
   // Запит на отримання фільмів по жанрам
-  async fetchMoviesDiscoverByGenres(id, lang) {
+  async fetchMoviesDiscover(param, type, lang) {
     const { data } = await axios.get(
-      `discover/movie?with_genres=${id}&page=${this.#page}&language=${lang}`,
+      `discover/movie?${param}=${type}&page=${this.#page}&language=${lang}`,
       this.#moviesParams
     );
 
@@ -58,16 +58,16 @@ export default class MovieDB {
   }
 
   // Запит на отримання фільмів по рокам
-  async fetchMoviesDiscoverByYear(year, lang) {
-    const { data } = await axios.get(
-      `discover/movie?primary_release_year=${year}&page=${
-        this.#page
-      }&language=${lang}`,
-      this.#moviesParams
-    );
+  // async fetchMoviesDiscoverByYear(year, lang) {
+  //   const { data } = await axios.get(
+  //     `discover/movie?primary_release_year=${year}&page=${
+  //       this.#page
+  //     }&language=${lang}`,
+  //     this.#moviesParams
+  //   );
 
-    return data;
-  }
+  //   return data;
+  // }
 
   // Запит на отримання детальної інформації про один фільм по id
   async fetchMovieDetails(id, lang) {
