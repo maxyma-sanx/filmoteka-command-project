@@ -18,6 +18,7 @@ import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
 import lang from '../utils/checkStorageLang';
 import isUkraineLang from '../utils/checkUrkLang';
+import { clearHTML } from '../utils/clear';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -39,13 +40,15 @@ export default async function onMovieClick(e) {
 
     modalCloseHandler();
 
+    Loading.standard();
+
+    clearHTML(refs.modalMovie);
+
     // Отримуємо статус авторизації
     const isAuth = JSON.parse(localStorage.getItem('auth'));
 
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
-
-    Loading.standard();
 
     const movie = await movieDB.fetchMovieDetails(filmID, lang);
     const { results } = await movieDB.fetchMovieTrailer(filmID);

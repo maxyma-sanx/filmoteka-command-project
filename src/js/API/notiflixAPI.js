@@ -8,3 +8,7 @@ Notiflix.Notify.init({
   borderRadius: '10px',
   position: 'right-top',
 });
+
+Notiflix.Loading.init({
+  zindex: 100000,
+});
