@@ -2,13 +2,10 @@ import refs from '../refs';
 
 import { Loading, Notify } from 'notiflix';
 
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import tuiPaginationAPI from '../API/tuiPaginationAPI';
-
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
+import createPagination from '../API/tuiPaginationAPI';
 
 import { clearHTML } from '../utils/clear';
 import lang from '../utils/checkStorageLang';
@@ -28,18 +25,13 @@ export default (async function renderPopularMovies() {
     Loading.remove();
 
     // Створення пагінації фільмів по популярності
-    const pagination = new Pagination(
-      refs.pagination,
-      tuiPaginationAPI(total_results)
-    );
-
-    pagination.on('afterMove', async event => {
+    createPagination(total_results, async event => {
       movieDB.page = event.page;
       clearHTML(refs.movies);
 
       Loading.standard();
 
-      const { results } = await movieDB.fetchPopularMovie();
+      const { results } = await movieDB.fetchPopularMovie(lang);
       const renderMarkup = await renderMovies(results);
 
       refs.movies.insertAdjacentHTML('beforeend', renderMarkup);

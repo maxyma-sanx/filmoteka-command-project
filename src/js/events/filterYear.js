@@ -1,12 +1,9 @@
 import refs from '../refs';
 
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import tuiPaginationAPI from '../API/tuiPaginationAPI';
-
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
+import createPagination from '../API/tuiPaginationAPI';
 
 import { clearHTML, clearContent } from '../utils/clear';
 import { Loading } from 'notiflix';
@@ -40,12 +37,8 @@ async function onYearBtnClick(e) {
   Loading.remove();
 
   // Створення пагінації для фільмів по рокам
-  const pagination = new Pagination(
-    refs.pagination,
-    tuiPaginationAPI(total_results)
-  );
 
-  pagination.on('afterMove', async event => {
+  createPagination(total_results, async event => {
     movieDB.page = event.page;
 
     clearHTML(refs.movies);
