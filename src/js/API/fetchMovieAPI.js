@@ -57,18 +57,6 @@ export default class MovieDB {
     return data;
   }
 
-  // Запит на отримання фільмів по рокам
-  // async fetchMoviesDiscoverByYear(year, lang) {
-  //   const { data } = await axios.get(
-  //     `discover/movie?primary_release_year=${year}&page=${
-  //       this.#page
-  //     }&language=${lang}`,
-  //     this.#moviesParams
-  //   );
-
-  //   return data;
-  // }
-
   // Запит на отримання детальної інформації про один фільм по id
   async fetchMovieDetails(id, lang) {
     const url = `movie/${id}?language=${lang}`;
