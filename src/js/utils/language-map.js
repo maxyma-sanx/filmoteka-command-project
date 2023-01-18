@@ -257,7 +257,7 @@ const langs = {
     'uk-UA': 'Максим Коральков',
   },
   aleks: {
-    'en-US': 'Alexander Lytvinyuk',
+    'en-US': 'Alexander Lytvyniuk',
     'uk-UA': 'Олександр Литвинюк',
   },
   modalTitle: {
