@@ -1,2 +1,2 @@
 import libraryBtn from './events/libraryBtn';
-import { signOutFromGoogle } from './API/firebaseLibraryAPI';
+import libraryAuth from './events/libraryAuth';
