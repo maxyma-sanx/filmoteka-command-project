@@ -25,4 +25,8 @@ export default {
   closeBtnDev: document.querySelector('.modal_dev_btn--close '),
   filterGenreBtn: document.querySelector('[data-action="genres"]'),
   filterYearBtn: document.querySelector('[data-action="years"]'),
+  btnUp: document.querySelector('.btn-up'),
+  backdropDevs: document.querySelector('.backdrop_dev'),
+  clsBtnModalDev: document.querySelector('.modal_dev_btn--close'),
+  openBtnModalDev: document.querySelector('.footer__link'),
 };
