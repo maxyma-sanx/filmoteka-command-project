@@ -253,8 +253,8 @@ const langs = {
     'uk-UA': 'Лариса Фурманчук',
   },
   maksim: {
-    'en-US': 'Maxym Koralkov',
-    'uk-UA': 'Максим Коралков',
+    'en-US': 'Maksym Koralkov',
+    'uk-UA': 'Максим Коральков',
   },
   aleks: {
     'en-US': 'Alexander Lytvinyuk',
