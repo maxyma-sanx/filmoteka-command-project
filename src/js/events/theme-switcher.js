@@ -1,7 +1,5 @@
 import refs from '../refs';
 
-const themeSwitcher = refs.themeSwitcher;
-
 // Отримуємо поточну тему з localStorage
 const currentTheme = localStorage.getItem('theme');
 
@@ -11,9 +9,11 @@ refs.themeSwitcher.addEventListener('change', switchTheme, false);
 // Перевірка, яка тема зараз актуальна, і її активація
 if (currentTheme) {
   document.documentElement.setAttribute('data-theme', currentTheme);
-  } if (currentTheme === 'dark') {
-    themeSwitcher.checked = true;
-  } else {
+}
+
+if (currentTheme === 'dark') {
+  refs.themeSwitcher.checked = true;
+} else {
   document.documentElement.setAttribute('data-theme', 'light');
   localStorage.setItem('theme', 'light');
 }
@@ -28,4 +28,3 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'light');
   }
 }
-
