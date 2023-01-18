@@ -16,6 +16,17 @@
 .tui-pagination .tui-page-btn {
   border: none !important;
   border-radius: 7px;
+  color: var(--default-text-color) !important;
+}
+
+.tui-page-btn.tui-is-selected {
+  color: $color-white !important;
+}
+
+.tui-pagination .tui-page-btn:hover,
+.tui-pagination .tui-page-btn:focus {
+  color: $color-white !important;
+  background-color: $color-accent-primary !important;
 }
 
 .tui-pagination .tui-page-btn {
