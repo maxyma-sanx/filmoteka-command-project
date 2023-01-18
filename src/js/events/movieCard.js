@@ -140,6 +140,8 @@ function queueWatchedBtn(btn, filmID) {
 // Функція створює розмітку для iFrame відео з ютубу по id
 
 function createBasicLightBoxIframe(data) {
+  document.removeEventListener('keydown', onCloseModalEsc);
+
   const movieID = data.find(item => item.name === 'Official Trailer');
 
   const instance = basicLightbox.create(
@@ -154,6 +156,7 @@ function createBasicLightBoxIframe(data) {
           if (e.code === 'Escape') {
             instance.close();
             window.removeEventListener('keydown', onEscClick);
+            document.addEventListener('keydown', onCloseModalEsc);
           }
         });
       },

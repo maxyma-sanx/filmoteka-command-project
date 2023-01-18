@@ -37,7 +37,7 @@ export default async function onSeachFormSubmit(e) {
     movieDB.query = e.target.elements.query.value.trim();
 
     if (!movieDB.query) {
-      refs.warningText.textContent = langs.badQuery[languageSelect.value];
+      refs.warningText.textContent = langs.emptySearch[languageSelect.value];
       return;
     }
 
