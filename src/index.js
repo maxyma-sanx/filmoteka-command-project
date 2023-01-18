@@ -19,3 +19,4 @@ import {
   onCloseModaDevlEsc,
 } from './js/events/modalDevs';
 import filterGenre from './js/events/filterGenre';
+import filterYear from './js/events/filterYear';

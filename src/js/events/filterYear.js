@@ -15,17 +15,17 @@ import lang from '../utils/checkStorageLang';
 
 const movieDB = new MovieDB();
 
-for (const item of refs.filterGenreBtn.children) {
-  item.addEventListener('click', onGenreBtnClick);
+for (const item of refs.filterYearBtn.children) {
+  item.addEventListener('click', onYearBtnClick);
 }
 
-async function onGenreBtnClick(e) {
+async function onYearBtnClick(e) {
   e.preventDefault();
 
   Loading.standard();
 
-  const { results, total_results } = await movieDB.fetchMoviesDiscoverByGenres(
-    e.target.id,
+  const { results, total_results } = await movieDB.fetchMoviesDiscoverByYear(
+    e.target.dataset.year,
     lang
   );
 
@@ -50,8 +50,8 @@ async function onGenreBtnClick(e) {
 
     Loading.standard();
 
-    const { results } = await movieDB.fetchMoviesDiscoverByGenres(
-      e.target.id,
+    const { results } = await movieDB.fetchMoviesDiscoverByYear(
+      e.target.dataset.year,
       lang
     );
 
