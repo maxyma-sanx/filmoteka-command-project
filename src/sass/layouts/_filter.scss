@@ -121,3 +121,8 @@
   background: $color-accent-primary;
   border-radius: 7px;
 }
+
+.dropdown__item.hightlight {
+  color: $color-white;
+  background-color: $color-accent-primary;
+}
