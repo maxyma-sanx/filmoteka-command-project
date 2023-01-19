@@ -1,33 +1,15 @@
-import refs from '../refs';
-
-import { Notify } from 'notiflix';
-
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { app } from '../../firebase-config';
-
-refs.googleSignUp.addEventListener('click', signUpWithGoogle);
-refs.googleSignOut.addEventListener('click', signOutFromGoogle);
-
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider(app);
-const isAuth = localStorage.getItem('auth');
-
-// Перевірка чи авторизований користувач, якщо так, то приховувати (або показувати) кнопки з хедеру
-if (!isAuth) {
-  refs.googleSignOut.style.display = 'none';
-  refs.myLibrary.style.display = 'none';
-} else if (isAuth) {
-  refs.googleSignOut.style.display = 'block';
-  refs.googleSignUp.style.display = 'none';
-}
 
 // Авторизація через гугл
-function signUpWithGoogle() {
+function signUpWithGoogle(app) {
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider(app);
+
   // Sign in Firebase using popup auth and Google as the identity provider.
   signInWithPopup(auth, provider)
     .then(result => {
@@ -48,12 +30,14 @@ function signUpWithGoogle() {
 }
 
 // Вийти з аккаунта гугл
-function signOutFromGoogle() {
+function signOutFromGoogle(app) {
+  const auth = getAuth(app);
+
   signOut(auth)
     .then(() => {
       localStorage.removeItem('auth');
 
-      location.reload();
+      location.href = 'index.html';
     })
     .catch(error => {
       Notify.failure(`${error.message}`);

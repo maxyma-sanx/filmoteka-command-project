@@ -132,7 +132,7 @@ export default function renderTargetMovie(data, results) {
                 isWatchedData
                   ? `${
                       isUkraineLang
-                        ? 'Видалити з переглянутого'
+                        ? 'Видалити з перегляду'
                         : 'Remove from watched'
                     }`
                   : `${

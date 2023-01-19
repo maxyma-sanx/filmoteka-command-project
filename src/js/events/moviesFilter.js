@@ -1,9 +1,5 @@
 import refs from '../refs';
 
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import tuiPaginationAPI from '../API/tuiPaginationAPI';
-
 import MovieDB from '../API/fetchMovieAPI';
 
 import renderMovies from '../render/renderSearchMovies';
@@ -12,21 +8,30 @@ import { clearHTML, clearContent } from '../utils/clear';
 import { Loading } from 'notiflix';
 
 import lang from '../utils/checkStorageLang';
+import createPagination from '../API/tuiPaginationAPI';
 
 const movieDB = new MovieDB();
 
 for (const item of refs.filterGenreBtn.children) {
-  item.addEventListener('click', onGenreBtnClick);
+  item.addEventListener('click', e => {
+    onFilterBtnClick(e, e.target.dataset.id, 'with_genres');
+  });
 }
 
-// Функція фільтрації фільмів по жанрам
-async function onGenreBtnClick(e) {
+for (const item of refs.filterYearBtn.children) {
+  item.addEventListener('click', e => {
+    onFilterBtnClick(e, e.target.dataset.year, 'primary_release_year');
+  });
+}
+
+async function onFilterBtnClick(e, type, param) {
   e.preventDefault();
 
   Loading.standard();
 
-  const { results, total_results } = await movieDB.fetchMoviesDiscoverByGenres(
-    e.target.dataset.id,
+  const { results, total_results } = await movieDB.fetchMoviesDiscover(
+    param,
+    type,
     lang
   );
 
@@ -40,22 +45,14 @@ async function onGenreBtnClick(e) {
   Loading.remove();
 
   // Створення пагінації для фільмів по жанрам
-  const pagination = new Pagination(
-    refs.pagination,
-    tuiPaginationAPI(total_results)
-  );
-
-  pagination.on('afterMove', async event => {
+  createPagination(total_results, async event => {
     movieDB.page = event.page;
 
     clearHTML(refs.movies);
 
     Loading.standard();
 
-    const { results } = await movieDB.fetchMoviesDiscoverByGenres(
-      e.target.id,
-      lang
-    );
+    const { results } = await movieDB.fetchMoviesDiscover(param, type, lang);
 
     const renderMarkup = await renderMovies(results);
 

@@ -12,6 +12,7 @@
   background-size: cover;
 
   opacity: 1;
+
   overflow-y: scroll;
 
   z-index: 10000;
@@ -57,6 +58,25 @@
   transform: translate(-50%, -50%) scale(1);
 
   transition: transform 250ms;
+}
+// SCROLL devModal
+.dropdown__scroll {
+  overflow: auto;
+  height: 205px;
+}
+
+.modal_dev::-webkit-scrollbar {
+  width: 9px;
+}
+
+.modal_dev::-webkit-scrollbar-track {
+  background: $color-grey;
+  border-radius: 7px;
+}
+
+.modal_dev::-webkit-scrollbar-thumb {
+  background: $color-accent-primary;
+  border-radius: 7px;
 }
 
 .dev {

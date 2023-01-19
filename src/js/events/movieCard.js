@@ -18,6 +18,7 @@ import checkData from '../utils/checkData';
 import removeLocalData from '../utils/removeData';
 import lang from '../utils/checkStorageLang';
 import isUkraineLang from '../utils/checkUrkLang';
+import { clearHTML } from '../utils/clear';
 
 refs.movies.addEventListener('click', onMovieClick);
 
@@ -39,13 +40,15 @@ export default async function onMovieClick(e) {
 
     modalCloseHandler();
 
+    Loading.standard();
+
+    clearHTML(refs.modalMovie);
+
     // Отримуємо статус авторизації
     const isAuth = JSON.parse(localStorage.getItem('auth'));
 
     // Знаходимо id конкретного фільму
     let filmID = e.target.closest('.movies__item').dataset.id;
-
-    Loading.standard();
 
     const movie = await movieDB.fetchMovieDetails(filmID, lang);
     const { results } = await movieDB.fetchMovieTrailer(filmID);
@@ -75,62 +78,53 @@ export default async function onMovieClick(e) {
 
     // Клік по кнопці Watched
     watchedBtn.addEventListener('click', () => {
-      changeWatchedBtn(watchedBtn, filmID);
+      changeMovieStatusBtn(
+        watchedBtn,
+        filmID,
+        'watched',
+        'перегляду',
+        parsedWatchedData,
+        WATCHED_KEY
+      );
     });
 
     // Клік по кнопці Queue
     queueBtn.addEventListener('click', () => {
-      queueWatchedBtn(queueBtn, filmID);
+      changeMovieStatusBtn(
+        queueBtn,
+        filmID,
+        'queue',
+        'черги',
+        parsedQueueData,
+        QUEUE_KEY
+      );
     });
   } catch (error) {
     Notify.failure(`${error.message}`);
   }
 }
 
-// Функція додає та видаляє з localStorage id переглянутих фільмів
-function changeWatchedBtn(btn, filmID) {
+// Функція змінює статус кнопок та додає чи видаляє id з localStorage
+
+function changeMovieStatusBtn(btn, filmID, textEng, textUa, data, key) {
   if (
-    btn.textContent === 'Add to watched' ||
-    btn.textContent === 'Додати до перегляду'
+    btn.textContent === `Add to ${textEng}` ||
+    btn.textContent === `Додати до ${textUa}`
   ) {
     isUkraineLang
-      ? (btn.textContent = 'Видалити з переглянутого')
-      : (btn.textContent = 'Remove from watched');
+      ? (btn.textContent = `Видалити з ${textUa}`)
+      : (btn.textContent = `Remove from ${textEng}`);
 
     // Пушимо в localStorage id фільму
-    checkData(parsedWatchedData, filmID, WATCHED_KEY);
+    checkData(data, filmID, key);
     onBtnClickReload();
   } else {
     isUkraineLang
-      ? (btn.textContent = 'Додати до перегляду')
-      : (btn.textContent = 'Add to watched');
+      ? (btn.textContent = `Додати до ${textUa}`)
+      : (btn.textContent = `Add to ${textEng}`);
 
     // Видаляємо з localStorage id фільму
-    removeLocalData(parsedWatchedData, filmID, WATCHED_KEY);
-    onBtnClickReload();
-  }
-}
-
-// Функція додає та видаляє з localStorage id фільмів у черзі
-function queueWatchedBtn(btn, filmID) {
-  if (
-    btn.textContent === 'Add to queue' ||
-    btn.textContent === 'Додати до черги'
-  ) {
-    isUkraineLang
-      ? (btn.textContent = 'Видалити з черги')
-      : (btn.textContent = 'Remove from queue');
-
-    // Пушимо в localStorage id фільму
-    checkData(parsedQueueData, filmID, QUEUE_KEY);
-    onBtnClickReload();
-  } else {
-    isUkraineLang
-      ? (btn.textContent = 'Додати до черги')
-      : (btn.textContent = 'Add to queue');
-
-    // Видаляємо з localStorage id фільму
-    removeLocalData(parsedQueueData, filmID, QUEUE_KEY);
+    removeLocalData(data, filmID, key);
     onBtnClickReload();
   }
 }
