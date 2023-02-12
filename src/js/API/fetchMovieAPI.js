@@ -26,7 +26,7 @@ export default class MovieDB {
 
   // Запит на отримання фільмів по запиту (пошуку)
   async fetchSearchMovie(lang) {
-    const url = `search/movie/?query=${this.#searchQuery}&page=${
+    const url = `search/movie?query=${this.#searchQuery}&page=${
       this.#page
     }&language=${lang}`;
 
